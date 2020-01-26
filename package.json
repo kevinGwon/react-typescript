@@ -65,6 +65,7 @@
   "dependencies": {
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
+    "@types/react-redux": "^7.1.7",
     "express": "^4.17.1",
     "gsap": "^3.0.4",
     "nodemon": "^2.0.2",
@@ -114,6 +115,7 @@
     "style-loader": "^1.0.2",
     "swiper": "4.5.0",
     "ts-loader": "^6.2.1",
+    "typesafe-actions": "4.4.2",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
     "webpack-dev-middleware": "^3.7.2",

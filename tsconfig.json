@@ -12,7 +12,7 @@
     "allowJs": true,
     // produce a source map
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "outDir": "./dist",
     "paths": {
       "components/*": ["./src/js/components/*"],
