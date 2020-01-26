@@ -14,7 +14,7 @@ const configCustom = isDev
   : require('./webpack.prod');
 const config = {
   entry: {
-    index: ['babel-polyfill', path.resolve(__dirname, 'src', 'index.tsx')],
+    index: [path.resolve(__dirname, 'src', 'index.tsx')],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
