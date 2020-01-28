@@ -2,7 +2,7 @@
 react-portfolio를 typescript로 개발하는 저장소 입니다.
 
 ## Site
-https://developergwon.netlify.com/
+https://developergwon-react-typescript.netlify.com/
 
 ## Spec
 - webpack 4.x
