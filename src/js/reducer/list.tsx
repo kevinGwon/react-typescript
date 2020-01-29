@@ -45,7 +45,7 @@ export const listReset = createStandardAction(LIST_RESET)();
 export const listSort = createStandardAction(LIST_SORT)();
 
 const date = new Date();
-let year: number | string, month: number | string, day: number | string;
+let year: string | number, month: string | number, day: string | number;
 
 year = date.getFullYear();
 
@@ -80,19 +80,15 @@ const actions = {
   listSort,
 };
 
-type ListAction = ActionType<typeof actions>;
+export type ListAction = ActionType<typeof actions>;
 
 type CategoryDefaultType = {
-  category: string;
-  code: number;
-  isLoading: boolean;
-  list: any[];
-};
-
-type CategorySearchType = {
+  type?: string;
+  code?: number;
+  search?: string;
   category: string;
   isLoading: boolean;
-  list: any[];
+  list: string[];
 };
 
 type InitState = {
@@ -101,14 +97,7 @@ type InitState = {
   day: string | number;
   sort: boolean;
   genres: {
-    action: CategoryDefaultType;
-    thriller: CategoryDefaultType;
-    crime: CategoryDefaultType;
-    war: CategoryDefaultType;
-    horror: CategoryDefaultType;
-    romance: CategoryDefaultType;
-    animation: CategoryDefaultType;
-    search: CategorySearchType;
+    [key: string]: CategoryDefaultType;
   };
 };
 
@@ -168,7 +157,10 @@ const initState: InitState = {
   },
 };
 
-const list = (state: InitState = initState, action): InitState => {
+const list = (
+  state: InitState = initState,
+  action: CategoryDefaultType,
+): InitState => {
   switch (action.type) {
     case ACTION_LIST:
     case THRILLER_LIST:
