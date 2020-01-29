@@ -26,6 +26,6 @@ yarn
 
 ## Run
 ```
-yarn run client
+yarn start
 ```
 
