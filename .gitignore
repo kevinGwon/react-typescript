@@ -27,5 +27,5 @@ typings/
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 # next.js build output
-.next
+dist
 # End of https://www.gitignore.io/api/node

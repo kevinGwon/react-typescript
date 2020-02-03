@@ -1,8 +1,24 @@
-const Home = ({ userAgent }) => <h1>Hello world! - user agent: {userAgent}</h1>;
+import Head from 'next/head';
+import axios from 'axios';
+import Link from 'next/link';
+import '../scss/style.scss';
 
-Home.getInitialProps = async ({ req }) => {
-  const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-  return { userAgent };
+const Index = props => {
+  return (
+    <>
+      <Head>
+        <title>Portfolio of KevinGwon | Home</title>
+      </Head>
+      <Link href="./detail">
+        <a>상세페이지 이동</a>
+      </Link>
+    </>
+  );
 };
 
-export default Home;
+Index.getInitialProps = async ({ req }) => {
+  // const res = await axios.get();
+  return {};
+};
+
+export default Index;
