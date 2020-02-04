@@ -9,7 +9,7 @@ const Index = props => {
       <Head>
         <title>Portfolio of KevinGwon | Home</title>
       </Head>
-      <Link href="./detail">
+      <Link href="/detail/1535">
         <a>상세페이지 이동</a>
       </Link>
     </>
@@ -17,7 +17,6 @@ const Index = props => {
 };
 
 Index.getInitialProps = async ({ req }) => {
-  // const res = await axios.get();
   return {};
 };
 

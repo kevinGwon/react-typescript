@@ -6,6 +6,7 @@ function Detail() {
       <Head>
         <title>Portfolio of KevinGwon | Detail</title>
       </Head>
+      <p>Detail</p>
     </>
   );
 }
