@@ -28,4 +28,6 @@ typings/
 .cache
 # next.js build output
 dist
+# next.js export
+out
 # End of https://www.gitignore.io/api/node
