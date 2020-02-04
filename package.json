@@ -6,6 +6,7 @@
   "author": "kevinGwon <developerGwon@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.17.1",
     "next": "^9.2.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
@@ -13,7 +14,7 @@
   "scripts": {
     "start": "next",
     "dist": "next build",
-    "server": "next start"
+    "server": "cross-env NODE_ENV=development node server.js"
   },
   "devDependencies": {
     "@types/node": "^13.7.0",
@@ -23,6 +24,7 @@
     "@zeit/next-typescript": "^1.1.1",
     "axios": "^0.19.2",
     "babel-eslint": "^10.0.3",
+    "cross-env": "^7.0.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-react-app": "^5.2.0",
@@ -33,7 +35,9 @@
     "eslint-plugin-react-hooks": "^2.3.0",
     "husky": "^4.2.1",
     "lint-staged": "^10.0.7",
+    "next-routes": "^1.4.2",
     "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "typescript": "^3.7.5"
   },
