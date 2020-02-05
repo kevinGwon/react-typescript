@@ -12,8 +12,9 @@
     "react-dom": "^16.12.0"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development node server.js",
-    "dist": "next build",
+    "server": "cross-env NODE_ENV=development node server.js",
+    "start": "next start",
+    "build": "next build",
     "export": "next export",
     "deploy": "npm run dist && npm run export"
   },
@@ -39,6 +40,7 @@
     "next-routes": "^1.4.2",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
+    "now": "^16.7.3",
     "prettier": "^1.19.1",
     "typescript": "^3.7.5"
   },
