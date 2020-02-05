@@ -229,7 +229,6 @@ const list = (
         ...state,
         genres: {
           ...state.genres,
-          // ACTION: [],
         },
       };
     default:
