@@ -1,14 +1,14 @@
 # react-typescript
-react-portfolio를 typescript로 개발하는 저장소 입니다.
+Next.js와 Typescript를 이용하여 Portfolio를 제작하는 프로젝트입니다.
 
 ## Site
-https://developergwon-react-typescript.netlify.com/
+https://react-typescript.developergwon.now.sh/
 
 ## Spec
-- webpack 4.x
-- Husky, Prettier, Eslint
+- Next.js
 - Typescript(3.7.x)
-- React(16.12.x), Hooks, Redux, Redux-Thunk, Redux-Saga
+- React(16.12.x), Hooks, Redux, Redux-Saga
+- Husky, Prettier, Eslint
 
 ## Set
 - node.js package manager로 yarn을 사용
