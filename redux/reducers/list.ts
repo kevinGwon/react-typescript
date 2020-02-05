@@ -36,11 +36,7 @@ export const searchList = createStandardAction(SEARCH_LIST)();
 export const loadingList = createStandardAction(LOADING_LIST)<
   string | boolean
 >();
-// export const loadingList = ({ category, isLoading }) => ({
-//   type: LOADING_LIST,
-//   category: category,
-//   isLoading: isLoading,
-// });
+
 export const allReset = createStandardAction(ALL_RESET)();
 export const listReset = createStandardAction(LIST_RESET)();
 export const listSort = createStandardAction(LIST_SORT)();
@@ -59,16 +55,8 @@ day =
     ? '0' + date.getDate()
     : date.getDate() + 1;
 
-// 매년 초 데이터 기록이 없을때, 이전 연도의 초기값으로 설정
-// if (parseInt(month, 10) === 1 && parseInt(day, 10) < 7) {
-//   year = year - 1;
-//   month = 12;
-//   day = 27;
-// }
-
 // Saga
-function* runTestSaga(action) {
-  console.log(action);
+function* runTestSaga() {
   yield delay(500);
   yield put({
     type: LIST_RESET,
