@@ -7,7 +7,8 @@ https://react-typescript.developergwon.now.sh/
 ## Spec
 - Next.js
 - Typescript(3.7.x)
-- React(16.12.x), Hooks, Redux, Redux-Saga
+- Mobx
+- React(16.12.x), Hooks
 - Husky, Prettier, Eslint
 
 ## Set
