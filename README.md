@@ -12,21 +12,13 @@ https://react-typescript.developergwon.now.sh/
 - Husky, Prettier, Eslint
 
 ## Set
-- node.js package manager로 yarn을 사용
-
-- yarn 설치
+-  설치
 ```
-npm install --global yarn
+npm install
 ```
 
-- yarn 실행
+- 실행
 
 ```
-yarn
+npm run dev
 ```
-
-## Run
-```
-yarn start
-```
-
