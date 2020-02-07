@@ -1,7 +1,6 @@
 import Head from 'next/head';
 
 function Detail(props) {
-  console.log(props);
   return (
     <>
       <Head>

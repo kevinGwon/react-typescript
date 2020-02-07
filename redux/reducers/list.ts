@@ -67,7 +67,7 @@ export function* testSaga() {
   yield takeLatest(ACTION, runTestSaga);
 }
 
-const actions = {
+export const actions = {
   actionList,
   thrillerList,
   crimeList,
@@ -84,16 +84,16 @@ const actions = {
 
 export type ListAction = ActionType<typeof actions>;
 
-type CategoryDefaultType = {
+export type CategoryDefaultType = {
   type?: string;
   code?: number;
   search?: string;
   category: string;
   isLoading: boolean;
-  list: string[];
+  data: string[];
 };
 
-type InitState = {
+export type InitState = {
   year: string | number;
   month: string | number;
   day: string | number;
@@ -113,48 +113,48 @@ const initState: InitState = {
       category: 'action',
       code: 28,
       isLoading: false,
-      list: [],
+      data: [],
     },
     thriller: {
       category: 'thriller',
       code: 53,
       isLoading: false,
-      list: [],
+      data: [],
     },
     crime: {
       category: 'crime',
       code: 80,
       isLoading: false,
-      list: [],
+      data: [],
     },
     war: {
       category: 'war',
       code: 10752,
       isLoading: false,
-      list: [],
+      data: [],
     },
     horror: {
       category: 'horror',
       code: 27,
       isLoading: false,
-      list: [],
+      data: [],
     },
     romance: {
       category: 'romance',
       code: 10749,
       isLoading: false,
-      list: [],
+      data: [],
     },
     animation: {
       category: 'animation',
       code: 16,
       isLoading: false,
-      list: [],
+      data: [],
     },
     search: {
       category: 'search',
       isLoading: false,
-      list: [],
+      data: [],
     },
   },
 };
@@ -177,8 +177,8 @@ const list = (
           ...state.genres,
           [action.category]: {
             ...state.genres[action.category],
-            list: [
-              ...state.genres[action.category].list,
+            data: [
+              ...state.genres[action.category].data,
               action[action.category],
             ],
           },
@@ -191,7 +191,7 @@ const list = (
           ...state.genres,
           search: {
             ...state.genres.search,
-            list: [...state.genres.search.list, action.search],
+            data: [...state.genres.search.data, action.search],
           },
         },
       };
@@ -215,7 +215,7 @@ const list = (
           [action.category]: {
             ...state.genres[action.category],
             isLoading: false,
-            list: [],
+            data: [],
           },
         },
       };
