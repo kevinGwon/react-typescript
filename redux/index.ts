@@ -1,20 +1,16 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer, { rootSaga } from './reducers';
 import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 export const initStore = (initialState = {}) => {
   const sagaMiddleware = createSagaMiddleware();
-
-  const composeEnhancers =
-    (typeof window !== 'undefined' &&
-      (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-    compose;
 
   /* eslint-disable no-underscore-dangle */
   return createStore(
     rootReducer,
     initialState,
-    composeEnhancers(applyMiddleware(sagaMiddleware)),
+    composeWithDevTools(applyMiddleware(sagaMiddleware)),
   );
   /* eslint-enable */
 };
