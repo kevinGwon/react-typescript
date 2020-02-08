@@ -100,6 +100,7 @@
     "normalize.css": "^8.0.1",
     "now": "^16.7.3",
     "prettier": "^1.19.1",
+    "redux-devtools-extension": "^2.13.8",
     "sass-mq": "^5.0.1",
     "swiper": "^4.5.0",
     "typesafe-actions": "^4.4.2",
