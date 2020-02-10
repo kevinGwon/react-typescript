@@ -20,11 +20,11 @@ import {
 
 // Modules
 import extend from '../extend';
-import { API_CONFIG } from '../api.config';
-
+import { API_CONFIG } from './api.config';
+import { LIST_STATE } from '../../redux/reducers/list';
 import { ExtendType } from '../extend';
 
-export const API_LIST = async data => {
+export const API_LIST = async ({ dispatch, data }) => {
   /*
    * The Movie Database API - https://www.themoviedb.org/
    *
@@ -32,12 +32,10 @@ export const API_LIST = async data => {
    * key - 1e006c1e39b26bfadaa6f757bc1435cf
    */
 
-  const { year, month, day } = useSelector(store => store.list);
-  const dispatch = useDispatch();
   const opt: ExtendType = extend(API_CONFIG, {
-    year: year,
-    month: month,
-    day: day,
+    year: LIST_STATE.year,
+    month: LIST_STATE.month,
+    day: LIST_STATE.day,
     category: data.category,
     categoryCode: data.code,
   });
@@ -49,39 +47,38 @@ export const API_LIST = async data => {
       method: 'get',
       url: getUrl,
     });
-    console.log(opt.category);
 
-    // for (let i = 0; i < response.data.results.length; i++) {
-    //   switch (opt.category.toUpperCase()) {
-    //     case ACTION:
-    //     case THRILLER:
-    //     case CRIME:
-    //     case WAR:
-    //     case HORROR:
-    //     case ROMANCE:
-    //     case ANIMATION:
-    //     case SEARCH:
-    //       response.data.results[i] !== null &&
-    //         dispatch({
-    //           type: `list/${opt.category.toUpperCase()}_LIST`,
-    //           category: opt.category,
-    //           [opt.category]: {
-    //             category: opt.category,
-    //             title: response.data.results[i].title,
-    //             id: response.data.results[i].id,
-    //             genre: response.data.results[i].genre_ids,
-    //             average: response.data.results[i].vote_average,
-    //             overview: response.data.results[i].overview,
-    //             posterImage: `${opt.basePostImageUrl}${response.data.results[i].poster_path}`,
-    //             bgImage: `${opt.baseBgImageUrl}${response.data.results[i].backdrop_path}`,
-    //             date: response.data.results[i].release_date,
-    //           },
-    //         });
-    //       break;
-    //     default:
-    //       console.log('지정된 리스트가 없습니다.');
-    //   }
-    // }
+    for (let i = 0; i < response.data.results.length; i++) {
+      switch (opt.category.toUpperCase()) {
+        case ACTION:
+        case THRILLER:
+        case CRIME:
+        case WAR:
+        case HORROR:
+        case ROMANCE:
+        case ANIMATION:
+        case SEARCH:
+          response.data.results[i] !== null &&
+            dispatch({
+              type: `list/${opt.category.toUpperCase()}_LIST`,
+              category: opt.category,
+              [opt.category]: {
+                category: opt.category,
+                title: response.data.results[i].title,
+                id: response.data.results[i].id,
+                genre: response.data.results[i].genre_ids,
+                average: response.data.results[i].vote_average,
+                overview: response.data.results[i].overview,
+                posterImage: `${opt.basePostImageUrl}${response.data.results[i].poster_path}`,
+                bgImage: `${opt.baseBgImageUrl}${response.data.results[i].backdrop_path}`,
+                date: response.data.results[i].release_date,
+              },
+            });
+          break;
+        default:
+          console.log('지정된 리스트가 없습니다.');
+      }
+    }
   } catch (error) {
     console.log(error);
   }

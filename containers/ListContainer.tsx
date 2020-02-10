@@ -5,15 +5,17 @@ import { useDispatch } from 'react-redux';
 // API
 import { API_LIST } from '../modules/api/list';
 
-// Type
-import { CategoryDefaultType } from '../redux/reducers/list';
+function ListContainer(data) {
+  const dispatch = useDispatch();
 
-function ListContainer(data: CategoryDefaultType) {
+  React.useEffect(() => {
+    API_LIST({ dispatch, data });
+  }, []);
+
   return <List {...data} />;
 }
 
 ListContainer.getInitialProps = async () => {
-  // API_LIST();
   return {};
 };
 

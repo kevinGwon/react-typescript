@@ -7,14 +7,14 @@ import axios from 'axios';
 
 // Type
 import { RootState } from '../redux/reducers';
-import { CategoryDefaultType } from '../redux/reducers/list';
+import { CategoryType } from '../redux/reducers/list';
 
 interface Props {
-  data?: string;
+  data?: string[];
 }
 
 const Index: NextPage<Props> = ({ data }) => {
-  const { genres }: { genres: CategoryDefaultType } = useSelector(
+  const { genres }: { genres: CategoryType } = useSelector(
     (store: RootState) => store.list,
   );
 
@@ -23,16 +23,18 @@ const Index: NextPage<Props> = ({ data }) => {
       <Head>
         <title>Portfolio of KevinGwon | Home</title>
       </Head>
-      <Link href="/detail">
-        <a>상세페이지</a>
+      <Link href="/detail/index">
+        <a>상세페이지 이동</a>
       </Link>
       {Object.keys(genres).map(category => {
-        return (
-          <ListContainer
-            key={genres[category].category}
-            {...genres[category]}
-          />
-        );
+        if (category !== 'search') {
+          return (
+            <ListContainer
+              key={genres[category].category}
+              {...genres[category]}
+            />
+          );
+        }
       })}
     </>
   );

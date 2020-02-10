@@ -3,13 +3,13 @@ import rootReducer, { rootSaga } from './reducers';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-export const initStore = (initialState = {}) => {
+export const initStore = (INISTAIL_STATE = {}) => {
   const sagaMiddleware = createSagaMiddleware();
 
   /* eslint-disable no-underscore-dangle */
   return createStore(
     rootReducer,
-    initialState,
+    INISTAIL_STATE,
     composeWithDevTools(applyMiddleware(sagaMiddleware)),
   );
   /* eslint-enable */
