@@ -9,7 +9,9 @@ function ListContainer(data) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    API_LIST({ dispatch, data });
+    if (!data.isLoading) {
+      API_LIST({ dispatch, data });
+    }
   }, []);
 
   return <List {...data} />;

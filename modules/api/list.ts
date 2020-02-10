@@ -16,6 +16,7 @@ import {
   ROMANCE,
   ANIMATION,
   SEARCH,
+  LOADING_LIST,
 } from '../../redux/reducers/list';
 
 // Modules
@@ -77,6 +78,15 @@ export const API_LIST = async ({ dispatch, data }) => {
           break;
         default:
           console.log('지정된 리스트가 없습니다.');
+      }
+      if (i === response.data.results.length - 1) {
+        setTimeout(() => {
+          dispatch({
+            type: LOADING_LIST,
+            category: opt.category,
+            isLoading: true,
+          });
+        }, 1500);
       }
     }
   } catch (error) {
