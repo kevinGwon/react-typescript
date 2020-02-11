@@ -92,6 +92,14 @@
     }
   }
 
+  &-login {
+    position: fixed;
+    z-index: 100;
+    right: 0;
+    color: inherit;
+    transform: translateX(-100%);
+  }
+
   .btn {
     &-home,
     &-search {

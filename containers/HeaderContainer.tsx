@@ -1,8 +1,34 @@
 import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../components/Header';
+import firebase from '../modules/firebase';
+import { USER_INFO } from '../redux/reducers/user';
 
 function HeaderContainer() {
-  return <Header />;
+  const user = useSelector(store => store.user);
+  const dispatch = useDispatch();
+  const onLogin = React.useCallback(
+    e => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(res => {
+          console.log(res.user);
+          dispatch({
+            type: USER_INFO,
+            name: res.user.displayName,
+            email: res.user.email,
+            uid: res.user.uid,
+          });
+        })
+        .catch(error => {
+          alert(error);
+        });
+    },
+    [firebase],
+  );
+  return <Header user={user} onLogin={onLogin} />;
 }
 
-export default HeaderContainer;
+export default React.memo(HeaderContainer);

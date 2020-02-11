@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function Header() {
+function Header({ user, onLogin }) {
   return (
     <header id="header" className="header">
       <div className="l-header">
@@ -11,6 +11,19 @@ function Header() {
           </svg>
           <span>돌아가기</span>
         </button>
+        <div className="header-login">
+          {user.uid !== null ? (
+            <>
+              <span>{user.name} 님</span> 반갑습니다.
+            </>
+          ) : (
+            <>
+              <button className="btn login-btn" onClick={onLogin}>
+                Login
+              </button>
+            </>
+          )}
+        </div>
         <div className="header-search">
           <form>
             <div className="input-group">
@@ -43,4 +56,4 @@ function Header() {
 
 Header.displayName = 'Header';
 
-export default React.memo(Header);
+export default Header;

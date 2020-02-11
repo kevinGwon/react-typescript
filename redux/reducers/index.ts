@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import { all } from 'redux-saga/effects';
 import list, { testSaga } from './list';
+import user from './user';
 
 const rootReducer = combineReducers({
+  user,
   list,
 });
 
