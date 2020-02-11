@@ -17,15 +17,11 @@ const Index: NextPage<Props> = ({ data }) => {
   const { genres }: { genres: CategoryType } = useSelector(
     (store: RootState) => store.list,
   );
-
   return (
     <>
       <Head>
         <title>Portfolio of KevinGwon | Home</title>
       </Head>
-      <Link href="/detail/index">
-        <a>상세페이지 이동</a>
-      </Link>
       {Object.keys(genres).map(category => {
         if (category !== 'search') {
           return (
