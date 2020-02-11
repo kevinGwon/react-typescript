@@ -31,4 +31,6 @@ typings/
 dist
 # next.js export
 out
+# firebase
+firebase.config.js
 # End of https://www.gitignore.io/api/node
