@@ -2,12 +2,15 @@ import { Provider } from 'react-redux';
 import { initStore } from '../redux';
 import withRedux from 'next-redux-wrapper';
 import '../scss/style.scss';
+import LayoutContainer from '../containers/LayoutContainer';
 
 const App = ({ Component, pageProps, store }) => {
   return (
     <>
       <Provider store={store}>
-        <Component {...pageProps} />
+        <LayoutContainer>
+          <Component {...pageProps} />
+        </LayoutContainer>
       </Provider>
     </>
   );

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
-import LayoutContainer from '../containers/LayoutContainer';
 
 export default class extends Document {
   render() {
@@ -14,10 +13,7 @@ export default class extends Document {
           />
         </Head>
         <body>
-          <LayoutContainer>
-            <Main />
-          </LayoutContainer>
-
+          <Main />
           <NextScript />
         </body>
       </html>
