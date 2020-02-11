@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../components/Header';
-import firebase from '../modules/firebase';
 import { USER_INFO } from '../redux/reducers/user';
+import firebase from '../modules/firebase';
+import 'firebase/auth';
 
 function HeaderContainer() {
   const user = useSelector(store => store.user);
