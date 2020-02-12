@@ -8,7 +8,10 @@ function Layout({ children }) {
     <>
       <HeaderContainer />
       <main id="main">
-        <article className="movie-article">{children}</article>
+        <article className="movie-article">
+          <h1 className="a11y">영화정보 리스트</h1>
+          <div className="movie-section-box">{children}</div>
+        </article>
       </main>
       <FooterContainer />
     </>
