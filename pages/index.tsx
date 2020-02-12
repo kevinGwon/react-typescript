@@ -19,7 +19,7 @@ import {
 import extend, { ExtendType } from '../modules/extend';
 import { API_CONFIG } from '../modules/api/api.config';
 
-interface Test {
+interface IndexType {
   API: {
     action: ListType[];
     thriller: ListType[];
@@ -29,19 +29,26 @@ interface Test {
     romance: ListType[];
     animation: ListType[];
   };
+  scrollMotion?: {
+    init: () => void;
+    destroy: () => void;
+  };
 }
-
-const Index: NextPage<Test> = ({ API }) => {
+const Index: NextPage<IndexType> = ({ API, scrollMotion }) => {
   const { genres }: { genres: CategoryType } = useSelector(
     (store: RootState) => store.list,
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
+    scrollMotion.init();
     Object.keys(API).map(category => {
       !genres[category].isLoading &&
         API_LIST({ dispatch, category, data: API[category] });
     });
+    return () => {
+      scrollMotion.destroy();
+    };
   }, []);
 
   return (
