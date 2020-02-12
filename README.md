@@ -2,7 +2,7 @@
 Next.js와 Typescript를 이용하여 Portfolio를 제작하는 프로젝트입니다.
 
 ## Site
-https://react-typescript.developergwon.now.sh/
+https://developergwon-react-typescript.netlify.com/
 
 ## Spec
 - Next.js
