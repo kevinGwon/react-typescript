@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../components/Header';
 import { USER_INFO } from '../redux/reducers/user';
-import firebase from '../modules/firebase';
+import firebase from '../firebase';
 import 'firebase/auth';
 
 function HeaderContainer() {
@@ -15,7 +15,6 @@ function HeaderContainer() {
         .auth()
         .signInWithPopup(provider)
         .then(res => {
-          console.log(res.user);
           dispatch({
             type: USER_INFO,
             name: res.user.displayName,
