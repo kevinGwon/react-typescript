@@ -1,12 +1,14 @@
-import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 // Components
 import List from '../components/List';
+
+// Hoc
+import ScrollMotion from '../modules/scroll-motion';
 
 // Modules
 import {
@@ -30,23 +32,40 @@ import { IndexType } from '../types';
 import { ExtendType } from '../types/modules/extend';
 import { RootState } from '../types/redux/reducer';
 import { CategoryType } from '../types/redux/list';
+import { CommonType } from '../types/redux/common';
+import { LOADING_ON, LOADING_ON_SAGA } from '../redux/reducers/common';
+import Loading from '../components/Loading';
 
-const Index = ({ API, scrollMotion }: IndexType) => {
+const scrollMotion = new ScrollMotion();
+
+const Index = ({ API }: IndexType) => {
+  const { isLoading }: { isLoading: CommonType } = useSelector(
+    (store: RootState) => store.common,
+  );
   const { genres }: { genres: CategoryType } = useSelector(
     (store: RootState) => store.list,
   );
   const dispatch = useDispatch();
 
+  // Paint list
   useEffect(() => {
-    scrollMotion.init();
     Object.keys(API).map(category => {
       !genres[category].isLoading &&
         API_LIST({ dispatch, category, data: API[category] });
     });
+  }, []);
+
+  // Loading
+  useEffect(() => {
+    if (isLoading) {
+      scrollMotion.init();
+    }
     return () => {
       scrollMotion.destroy();
     };
-  }, []);
+  }, [isLoading]);
+  console.log(isLoading);
+  if (!isLoading) return <Loading />;
 
   return (
     <>
@@ -61,8 +80,9 @@ const Index = ({ API, scrollMotion }: IndexType) => {
   );
 };
 
-Index.getInitialProps = async ctx => {
+Index.getInitialProps = async context => {
   let genres = null;
+  const { dispatch } = context.store;
   const data = await Promise.all([
     GET_ACTION,
     GET_THRILLER,
@@ -73,10 +93,10 @@ Index.getInitialProps = async ctx => {
     GET_ANIMATION,
   ]).then(res => {
     genres = res;
+    dispatch({
+      type: LOADING_ON,
+    });
   });
-  if (genres === null) {
-    return null;
-  }
   return {
     API: {
       action: genres[0].data.results,
