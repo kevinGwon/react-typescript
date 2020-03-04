@@ -9,15 +9,27 @@ import { useEffect } from 'react';
 import List from '../components/List';
 
 // Modules
-import { API_LIST, GET_URL } from '../modules/api/list';
+import {
+  API_LIST,
+  GET_ACTION,
+  GET_THRILLER,
+  GET_CRIME,
+  GET_WAR,
+  GET_HORROR,
+  GET_ROMANCE,
+  GET_ANIMATION,
+} from '../modules/api/list';
 import extend from '../modules/extend';
+import { API_CONFIG } from '../modules/api/api.config';
+
+// Redux
+import { LIST_STATE } from '../redux/reducers/list';
 
 // Types
-import { RootState } from '../redux/reducers';
-import { CategoryType, LIST_STATE } from '../redux/reducers/list';
-import { API_CONFIG } from '../modules/api/api.config';
 import { IndexType } from '../types';
 import { ExtendType } from '../types/modules/extend';
+import { RootState } from '../types/redux/reducer';
+import { CategoryType } from '../types/redux/list';
 
 const Index = ({ API, scrollMotion }: IndexType) => {
   const { genres }: { genres: CategoryType } = useSelector(
@@ -50,98 +62,30 @@ const Index = ({ API, scrollMotion }: IndexType) => {
 };
 
 Index.getInitialProps = async ctx => {
-  const opt: ExtendType = extend(API_CONFIG, {
-    year: LIST_STATE.year,
-    month: LIST_STATE.month,
-    day: LIST_STATE.day,
+  let genres = null;
+  const data = await Promise.all([
+    GET_ACTION,
+    GET_THRILLER,
+    GET_CRIME,
+    GET_WAR,
+    GET_HORROR,
+    GET_ROMANCE,
+    GET_ANIMATION,
+  ]).then(res => {
+    genres = res;
   });
-  const { genres } = LIST_STATE;
-  const action = await axios({
-    method: 'get',
-    url: GET_URL({
-      key: opt.key,
-      lang: opt.lang,
-      year: opt.year,
-      month: opt.month,
-      day: opt.day,
-      code: genres.action.code,
-    }),
-  });
-  const thriller = await axios({
-    method: 'get',
-    url: GET_URL({
-      key: opt.key,
-      lang: opt.lang,
-      year: opt.year,
-      month: opt.month,
-      day: opt.day,
-      code: genres.thriller.code,
-    }),
-  });
-  const crime = await axios({
-    method: 'get',
-    url: GET_URL({
-      key: opt.key,
-      lang: opt.lang,
-      year: opt.year,
-      month: opt.month,
-      day: opt.day,
-      code: genres.crime.code,
-    }),
-  });
-  const war = await axios({
-    method: 'get',
-    url: GET_URL({
-      key: opt.key,
-      lang: opt.lang,
-      year: opt.year,
-      month: opt.month,
-      day: opt.day,
-      code: genres.war.code,
-    }),
-  });
-  const horror = await axios({
-    method: 'get',
-    url: GET_URL({
-      key: opt.key,
-      lang: opt.lang,
-      year: opt.year,
-      month: opt.month,
-      day: opt.day,
-      code: genres.horror.code,
-    }),
-  });
-  const romance = await axios({
-    method: 'get',
-    url: GET_URL({
-      key: opt.key,
-      lang: opt.lang,
-      year: opt.year,
-      month: opt.month,
-      day: opt.day,
-      code: genres.romance.code,
-    }),
-  });
-  const animation = await axios({
-    method: 'get',
-    url: GET_URL({
-      key: opt.key,
-      lang: opt.lang,
-      year: opt.year,
-      month: opt.month,
-      day: opt.day,
-      code: genres.animation.code,
-    }),
-  });
+  if (genres === null) {
+    return null;
+  }
   return {
     API: {
-      action: action.data.results,
-      thriller: thriller.data.results,
-      crime: crime.data.results,
-      war: war.data.results,
-      horror: horror.data.results,
-      romance: romance.data.results,
-      animation: animation.data.results,
+      action: genres[0].data.results,
+      thriller: genres[1].data.results,
+      crime: genres[2].data.results,
+      war: genres[3].data.results,
+      horror: genres[4].data.results,
+      romance: genres[5].data.results,
+      animation: genres[6].data.results,
     },
   };
 };

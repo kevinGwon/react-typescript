@@ -22,10 +22,97 @@ import { LIST_STATE } from '../../redux/reducers/list';
 // types
 import { ExtendType } from '../../types/modules/extend';
 
+// Options
+const { genres } = LIST_STATE;
+const opt: ExtendType = extend(API_CONFIG, {
+  year: LIST_STATE.year,
+  month: LIST_STATE.month,
+  day: LIST_STATE.day,
+});
+
 // Modules
 export const GET_URL = payload => {
   return `https://api.themoviedb.org/3/discover/movie?api_key=${payload.key}&language=${payload.lang}&release_date.gte=${payload.year}-${payload.month}-${payload.day}&with_genres=${payload.code}&sort_by=popularity.desc&include_adult=true&include_video=true&page=1`;
 };
+
+// GET API
+export const GET_ACTION = axios({
+  method: 'get',
+  url: GET_URL({
+    key: opt.key,
+    lang: opt.lang,
+    year: opt.year,
+    month: opt.month,
+    day: opt.day,
+    code: genres.action.code,
+  }),
+});
+export const GET_THRILLER = axios({
+  method: 'get',
+  url: GET_URL({
+    key: opt.key,
+    lang: opt.lang,
+    year: opt.year,
+    month: opt.month,
+    day: opt.day,
+    code: genres.thriller.code,
+  }),
+});
+export const GET_CRIME = axios({
+  method: 'get',
+  url: GET_URL({
+    key: opt.key,
+    lang: opt.lang,
+    year: opt.year,
+    month: opt.month,
+    day: opt.day,
+    code: genres.crime.code,
+  }),
+});
+export const GET_WAR = axios({
+  method: 'get',
+  url: GET_URL({
+    key: opt.key,
+    lang: opt.lang,
+    year: opt.year,
+    month: opt.month,
+    day: opt.day,
+    code: genres.war.code,
+  }),
+});
+export const GET_HORROR = axios({
+  method: 'get',
+  url: GET_URL({
+    key: opt.key,
+    lang: opt.lang,
+    year: opt.year,
+    month: opt.month,
+    day: opt.day,
+    code: genres.horror.code,
+  }),
+});
+export const GET_ROMANCE = axios({
+  method: 'get',
+  url: GET_URL({
+    key: opt.key,
+    lang: opt.lang,
+    year: opt.year,
+    month: opt.month,
+    day: opt.day,
+    code: genres.romance.code,
+  }),
+});
+export const GET_ANIMATION = axios({
+  method: 'get',
+  url: GET_URL({
+    key: opt.key,
+    lang: opt.lang,
+    year: opt.year,
+    month: opt.month,
+    day: opt.day,
+    code: genres.animation.code,
+  }),
+});
 export const API_LIST = ({ dispatch, category, data }) => {
   const opt: ExtendType = extend(API_CONFIG, {
     year: LIST_STATE.year,
