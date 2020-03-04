@@ -14,5 +14,3 @@ export function* rootSaga() {
 }
 
 export default rootReducer;
-
-export type RootState = ReturnType<typeof rootReducer>;

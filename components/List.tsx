@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { CategoryType } from '../redux/reducers/list';
 import { TweenMax } from 'gsap';
 import Swiper from 'swiper';
 import Link from 'next/link';
 import filterImages from '../modules/filterImages';
+import { CategoryType } from '../types/redux/list';
 
 function List(data: CategoryType) {
   const $sectionBg = React.useRef();
