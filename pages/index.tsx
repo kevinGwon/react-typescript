@@ -6,35 +6,20 @@ import axios from 'axios';
 import { useEffect } from 'react';
 
 // Components
-import ListContainer from '../containers/ListContainer';
+import List from '../components/List';
 
-// Type
+// Modules
+import { API_LIST, GET_URL } from '../modules/api/list';
+import extend from '../modules/extend';
+
+// Types
 import { RootState } from '../redux/reducers';
-import {
-  CategoryType,
-  ListType,
-  LIST_STATE,
-  API_LIST,
-} from '../redux/reducers/list';
-import extend, { ExtendType } from '../modules/extend';
+import { CategoryType, LIST_STATE } from '../redux/reducers/list';
 import { API_CONFIG } from '../modules/api/api.config';
+import { IndexType } from '../types';
+import { ExtendType } from '../types/modules/extend';
 
-interface IndexType {
-  API: {
-    action: ListType[];
-    thriller: ListType[];
-    crime: ListType[];
-    war: ListType[];
-    horror: ListType[];
-    romance: ListType[];
-    animation: ListType[];
-  };
-  scrollMotion?: {
-    init: () => void;
-    destroy: () => void;
-  };
-}
-const Index: NextPage<IndexType> = ({ API, scrollMotion }) => {
+const Index = ({ API, scrollMotion }: IndexType) => {
   const { genres }: { genres: CategoryType } = useSelector(
     (store: RootState) => store.list,
   );
@@ -54,26 +39,17 @@ const Index: NextPage<IndexType> = ({ API, scrollMotion }) => {
   return (
     <>
       <Head>
-        <title>Portfolio of KevinGwon | Home</title>
+        <title>Themovie | Home</title>
       </Head>
       {Object.keys(genres).map(category => {
-        if (category !== 'search') {
-          return (
-            <ListContainer
-              key={genres[category].category}
-              {...genres[category]}
-            />
-          );
-        }
+        if (category !== 'search')
+          return <List key={genres[category].category} {...genres[category]} />;
       })}
     </>
   );
 };
 
 Index.getInitialProps = async ctx => {
-  let getUrl = payload => {
-    return `https://api.themoviedb.org/3/discover/movie?api_key=${payload.key}&language=${payload.lang}&release_date.gte=${payload.year}-${payload.month}-${payload.day}&with_genres=${payload.code}&sort_by=popularity.desc&include_adult=true&include_video=true&page=1`;
-  };
   const opt: ExtendType = extend(API_CONFIG, {
     year: LIST_STATE.year,
     month: LIST_STATE.month,
@@ -82,7 +58,7 @@ Index.getInitialProps = async ctx => {
   const { genres } = LIST_STATE;
   const action = await axios({
     method: 'get',
-    url: getUrl({
+    url: GET_URL({
       key: opt.key,
       lang: opt.lang,
       year: opt.year,
@@ -93,7 +69,7 @@ Index.getInitialProps = async ctx => {
   });
   const thriller = await axios({
     method: 'get',
-    url: getUrl({
+    url: GET_URL({
       key: opt.key,
       lang: opt.lang,
       year: opt.year,
@@ -104,7 +80,7 @@ Index.getInitialProps = async ctx => {
   });
   const crime = await axios({
     method: 'get',
-    url: getUrl({
+    url: GET_URL({
       key: opt.key,
       lang: opt.lang,
       year: opt.year,
@@ -115,7 +91,7 @@ Index.getInitialProps = async ctx => {
   });
   const war = await axios({
     method: 'get',
-    url: getUrl({
+    url: GET_URL({
       key: opt.key,
       lang: opt.lang,
       year: opt.year,
@@ -126,7 +102,7 @@ Index.getInitialProps = async ctx => {
   });
   const horror = await axios({
     method: 'get',
-    url: getUrl({
+    url: GET_URL({
       key: opt.key,
       lang: opt.lang,
       year: opt.year,
@@ -137,7 +113,7 @@ Index.getInitialProps = async ctx => {
   });
   const romance = await axios({
     method: 'get',
-    url: getUrl({
+    url: GET_URL({
       key: opt.key,
       lang: opt.lang,
       year: opt.year,
@@ -148,7 +124,7 @@ Index.getInitialProps = async ctx => {
   });
   const animation = await axios({
     method: 'get',
-    url: getUrl({
+    url: GET_URL({
       key: opt.key,
       lang: opt.lang,
       year: opt.year,
