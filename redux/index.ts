@@ -3,13 +3,15 @@ import rootReducer, { rootSaga } from './reducers';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-export const initStore = () => {
+export const initStore = initailState => {
   const sagaMiddleware = createSagaMiddleware();
-
-  /* eslint-disable no-underscore-dangle */
-  return createStore(
+  const store = createStore(
     rootReducer,
-    composeWithDevTools(applyMiddleware(sagaMiddleware)),
+    initailState,
+    process.env.NODE_ENV === 'production'
+      ? applyMiddleware(sagaMiddleware)
+      : composeWithDevTools(applyMiddleware(sagaMiddleware)),
   );
-  /* eslint-enable */
+  sagaMiddleware.run(rootSaga);
+  return store;
 };
