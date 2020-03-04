@@ -152,13 +152,11 @@ export const API_LIST = ({ dispatch, category, data }) => {
         console.log('지정된 리스트가 없습니다.');
     }
     if (i === data.length - 1) {
-      setTimeout(() => {
-        dispatch({
-          type: LOADING_LIST,
-          category: opt.category,
-          isLoading: true,
-        });
-      }, 1500);
+      dispatch({
+        type: LOADING_LIST,
+        category: opt.category,
+        isLoading: true,
+      });
     }
   }
 };
