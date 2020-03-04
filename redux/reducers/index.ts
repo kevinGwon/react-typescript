@@ -4,6 +4,7 @@ import list, { testSaga } from './list';
 import user from './user';
 
 const rootReducer = combineReducers({
+  test: null,
   user,
   list,
 });

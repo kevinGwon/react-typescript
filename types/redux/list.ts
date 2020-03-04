@@ -1,5 +1,5 @@
 import { ActionType } from 'typesafe-actions';
-import * as actions from './actions';
+import * as actions from '../../redux/reducers/list/actions';
 
 export type ListAction = ActionType<typeof actions>;
 

@@ -1,15 +1,4 @@
-export type ExtendType = {
-  key?: string;
-  lang?: string;
-  fallBackPosterPath?: string;
-  basePostImageUrl?: string;
-  baseBgImageUrl?: string;
-  year?: number | string;
-  month?: number | string;
-  day?: number | string;
-  category?: string;
-  categoryCode?: number | string;
-};
+import { ExtendType } from '../types/modules/extend';
 
 const extend = <T1, T2>(defaults: T1, options: T2): ExtendType => {
   let extended: ExtendType = {};

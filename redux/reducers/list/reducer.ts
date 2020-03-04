@@ -1,4 +1,7 @@
-import { StateType, CategoryType } from './types';
+// types
+import { StateType, CategoryType } from '../../../types/redux/list';
+
+// actions
 import {
   ACTION_LIST,
   THRILLER_LIST,
@@ -110,19 +113,6 @@ const list = (
           },
         },
       };
-    case SEARCH_LIST:
-      return {
-        ...state,
-        genres: {
-          ...state.genres,
-          search: {
-            ...state.genres.search,
-            list: [
-              // ...state.genres.search.list, action.search
-            ],
-          },
-        },
-      };
     case LOADING_LIST:
       return {
         ...state,
@@ -134,31 +124,7 @@ const list = (
           },
         },
       };
-    case LIST_RESET:
-      console.log(`Reset ${action.category}`);
-      return {
-        ...state,
-        genres: {
-          ...state.genres,
-          [action.category]: {
-            ...state.genres[action.category],
-            isLoading: false,
-            list: [],
-          },
-        },
-      };
-    case LIST_SORT:
-      return {
-        ...state,
-        sort: !state.sort,
-      };
-    case ALL_RESET:
-      return {
-        ...state,
-        genres: {
-          ...state.genres,
-        },
-      };
+
     default:
       return state;
   }
