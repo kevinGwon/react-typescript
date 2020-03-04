@@ -1,15 +1,10 @@
 // 임시적으로 위치
-import { put, delay, takeLatest } from 'redux-saga/effects';
-import { LIST_RESET, ACTION } from './actions';
+import { put, delay, call, takeLatest } from 'redux-saga/effects';
+import { ACTION_LIST } from './actions';
+import { GET_ACTION } from '../../../modules/api/list';
+import axios from 'axios';
 
 // Saga
-function* runTestSaga() {
-  yield delay(500);
-  yield put({
-    type: LIST_RESET,
-  });
-}
+function* runGetListSaga(payload) {}
 
-export function* testSaga() {
-  yield takeLatest(ACTION, runTestSaga);
-}
+export function* testSaga() {}
