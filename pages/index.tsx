@@ -64,7 +64,7 @@ const Index = ({ API }: IndexType) => {
       scrollMotion.destroy();
     };
   }, [isLoading]);
-  console.log(isLoading);
+
   if (!isLoading) return <Loading />;
 
   return (
