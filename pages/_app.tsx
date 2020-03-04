@@ -1,16 +1,14 @@
 import { Provider } from 'react-redux';
 import { initStore } from '../redux';
 import withRedux from 'next-redux-wrapper';
-import '../scss/style.scss';
 import Layout from '../components/Layout';
-import withScroll from '../hoc/withScroll';
-
-const App = ({ Component, pageProps, store, scrollMotion }) => {
+import '../scss/style.scss';
+const App = ({ Component, pageProps, store }) => {
   return (
     <>
       <Provider store={store}>
         <Layout>
-          <Component {...pageProps} scrollMotion={scrollMotion} />
+          <Component {...pageProps} />
         </Layout>
       </Provider>
     </>
@@ -27,4 +25,4 @@ App.getInitialProps = async ({ Component, ctx }) => {
   };
 };
 
-export default withScroll(withRedux(initStore, { debug: true })(App));
+export default withRedux(initStore)(App);
