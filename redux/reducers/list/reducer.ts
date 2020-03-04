@@ -1,5 +1,5 @@
 // types
-import { StateType, CategoryType } from '../../../types/redux/list';
+import { CategoryType, ListStateType } from '../../../types/redux/list';
 
 // actions
 import {
@@ -32,7 +32,7 @@ day =
     ? '0' + date.getDate()
     : date.getDate() + 1;
 
-export const LIST_STATE: StateType = {
+export const LIST_STATE: ListStateType = {
   year: year,
   month: month,
   day: day,
@@ -89,9 +89,9 @@ export const LIST_STATE: StateType = {
 };
 
 const list = (
-  state: StateType = LIST_STATE,
+  state: ListStateType = LIST_STATE,
   action: CategoryType,
-): StateType => {
+): ListStateType => {
   switch (action.type) {
     case ACTION_LIST:
     case THRILLER_LIST:
@@ -124,7 +124,6 @@ const list = (
           },
         },
       };
-
     default:
       return state;
   }
