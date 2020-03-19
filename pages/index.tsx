@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 // Components
-import List from '../components/List';
+import ListContainer from '../containers/ListContainer';
 import Loading from '../components/Loading';
 
 // Hoc
@@ -13,7 +13,7 @@ import ScrollMotion from '../modules/scroll-motion';
 
 // Modules
 import {
-  API_LIST,
+  API_FILTER,
   GET_ACTION,
   GET_THRILLER,
   GET_CRIME,
@@ -55,7 +55,7 @@ const Index = ({ API }: IndexType) => {
       </Head>
       {Object.keys(API).map(category => {
         if (category !== 'search')
-          return <List key={category} data={API[category]} />;
+          return <ListContainer key={category} data={API[category]} />;
       })}
     </>
   );
@@ -87,7 +87,7 @@ Index.getInitialProps = async context => {
       console.log(error);
     });
   return {
-    API: API_LIST(API),
+    API: API_FILTER(API),
   };
 };
 

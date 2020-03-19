@@ -113,7 +113,7 @@ export const GET_ANIMATION = axios({
     code: genres.animation.code,
   }),
 });
-export const API_LIST = API => {
+export const API_FILTER = API => {
   const opt: ExtendType = extend(API_CONFIG, {
     year: LIST_STATE.year,
     month: LIST_STATE.month,
