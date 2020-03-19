@@ -113,50 +113,38 @@ export const GET_ANIMATION = axios({
     code: genres.animation.code,
   }),
 });
-export const API_LIST = ({ dispatch, category, data }) => {
+export const API_LIST = API => {
   const opt: ExtendType = extend(API_CONFIG, {
     year: LIST_STATE.year,
     month: LIST_STATE.month,
     day: LIST_STATE.day,
-    category: category,
+    // category: category,category
   });
-
-  for (let i = 0; i < data.length; i++) {
-    switch (opt.category.toUpperCase()) {
-      case ACTION:
-      case THRILLER:
-      case CRIME:
-      case WAR:
-      case HORROR:
-      case ROMANCE:
-      case ANIMATION:
-      case SEARCH:
-        data[i] !== null &&
-          dispatch({
-            type: `list/${opt.category.toUpperCase()}_LIST`,
-            category: opt.category,
-            [opt.category]: {
-              category: opt.category,
-              title: data[i].title,
-              id: data[i].id,
-              genre: data[i].genre_ids,
-              average: data[i].vote_average,
-              overview: data[i].overview,
-              posterImage: `${opt.basePostImageUrl}${data[i].poster_path}`,
-              bgImage: `${opt.baseBgImageUrl}${data[i].backdrop_path}`,
-              date: data[i].release_date,
-            },
-          });
-        break;
-      default:
-        console.log('지정된 리스트가 없습니다.');
+  const _API: any = {
+    action: [],
+    thriller: [],
+    crime: [],
+    war: [],
+    horror: [],
+    romance: [],
+    animation: [],
+  };
+  Object.keys(API).map(category => {
+    for (let i = 0; i < API[category].length; i++) {
+      _API[category] = _API[category].concat([
+        {
+          category: category,
+          title: API[category][i].title,
+          id: API[category][i].id,
+          genre: API[category][i].genre_ids,
+          average: API[category][i].vote_average,
+          overview: API[category][i].overview,
+          posterImage: `${opt.basePostImageUrl}${API[category][i].poster_path}`,
+          bgImage: `${opt.baseBgImageUrl}${API[category][i].backdrop_path}`,
+          date: API[category][i].release_date,
+        },
+      ]);
     }
-    if (i === data.length - 1) {
-      dispatch({
-        type: LOADING_LIST,
-        category: opt.category,
-        isLoading: true,
-      });
-    }
-  }
+  });
+  return _API;
 };
