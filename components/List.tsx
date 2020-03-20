@@ -9,8 +9,8 @@ function List({
   $sectionBg,
   runTransition,
 }: {
-  data: ListType;
-  $sectionBg: () => void;
+  data: ListType[];
+  $sectionBg: React.LegacyRef<HTMLDivElement>;
   runTransition: any;
 }) {
   useEffect(() => {
@@ -101,8 +101,12 @@ function List({
                             : 'http://placehold.it/3840x2160?text=Not Found'
                         }
                         className="swiper-lazy"
-                        alt={item.title}
+                        alt=""
                       />
+                      <div className="thumb-info a11y">
+                        <h3>{item.title}</h3>
+                        <p>{item.overview}</p>
+                      </div>
                       <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                     </div>
                   </a>

@@ -2,10 +2,10 @@ import React, { useRef, useCallback, useEffect } from 'react';
 import { TweenMax } from 'gsap';
 import Link from 'next/link';
 import List from '../components/List';
+import { ListType } from '../types/redux/list';
 
-function ListContainer(props) {
+function ListContainer(props: { data: ListType[] }) {
   const $sectionBg = useRef();
-
   const runBackUpBg = useCallback(obj => {
     const $div = document.createElement('div');
     obj.slideLength === 1
@@ -20,7 +20,6 @@ function ListContainer(props) {
       obj.$section.prepend($div);
     }
   }, []);
-
   const runTransition = useCallback(
     $target => {
       const index = $target.snapIndex,
