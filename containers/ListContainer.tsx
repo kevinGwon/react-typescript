@@ -9,8 +9,17 @@ function ListContainer(props: { data: ListType[] }) {
   const runBackUpBg = useCallback(obj => {
     const $div = document.createElement('div');
     obj.slideLength === 1
-      ? $div.classList.add('movie-section-bg', 'movie-section-bg--next')
-      : $div.classList.add('movie-section-bg');
+      ? $div.classList.add(
+          obj.classList[0],
+          obj.classList[1],
+          'movie-section-bg',
+          'movie-section-bg--next',
+        )
+      : $div.classList.add(
+          obj.classList[0],
+          obj.classList[1],
+          'movie-section-bg',
+        );
     $div.style.backgroundImage = `url('${obj.bgUrl}')`;
 
     if (obj.slideLength === 1) {
@@ -24,7 +33,8 @@ function ListContainer(props: { data: ListType[] }) {
     $target => {
       const index = $target.snapIndex,
         $slide = $target.slides[index],
-        $section = $slide.parentNode.offsetParent.offsetParent.offsetParent,
+        $section = $slide.parentNode.offsetParent.offsetParent,
+        classList = $section.querySelector('.movie-section-bg').classList,
         $bgAll = $section.querySelectorAll('.movie-section-bg'),
         $bg = $section.querySelector('.movie-section-bg'),
         bgUrl = $slide.querySelector('img').getAttribute('data-bg'),
@@ -34,7 +44,7 @@ function ListContainer(props: { data: ListType[] }) {
         $bgAll.forEach(item => {
           item.remove();
         });
-        runBackUpBg({ slideLength, $section, bgUrl });
+        runBackUpBg({ slideLength, $section, bgUrl, classList });
         return false;
       }
 
@@ -42,7 +52,7 @@ function ListContainer(props: { data: ListType[] }) {
         $current = $bg,
         $next = null;
 
-      runBackUpBg({ slideLength, $bg, bgUrl });
+      runBackUpBg({ slideLength, $bg, bgUrl, classList });
 
       $next = $section.querySelector('.movie-section-bg--next');
       $current = $next;

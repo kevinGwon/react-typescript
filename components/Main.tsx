@@ -1,11 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const StyledMain = styled('main').attrs(props => ({
-  id: 'main',
-}))`
-  background-color: #000;
-`;
+// Styled
+import { StyledMain } from '../styled/components/StyledMain';
 
 function Main(props) {
   return <StyledMain {...props} />;

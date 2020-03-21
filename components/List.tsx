@@ -4,6 +4,20 @@ import Swiper from 'swiper';
 import filterImages from '../modules/filterImages';
 import { ListType } from '../types/redux/list';
 
+// Styled
+import {
+  StyledSwiperContainer,
+  StyledSwiperPagination,
+  StyledSwiperButton,
+} from '../styled/components/StyledList';
+import {
+  StyledMovieSection,
+  StyledMovieSectionBg,
+} from '../styled/components/StyledMain';
+
+// Swiper Style Modules
+import '../scss/swiper.scss';
+
 function List({
   data,
   $sectionBg,
@@ -55,20 +69,11 @@ function List({
   }, [runTransition]);
 
   return (
-    <section
-      className={`movie-section${
-        data[0].category === 'action' ? ' is-active' : ''
-      }`}
-    >
-      <div
-        className="movie-section-bg"
-        style={
-          data[0] && {
-            backgroundImage: `url('${data[0].bgImage}')`,
-          }
-        }
+    <StyledMovieSection active={data[0].category === 'action'}>
+      <StyledMovieSectionBg
+        bgUrl={`url('${data[0].bgImage}')`}
         ref={$sectionBg}
-      ></div>
+      />
       <div className="l-wrap">
         <h2 className="h1">
           {data[0].category === 'action' && '액션 '}
@@ -80,9 +85,7 @@ function List({
           {data[0].category === 'animation' && '애니메이션 '}
           영화
         </h2>
-        <div
-          className={`swiper-container swiper-container-${data[0].category}`}
-        >
+        <StyledSwiperContainer category={data[0].category}>
           <div className="swiper-wrapper">
             {data.map(item => (
               <div key={item.id} className="swiper-slide">
@@ -116,14 +119,14 @@ function List({
           </div>
 
           {/* Pagination */}
-          <div className="swiper-pagination"></div>
+          <StyledSwiperPagination />
 
           {/* Arrow */}
-          <div className="swiper-button-next"></div>
-          <div className="swiper-button-prev"></div>
-        </div>
+          <StyledSwiperButton dir={'prev'} />
+          <StyledSwiperButton dir={'next'} />
+        </StyledSwiperContainer>
       </div>
-    </section>
+    </StyledMovieSection>
   );
 }
 
