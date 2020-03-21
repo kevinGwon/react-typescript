@@ -14,9 +14,12 @@ import {
   StyledMovieSection,
   StyledMovieSectionBg,
 } from '../styled/components/StyledMain';
+import { StyledSwiperLazy } from '../styled/components/StyledSwiperLazy';
 
 // Swiper Style Modules
 import '../scss/swiper.scss';
+import { StyledLayout } from '../styled/components/StyledLayout';
+import { StyledHeding1 } from '../styled/global/StyledHeading';
 
 function List({
   data,
@@ -74,8 +77,8 @@ function List({
         bgUrl={`url('${data[0].bgImage}')`}
         ref={$sectionBg}
       />
-      <div className="l-wrap">
-        <h2 className="h1">
+      <StyledLayout>
+        <StyledHeding1>
           {data[0].category === 'action' && '액션 '}
           {data[0].category === 'thriller' && '스릴러 '}
           {data[0].category === 'crime' && '범죄 '}
@@ -84,7 +87,7 @@ function List({
           {data[0].category === 'romance' && '로맨스 '}
           {data[0].category === 'animation' && '애니메이션 '}
           영화
-        </h2>
+        </StyledHeding1>
         <StyledSwiperContainer category={data[0].category}>
           <div className="swiper-wrapper">
             {data.map(item => (
@@ -110,7 +113,7 @@ function List({
                         <h3>{item.title}</h3>
                         <p>{item.overview}</p>
                       </div>
-                      <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                      <StyledSwiperLazy />
                     </div>
                   </a>
                 </Link>
@@ -125,7 +128,7 @@ function List({
           <StyledSwiperButton dir={'prev'} />
           <StyledSwiperButton dir={'next'} />
         </StyledSwiperContainer>
-      </div>
+      </StyledLayout>
     </StyledMovieSection>
   );
 }
