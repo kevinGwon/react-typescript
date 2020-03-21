@@ -22,7 +22,7 @@ export default createGlobalStyle`
   body {
     background-color: black;
     min-width: 320px;
-    color: rgba(${$white}, 0.9);
+    color: ${$white};
     font-size: 1em;
     font-family: ${$fontMain};
     -webkit-overflow-scrolling: touch;
