@@ -1,15 +1,26 @@
 import { Provider } from 'react-redux';
 import { initStore } from '../redux';
 import withRedux from 'next-redux-wrapper';
-import Layout from '../components/Layout';
-import '../scss/style.scss';
+import Article from '../components/Article';
+import Main from '../components/Main';
+
+// Styled
+import StyledReset from '../styled/global/StyledReset';
+import StyledHelper from '../styled/global/StyledHelper';
+import StyledForm from '../styled/global/StyledForm';
+
 const App = ({ Component, pageProps, store }) => {
   return (
     <>
       <Provider store={store}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Main>
+          <Article>
+            <Component {...pageProps} />
+          </Article>
+        </Main>
+        <StyledReset />
+        <StyledHelper />
+        <StyledForm />
       </Provider>
     </>
   );
