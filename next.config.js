@@ -8,13 +8,25 @@ module.exports = withSass({
     config.node = {
       fs: 'empty',
     };
-
     const env = Object.keys(process.env).reduce((acc, curr) => {
       acc[`process.env.${curr}`] = JSON.stringify(process.env[curr]);
       return acc;
     }, {});
-
+    const styleComponents = {
+      presets: ['next/babel'],
+      plugins: [
+        [
+          'styled-components',
+          {
+            ssr: true,
+            displayName: true,
+            preprocess: false,
+          },
+        ],
+      ],
+    };
     config.plugins.push(new webpack.DefinePlugin(env));
+    config.plugins.push(new webpack.DefinePlugin(styleComponents));
 
     config.module.rules.push({
       test: /\.s[ac]ss$/i,
