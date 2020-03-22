@@ -5,9 +5,9 @@ import Article from '../components/Article';
 import Main from '../components/main/Main';
 
 // Styled
-import StyledReset from '../components/styled/global/StyledReset.style';
-import StyledHelper from '../components/styled/global/StyledHelper.style';
-import StyledForm from '../components/styled/global/StyledForm.style';
+import StyledReset from '../styled/global/StyledReset.style';
+import StyledHelper from '../styled/global/StyledHelper.style';
+import StyledForm from '../styled/global/StyledForm.style';
 
 const App = ({ Component, pageProps, store }) => {
   return (

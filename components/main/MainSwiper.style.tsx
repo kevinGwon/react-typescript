@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
-import { $colorPrimary, $mqLarge } from '../styled/global/StyledVariable.style';
-import { FullPos } from '../styled/mixin';
+import {
+  $colorPrimary,
+  $mqLarge,
+} from '../../styled/global/StyledVariable.style';
+import { FullPos } from '../../styled/mixin';
 
 const SwiperButtonStyle = css`
   position: absolute;

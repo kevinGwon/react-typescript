@@ -9,8 +9,8 @@ import MainSectionBg from './MainSectionBg';
 import MainHeading from './MainHeading';
 
 // Styled
-import { StyledLayout } from '../styled/global/StyledLayout.style';
-import { StyledHeding1 } from '../styled/global/StyledHeading.style';
+import { StyledLayout } from '../../styled/global/StyledLayout.style';
+import { StyledHeding1 } from '../../styled/global/StyledHeading.style';
 import MainSwiper from './MainSwiper';
 import { StyledMainSection, StyledMainSectionBg } from './MainSection.style';
 

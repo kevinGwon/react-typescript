@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { FullPos } from '../styled/mixin';
-import { $dur, $ease } from '../styled/global/StyledVariable.style';
+import { FullPos } from '../../styled/mixin';
+import { $dur, $ease } from '../../styled/global/StyledVariable.style';
 
 export const StyleArticle = styled.article`
   height: 100vh;

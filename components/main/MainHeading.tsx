@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyledHeding1 } from '../styled/global/StyledHeading.style';
+import { StyledHeding1 } from '../../styled/global/StyledHeading.style';
 
 function MainHeading({ category }: { category: string }) {
   return (
