@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { FullPos } from '../mixin';
-import { $dur, $ease } from '../global/StyledVariable';
+import { FullPos } from '../styled/mixin';
+import { $dur, $ease } from '../styled/global/StyledVariable';
 
 export const StyleArticle = styled.article`
   height: 100vh;
@@ -20,7 +20,7 @@ export const StyledMovieSection = styled.section.attrs(props => ({
   visibility: hidden;
   ${FullPos}
   opacity: 0;
-  transition: all ${$dur} ${$ease};
+  transition: all 1s ${$ease};
 
   h1 {
     display: block;
@@ -31,6 +31,9 @@ export const StyledMovieSection = styled.section.attrs(props => ({
   .l-wrap {
     flex-direction: column;
   }
+  &.is-animated {
+    transform: translateY(-10%);
+  }
   &.is-active {
     visibility: visible;
     opacity: 1;
@@ -39,7 +42,7 @@ export const StyledMovieSection = styled.section.attrs(props => ({
 export const StyledMovieSectionBg = styled.div.attrs(props => ({
   className: 'movie-section-bg',
 }))`
-  ${FullPos}
+  ${FullPos};
   transition: all ${$dur} linear;
   z-index: 1;
   background-repeat: no-repeat;
@@ -49,7 +52,7 @@ export const StyledMovieSectionBg = styled.div.attrs(props => ({
 
   ${props => {
     return css`
-      background-image: ${props.bgUrl};
+      background-image: url('${props.bgUrl}')};
     `;
   }}
   & + .movie-section-bg--next {

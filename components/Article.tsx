@@ -5,10 +5,7 @@ import HeaderContainer from '../containers/HeaderContainer';
 import FooterContainer from '../containers/FooterContainer';
 
 // Styled
-import {
-  StyledMovieSectionBox,
-  StyleArticle,
-} from '../styled/components/StyledMovieSection';
+import { StyledMovieSectionBox, StyleArticle } from './main/MainSection.style';
 
 function Article({ children }) {
   return (

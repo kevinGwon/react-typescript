@@ -2,12 +2,12 @@ import { Provider } from 'react-redux';
 import { initStore } from '../redux';
 import withRedux from 'next-redux-wrapper';
 import Article from '../components/Article';
-import Main from '../components/Main';
+import Main from '../components/main/Main';
 
 // Styled
-import StyledReset from '../styled/global/StyledReset';
-import StyledHelper from '../styled/global/StyledHelper';
-import StyledForm from '../styled/global/StyledForm';
+import StyledReset from '../components/styled/global/StyledReset';
+import StyledHelper from '../components/styled/global/StyledHelper';
+import StyledForm from '../components/styled/global/StyledForm';
 
 const App = ({ Component, pageProps, store }) => {
   return (

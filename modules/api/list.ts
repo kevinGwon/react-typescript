@@ -118,7 +118,6 @@ export const API_FILTER = API => {
     year: LIST_STATE.year,
     month: LIST_STATE.month,
     day: LIST_STATE.day,
-    // category: category,category
   });
   const _API: any = {
     action: [],
