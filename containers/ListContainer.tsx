@@ -33,13 +33,12 @@ function ListContainer(props: { data: ListType[] }) {
     $target => {
       const index = $target.snapIndex,
         $slide = $target.slides[index],
-        $section = $slide.parentNode.offsetParent.offsetParent,
-        classList = $section.querySelector('.movie-section-bg').classList,
+        $section = $slide.parentNode.offsetParent.offsetParent.offsetParent,
         $bgAll = $section.querySelectorAll('.movie-section-bg'),
         $bg = $section.querySelector('.movie-section-bg'),
         bgUrl = $slide.querySelector('img').getAttribute('data-bg'),
+        classList = $bg.classList,
         slideLength = $bgAll.length;
-
       if ($bgAll.length > 1) {
         $bgAll.forEach(item => {
           item.remove();
@@ -47,24 +46,18 @@ function ListContainer(props: { data: ListType[] }) {
         runBackUpBg({ slideLength, $section, bgUrl, classList });
         return false;
       }
-
       let $prev = null,
         $current = $bg,
         $next = null;
-
       runBackUpBg({ slideLength, $bg, bgUrl, classList });
-
       $next = $section.querySelector('.movie-section-bg--next');
       $current = $next;
       $prev = $current.previousElementSibling;
-
       TweenMax.to($next, 1 / 1.5, {
         scale: 1,
       });
-
       TweenMax.to($prev, 1, {
         autoAlpha: 0,
-        rotation: -25,
         onComplete: () => {
           $current.classList.remove('movie-section-bg--next');
           $prev.remove();
