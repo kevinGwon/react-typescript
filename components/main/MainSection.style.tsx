@@ -2,7 +2,8 @@ import styled, { css } from 'styled-components';
 import { FullPos } from '../../styled/mixin';
 import { $dur, $ease } from '../../styled/global/StyledVariable.style';
 
-export const StyleArticle = styled.article`
+export const StyledArticle = styled.article`
+  overflow: hidden;
   height: 100vh;
 `;
 export const StyledMainSectionBox = styled.div.attrs(props => ({
@@ -20,7 +21,7 @@ export const StyledMainSection = styled.section.attrs(props => ({
   visibility: hidden;
   ${FullPos}
   opacity: 0;
-  transition: all 1s ${$ease};
+  transition: all ${$dur} linear;
 
   h1 {
     display: block;
@@ -32,7 +33,7 @@ export const StyledMainSection = styled.section.attrs(props => ({
     flex-direction: column;
   }
   &.is-animated {
-    transform: translateY(-10%);
+    transform: translateY(-5%);
   }
   &.is-active {
     visibility: visible;

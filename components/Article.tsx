@@ -2,20 +2,18 @@ import * as React from 'react';
 
 // Components
 import HeaderContainer from '../containers/HeaderContainer';
-import FooterContainer from '../containers/FooterContainer';
+import Footer from '../components/Footer';
 
 // Styled
-import { StyledMainSectionBox, StyleArticle } from './main/MainSection.style';
+import { StyledArticle } from './main/MainSection.style';
 
 function Article({ children }) {
   return (
     <>
-      <HeaderContainer />
-      <StyleArticle>
-        <h1 className="a11y">영화정보 리스트</h1>
-        <StyledMainSectionBox>{children}</StyledMainSectionBox>
-      </StyleArticle>
-      <FooterContainer />
+      <StyledArticle>
+        <h2 className="a11y">영화정보 리스트</h2>
+        {children}
+      </StyledArticle>
     </>
   );
 }

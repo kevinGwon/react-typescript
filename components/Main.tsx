@@ -4,8 +4,13 @@ import styled from 'styled-components';
 // Styled
 import { StyledMain } from './Main.style';
 
-function Main(props) {
-  return <StyledMain {...props} />;
+function Main({ children }) {
+  return (
+    <StyledMain>
+      <h1 className="a11y">Themovie Contents</h1>
+      {children}
+    </StyledMain>
+  );
 }
 
 export default Main;
