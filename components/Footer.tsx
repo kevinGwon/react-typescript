@@ -1,11 +1,8 @@
 import * as React from 'react';
+import { StyledFooter } from './Footer.style';
 
 function Footer() {
-  return (
-    <footer id="footer" className="footer">
-      © 2020, kevinGwon, Made with Next.js
-    </footer>
-  );
+  return <StyledFooter>© 2020, kevinGwon, Made with Next.js</StyledFooter>;
 }
 
 Footer.displayName = 'Footer';

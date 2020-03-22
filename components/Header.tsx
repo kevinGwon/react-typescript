@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { StyledHeader } from './Header.style';
 
 function Header({ user, onLogin }) {
   return (
-    <header id="header" className="header">
+    <StyledHeader>
       <div className="l-header">
         <h1 className="logo a11y">The movie</h1>
         <button className="btn-home">
@@ -50,7 +51,7 @@ function Header({ user, onLogin }) {
           </form>
         </div>
       </div>
-    </header>
+    </StyledHeader>
   );
 }
 
