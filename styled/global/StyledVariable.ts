@@ -2,6 +2,14 @@
 // Variable
 // -----------------------------------------------------------------------------
 
+// breakpoints
+
+export const $mqSmall = '560px';
+export const $mqMedium = '720px';
+export const $mqLarge = '960px';
+export const $mqXlarge = '1200px';
+export const $mqXxlarge = '1600px';
+
 // layout
 // -----------------------------------------------------------------------------
 export const $wSmall = '360px';
