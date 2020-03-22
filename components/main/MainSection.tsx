@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { StyledMovieSection } from './MainSection.style';
+import { StyledMainSection } from './MainSection.style';
 
-function MovieSection(props) {
-  return <StyledMovieSection {...props} />;
+function MainSection(props) {
+  return <StyledMainSection {...props} />;
 }
 
-export default MovieSection;
+export default MainSection;

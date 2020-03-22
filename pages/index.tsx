@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 
 // Components
-import ListContainer from '../containers/ListContainer';
+import MainListContainer from '../containers/main/MainListContainer';
 
 // Modules
 import {
@@ -40,7 +40,7 @@ const Index = ({ API }: IndexType) => {
       </Head>
       {Object.keys(API).map(category => {
         if (category !== 'search')
-          return <ListContainer key={category} data={API[category]} />;
+          return <MainListContainer key={category} data={API[category]} />;
       })}
     </>
   );

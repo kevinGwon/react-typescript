@@ -5,7 +5,7 @@ import {
   $white,
   $gray3,
   $en,
-} from './StyledVariable';
+} from './StyledVariable.style';
 
 export default createGlobalStyle`
   // -----------------------------------------------------------------------------

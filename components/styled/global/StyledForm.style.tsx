@@ -8,7 +8,7 @@ import {
   $silverDark,
   $fog,
   $gray4,
-} from './StyledVariable';
+} from './StyledVariable.style';
 
 export default createGlobalStyle`
   // -----------------------------------------------------------------------------

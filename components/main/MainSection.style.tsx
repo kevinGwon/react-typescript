@@ -1,17 +1,17 @@
 import styled, { css } from 'styled-components';
 import { FullPos } from '../styled/mixin';
-import { $dur, $ease } from '../styled/global/StyledVariable';
+import { $dur, $ease } from '../styled/global/StyledVariable.style';
 
 export const StyleArticle = styled.article`
   height: 100vh;
 `;
-export const StyledMovieSectionBox = styled.div.attrs(props => ({
+export const StyledMainSectionBox = styled.div.attrs(props => ({
   className: `movie-section-box`,
 }))`
   overflow: hidden;
   ${FullPos}
 `;
-export const StyledMovieSection = styled.section.attrs(props => ({
+export const StyledMainSection = styled.section.attrs(props => ({
   className: `movie-section ${props.active ? 'is-active' : ''}`,
 }))`
   display: flex;
@@ -39,7 +39,7 @@ export const StyledMovieSection = styled.section.attrs(props => ({
     opacity: 1;
   }
 `;
-export const StyledMovieSectionBg = styled.div.attrs(props => ({
+export const StyledMainSectionBg = styled.div.attrs(props => ({
   className: 'movie-section-bg',
 }))`
   ${FullPos};

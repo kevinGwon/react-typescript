@@ -5,7 +5,7 @@ import HeaderContainer from '../containers/HeaderContainer';
 import FooterContainer from '../containers/FooterContainer';
 
 // Styled
-import { StyledMovieSectionBox, StyleArticle } from './main/MainSection.style';
+import { StyledMainSectionBox, StyleArticle } from './main/MainSection.style';
 
 function Article({ children }) {
   return (
@@ -13,7 +13,7 @@ function Article({ children }) {
       <HeaderContainer />
       <StyleArticle>
         <h1 className="a11y">영화정보 리스트</h1>
-        <StyledMovieSectionBox>{children}</StyledMovieSectionBox>
+        <StyledMainSectionBox>{children}</StyledMainSectionBox>
       </StyleArticle>
       <FooterContainer />
     </>

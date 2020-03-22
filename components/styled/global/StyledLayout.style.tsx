@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { $wWrap, $offsetSm, $offsetLg } from './StyledVariable';
+import { $wWrap, $offsetSm, $offsetLg } from './StyledVariable.style';
 
 export const StyledLayout = styled.div.attrs(props => ({
   className: 'l-wrap',

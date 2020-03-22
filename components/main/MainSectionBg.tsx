@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { StyledMovieSectionBg } from './MainSection.style';
+import { StyledMainSectionBg } from './MainSection.style';
 
-function MovieSectionBg({ bgUrl, $sectionBg }) {
-  return <StyledMovieSectionBg bgUrl={bgUrl} ref={$sectionBg} />;
+function MainSectionBg({ bgUrl, $sectionBg }) {
+  return <StyledMainSectionBg bgUrl={bgUrl} ref={$sectionBg} />;
 }
 
-export default MovieSectionBg;
+export default MainSectionBg;

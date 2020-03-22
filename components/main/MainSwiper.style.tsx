@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { $colorPrimary, $mqLarge } from '../styled/global/StyledVariable';
+import { $colorPrimary, $mqLarge } from '../styled/global/StyledVariable.style';
 import { FullPos } from '../styled/mixin';
 
 const SwiperButtonStyle = css`
@@ -45,7 +45,7 @@ export const StyledSwiperSlide = styled.div.attrs(props => ({
   }
 `;
 
-export const StyledSwiperPagination = styled.div.attrs(props => ({
+export const StyledMainSwiperPagination = styled.div.attrs(props => ({
   className: 'swiper-pagination',
 }))`
   .swiper-pagination-bullet {
@@ -57,13 +57,13 @@ export const StyledSwiperPagination = styled.div.attrs(props => ({
   }
 `;
 
-export const StyledSwiperButton = styled.div.attrs(props => ({
+export const StyledMainSwiperButton = styled.div.attrs(props => ({
   className: `swiper-button-${props.dir && props.dir}`,
 }))`
   ${SwiperButtonStyle}
 `;
 
-export const StyledSwiperLazy = styled.div.attrs(props => ({
+export const StyledMainSwiperLazy = styled.div.attrs(props => ({
   className: 'swiper-lazy-preloader swiper-lazy-preloader-white',
 }))`
   border-color: ${$colorPrimary};

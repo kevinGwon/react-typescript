@@ -9,15 +9,15 @@ import MainSectionBg from './MainSectionBg';
 import MainHeading from './MainHeading';
 
 // Styled
-import { StyledLayout } from '../styled/global/StyledLayout';
-import { StyledHeding1 } from '../styled/global/StyledHeading';
+import { StyledLayout } from '../styled/global/StyledLayout.style';
+import { StyledHeding1 } from '../styled/global/StyledHeading.style';
 import MainSwiper from './MainSwiper';
-import { StyledMovieSection, StyledMovieSectionBg } from './MainSection.style';
+import { StyledMainSection, StyledMainSectionBg } from './MainSection.style';
 
 // Swiper Style Modules
-import { StyledSwiperLazy } from './MainSwiper.style';
+import { StyledMainSwiperLazy } from './MainSwiper.style';
 
-function List({
+function MainList({
   data,
   $sectionBg,
   runSwiper,
@@ -48,4 +48,4 @@ function List({
   );
 }
 
-export default React.memo(List);
+export default React.memo(MainList);

@@ -12,9 +12,9 @@ import { ListType } from '../../types/redux/list';
 import {
   StyledSwiperContainer,
   StyledSwiperSlide,
-  StyledSwiperLazy,
-  StyledSwiperPagination,
-  StyledSwiperButton,
+  StyledMainSwiperLazy,
+  StyledMainSwiperPagination,
+  StyledMainSwiperButton,
 } from './MainSwiper.style';
 
 function MainSwiper({ data }: { data: ListType[] }) {
@@ -44,7 +44,7 @@ function MainSwiper({ data }: { data: ListType[] }) {
                     <h3>{item.title}</h3>
                     <p>{item.overview}</p>
                   </div>
-                  <StyledSwiperLazy />
+                  <StyledMainSwiperLazy />
                 </div>
               </a>
             </Link>
@@ -53,11 +53,11 @@ function MainSwiper({ data }: { data: ListType[] }) {
       </div>
 
       {/* Pagination */}
-      <StyledSwiperPagination />
+      <StyledMainSwiperPagination />
 
       {/* Arrow */}
-      <StyledSwiperButton dir={'prev'} />
-      <StyledSwiperButton dir={'next'} />
+      <StyledMainSwiperButton dir={'prev'} />
+      <StyledMainSwiperButton dir={'next'} />
     </StyledSwiperContainer>
   );
 }
