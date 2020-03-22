@@ -5,7 +5,7 @@ import HeaderContainer from '../containers/HeaderContainer';
 import Footer from '../components/Footer';
 
 // Styled
-import { StyledArticle } from './main/MainSection.style';
+import { StyledArticle } from './Article.style';
 
 function Article({ children }) {
   return (
