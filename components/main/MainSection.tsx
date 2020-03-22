@@ -1,12 +1,8 @@
 import * as React from 'react';
-import { StyledMainSection, StyledMainSectionBox } from './MainSection.style';
+import { StyledMainSection } from './MainSection.style';
 
 function MainSection(props) {
-  return (
-    <StyledMainSectionBox>
-      <StyledMainSection {...props} />
-    </StyledMainSectionBox>
-  );
+  return <StyledMainSection {...props} />;
 }
 
 export default MainSection;

@@ -12,7 +12,11 @@ import MainHeading from './MainHeading';
 import { StyledLayout } from '../../styled/global/StyledLayout.style';
 import { StyledHeding1 } from '../../styled/global/StyledHeading.style';
 import MainSwiper from './MainSwiper';
-import { StyledMainSection, StyledMainSectionBg } from './MainSection.style';
+import {
+  StyledMainSection,
+  StyledMainSectionBg,
+  StyledMainSectionBox,
+} from './MainSection.style';
 
 // Swiper Style Modules
 import { StyledMainSwiperLazy } from './MainSwiper.style';

@@ -20,6 +20,7 @@ import ScrollMotion from '../modules/scroll-motion';
 // Types
 import { IndexType } from '../types';
 import axios from 'axios';
+import { StyledMainSectionBox } from '../components/main/MainSection.style';
 
 const scrollMotion = new ScrollMotion();
 
@@ -38,10 +39,12 @@ const Index = ({ API }: IndexType) => {
       <Head>
         <title>Themovie | Home</title>
       </Head>
-      {Object.keys(API).map(category => {
-        if (category !== 'search')
-          return <MainListContainer key={category} data={API[category]} />;
-      })}
+      <StyledMainSectionBox>
+        {Object.keys(API).map(category => {
+          if (category !== 'search')
+            return <MainListContainer key={category} data={API[category]} />;
+        })}
+      </StyledMainSectionBox>
     </>
   );
 };
