@@ -19,9 +19,7 @@ const App = ({ Component, pageProps, store }) => {
       <Provider store={store}>
         <HeaderContainer />
         <Main>
-          <Article>
-            <Component {...pageProps} />
-          </Article>
+          <Component {...pageProps} />
         </Main>
         <Footer />
         <StyledReset />

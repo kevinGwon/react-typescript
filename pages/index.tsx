@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 
 // Components
 import MainListContainer from '../containers/main/MainListContainer';
+import MainSectionBox from '../components/main/MainSectionBox';
 
 // Modules
 import {
@@ -20,7 +21,7 @@ import ScrollMotion from '../modules/scroll-motion';
 // Types
 import { IndexType } from '../types';
 import axios from 'axios';
-import { StyledMainSectionBox } from '../components/main/MainSection.style';
+import Article from '../components/Article';
 
 const scrollMotion = new ScrollMotion();
 
@@ -39,12 +40,15 @@ const Index = ({ API }: IndexType) => {
       <Head>
         <title>Themovie | Home</title>
       </Head>
-      <StyledMainSectionBox>
-        {Object.keys(API).map(category => {
-          if (category !== 'search')
-            return <MainListContainer key={category} data={API[category]} />;
-        })}
-      </StyledMainSectionBox>
+      <Article>
+        <h2 className="a11y">영화정보 리스트</h2>
+        <MainSectionBox>
+          {Object.keys(API).map(category => {
+            if (category !== 'search')
+              return <MainListContainer key={category} data={API[category]} />;
+          })}
+        </MainSectionBox>
+      </Article>
     </>
   );
 };

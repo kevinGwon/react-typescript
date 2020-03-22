@@ -10,10 +10,7 @@ import { StyledArticle } from './main/MainSection.style';
 function Article({ children }) {
   return (
     <>
-      <StyledArticle>
-        <h2 className="a11y">영화정보 리스트</h2>
-        {children}
-      </StyledArticle>
+      <StyledArticle>{children}</StyledArticle>
     </>
   );
 }
