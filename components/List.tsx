@@ -9,12 +9,13 @@ import {
   StyledSwiperContainer,
   StyledSwiperPagination,
   StyledSwiperButton,
-} from '../styled/components/StyledList';
+  StyledSwiperSlide,
+} from '../styled/components/StyledSwiper';
 import {
   StyledMovieSection,
   StyledMovieSectionBg,
-} from '../styled/components/StyledMain';
-import { StyledSwiperLazy } from '../styled/components/StyledSwiperLazy';
+} from '../styled/components/StyledMovieSection';
+import { StyledSwiperLazy } from '../styled/components/StyledSwiper';
 
 // Swiper Style Modules
 import '../scss/swiper.scss';
@@ -28,7 +29,7 @@ function List({
 }: {
   data: ListType[];
   $sectionBg: React.LegacyRef<HTMLDivElement>;
-  runTransition: any;
+  runTransition: ($target: any) => void;
 }) {
   useEffect(() => {
     let swiper = null;
@@ -91,7 +92,7 @@ function List({
         <StyledSwiperContainer category={data[0].category}>
           <div className="swiper-wrapper">
             {data.map(item => (
-              <div key={item.id} className="swiper-slide">
+              <StyledSwiperSlide key={item.id} className="swiper-slide">
                 <Link href="/detail/[id]" as={`/detail/${item.id}`}>
                   <a>
                     <div className="thumb">
@@ -117,7 +118,7 @@ function List({
                     </div>
                   </a>
                 </Link>
-              </div>
+              </StyledSwiperSlide>
             ))}
           </div>
 

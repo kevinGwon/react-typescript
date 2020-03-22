@@ -8,7 +8,7 @@ import FooterContainer from '../containers/FooterContainer';
 import {
   StyledMovieSectionBox,
   StyleArticle,
-} from '../styled/components/StyledMain';
+} from '../styled/components/StyledMovieSection';
 
 function Article({ children }) {
   return (
