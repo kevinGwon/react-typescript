@@ -27,20 +27,3 @@ export const StyledHeding5 = styled.h5`
   font-size: 1.8rem;
 `;
 export const StyledHeding6 = styled.h6``;
-
-// sub fonts
-// .sub-h1 {
-//   // font-family: $en;
-//   font-size: 3.6em;
-//   font-weight: bold;
-
-//   @include mq(medium) {
-//     font-size: 4.6em;
-//   }
-// }
-
-// .sub-h2 {
-//   // font-family: $en;
-//   font-size: 3em;
-//   font-weight: bold;
-// }
