@@ -60,7 +60,7 @@ const runTransition = $target => {
   });
 };
 
-const runSwiper = category => {
+const runSwiper = (category: string) => {
   return new Swiper(`.swiper-container-${category}`, {
     lazy: true,
     parallax: true,

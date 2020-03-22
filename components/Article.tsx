@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 // Styled
 import { StyledArticle } from './Article.style';
 
-function Article({ children }) {
+function Article({ children }: { children: React.ReactNode }) {
   return (
     <>
       <StyledArticle>{children}</StyledArticle>

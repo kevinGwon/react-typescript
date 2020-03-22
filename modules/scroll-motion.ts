@@ -1,4 +1,21 @@
+import * as React from 'react';
+
 class ScrollMotion {
+  DOWN: string;
+  UP: string;
+  isDestroy: null | boolean;
+  isActive: string;
+  isAnimated: string;
+  lastScrollTop: number;
+  dir: null | string;
+  isMove: boolean;
+  index: number;
+  sectionLength: number;
+  eventMap: object;
+  eventWheel: string;
+  $sectionBox: HTMLDivElement | null;
+  $section: NodeListOf<HTMLElement> | null;
+  $indicatorBtn: NodeListOf<Element> | null;
   constructor() {
     this.DOWN = 'DOWN';
     this.UP = 'UP';
@@ -124,7 +141,7 @@ class ScrollMotion {
     }
   }
 
-  runMoveTo(dir) {
+  runMoveTo(dir?) {
     this.isMove = true;
 
     console.log(`${this.index} / ${this.sectionLength}`);
@@ -141,7 +158,7 @@ class ScrollMotion {
     }
   }
 
-  destroy(e) {
+  destroy() {
     console.log('Destroy ScrollMotion');
     // IG.$footer && IG.$footer.classList.remove('is-toggle');
     document.removeEventListener('wheel', this.eventMap[this.eventWheel]);
