@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { $wWrap, $offsetSm, $offsetLg } from './StyledVariable.style';
+import {
+  $wWrap,
+  $offsetSm,
+  $offsetLg,
+  $mqMedium,
+} from './StyledVariable.style';
 
 export const StyledLayout = styled.div.attrs(props => ({
   className: 'l-wrap',
@@ -12,7 +17,7 @@ export const StyledLayout = styled.div.attrs(props => ({
   padding-right: ${$offsetSm};
   box-sizing: border-box;
 
-  @media (min-width: 720px) {
+  @media (min-width: ${$mqMedium}) {
     width: 100%;
     padding-left: ${$offsetLg};
     padding-right: ${$offsetLg};

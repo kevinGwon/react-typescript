@@ -8,6 +8,8 @@ import {
   $white,
   $dur,
   $ease,
+  $mqMedium,
+  $offsetLg,
 } from '../styled/global/StyledVariable.style';
 import { rgba } from '../styled/mixin';
 
@@ -40,6 +42,11 @@ export const StyledLayoutHeader = styled.div`
   padding-left: ${$offsetSm};
   padding-right: ${$offsetSm};
   box-sizing: border-box;
+
+  @media (min-width: ${$mqMedium}) {
+    padding-left: ${$offsetLg};
+    padding-right: ${$offsetLg};
+  }
 `;
 export const StyledHeaderForm = styled.form`
   display: flex;
