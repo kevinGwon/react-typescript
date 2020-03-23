@@ -1,49 +1,58 @@
 import Swiper from 'swiper';
 import { TweenMax } from 'gsap';
 
-const runBackUpBg = obj => {
-  const $div = document.createElement('div');
-  obj.slideLength === 1
+const runBackUpBg = ({
+  slideLength,
+  $section,
+  $bg,
+  bgUrl,
+  classList,
+}: {
+  slideLength: number;
+  $section?: HTMLDivElement;
+  $bg?: HTMLDivElement;
+  bgUrl: string;
+  classList: DOMTokenList;
+}) => {
+  const $div: HTMLDivElement = document.createElement('div');
+  slideLength === 1
     ? $div.classList.add(
-        obj.classList[0],
-        obj.classList[1],
+        classList[0],
+        classList[1],
         'movie-section-bg',
         'movie-section-bg--next',
       )
-    : $div.classList.add(
-        obj.classList[0],
-        obj.classList[1],
-        'movie-section-bg',
-      );
-  $div.style.backgroundImage = `url('${obj.bgUrl}')`;
+    : $div.classList.add(classList[0], classList[1], 'movie-section-bg');
+  $div.style.backgroundImage = `url('${bgUrl}')`;
 
-  if (obj.slideLength === 1) {
-    obj.$bg.after($div);
+  if (slideLength === 1) {
+    $bg.after($div);
   } else {
     console.log('------ Slide overFlow || Reset Slide ------');
-    obj.$section.prepend($div);
+    $section.prepend($div);
   }
 };
 
 const runTransition = $target => {
   const index = $target.snapIndex,
     $slide = $target.slides[index],
-    $section = $slide.parentNode.offsetParent.offsetParent.offsetParent,
-    $bgAll = $section.querySelectorAll('.movie-section-bg'),
-    $bg = $section.querySelector('.movie-section-bg'),
-    bgUrl = $slide.querySelector('img').getAttribute('data-bg'),
-    classList = $bg.classList,
-    slideLength = $bgAll.length;
+    $section: HTMLDivElement =
+      $slide.parentNode.offsetParent.offsetParent.offsetParent,
+    $bgAll: NodeList = $section.querySelectorAll('.movie-section-bg'),
+    $bg: HTMLDivElement = $section.querySelector('.movie-section-bg'),
+    bgUrl: string = $slide.querySelector('img').getAttribute('data-bg'),
+    classList: DOMTokenList = $bg.classList,
+    slideLength: number = $bgAll.length;
   if ($bgAll.length > 1) {
-    $bgAll.forEach(item => {
+    $bgAll.forEach((item: HTMLDivElement) => {
       item.remove();
     });
     runBackUpBg({ slideLength, $section, bgUrl, classList });
     return false;
   }
-  let $prev = null,
-    $current = $bg,
-    $next = null;
+  let $prev: null | Element = null,
+    $current: HTMLDivElement = $bg,
+    $next: HTMLDivElement = null;
   runBackUpBg({ slideLength, $bg, bgUrl, classList });
   $next = $section.querySelector('.movie-section-bg--next');
   $current = $next;

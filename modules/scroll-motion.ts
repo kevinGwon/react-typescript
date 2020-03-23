@@ -7,7 +7,7 @@ class ScrollMotion {
   isActive: string;
   isAnimated: string;
   lastScrollTop: number;
-  dir: null | string;
+  dir: null | number | string;
   isMove: boolean;
   index: number;
   sectionLength: number;
@@ -76,12 +76,12 @@ class ScrollMotion {
     }, 1200);
   }
 
-  runGetDir(dir) {
+  runGetDir(dir: number | string) {
     if (this.isMove) return;
     this.runDetect(dir);
   }
 
-  runDetect(dir) {
+  runDetect(dir: number | string) {
     dir === this.UP ? --this.index : ++this.index;
 
     if (this.index <= 0) {
@@ -93,7 +93,7 @@ class ScrollMotion {
     this.runMoveTo(dir);
   }
 
-  runAddClass(dir) {
+  runAddClass(dir: number | string) {
     for (let i = 0; i <= this.sectionLength; i++) {
       if (
         this.index === 0 &&
@@ -136,12 +136,12 @@ class ScrollMotion {
     this.$section[this.index].classList.add(this.isActive);
 
     if (dir === this.DOWN) {
-      if (dir === 0) return;
+      if (Number(dir) === 0) return;
       this.$section[this.index - 1].classList.add(this.isAnimated);
     }
   }
 
-  runMoveTo(dir?) {
+  runMoveTo(dir?: number | string) {
     this.isMove = true;
 
     console.log(`${this.index} / ${this.sectionLength}`);
