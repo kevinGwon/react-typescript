@@ -27,8 +27,10 @@ function Id({ API }: { API: any }) {
 }
 
 Id.getInitialProps = async ctx => {
-  const { id } = ctx.query;
-
+  let { id } = ctx.query;
+  if (!id) {
+    id = 181812;
+  }
   try {
     const res = await axios.all([
       GET_DETAIL(id),
