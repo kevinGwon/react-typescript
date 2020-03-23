@@ -23,6 +23,7 @@ import ScrollMotion from '../modules/scroll-motion';
 
 // Types
 import { IndexType } from '../types';
+import Main from '../components/Main';
 
 const scrollMotion = new ScrollMotion();
 
@@ -43,19 +44,7 @@ const Index = ({ API }: IndexType) => {
       </Head>
       <Article>
         <h2 className="a11y">영화정보 리스트</h2>
-        <MainSectionBox>
-          {Object.keys(API).map(category => {
-            if (category !== 'search')
-              return (
-                <MainSection
-                  key={category}
-                  active={API[category][0].category === 'action'}
-                >
-                  <MainListContainer data={API[category]} />
-                </MainSection>
-              );
-          })}
-        </MainSectionBox>
+        <MainSectionBox API={API} />
       </Article>
     </>
   );

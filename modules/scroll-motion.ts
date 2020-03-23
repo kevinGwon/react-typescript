@@ -37,18 +37,16 @@ class ScrollMotion {
   init() {
     this.$sectionBox = document.querySelector('.movie-section-box');
     this.$section = this.$sectionBox.querySelectorAll('section');
-    this.$indicatorBtn = this.$sectionBox.querySelectorAll(
-      '.movie-indicator button',
-    );
+    this.$indicatorBtn = this.$sectionBox.querySelectorAll('.indicator button');
     this.sectionLength = this.$section.length - 1;
 
     setTimeout(() => {
       this.$sectionBox.classList.add('is-loaded');
       this.$section[0].classList.add(this.isActive);
-      // this.$indicatorBtn[0].classList.add(this.isActive);
+      this.$indicatorBtn[0].classList.add(this.isActive);
     }, 500);
 
-    // this.runIndicator();
+    this.runIndicator();
     this.runEventScroll();
   }
 
@@ -122,7 +120,7 @@ class ScrollMotion {
         // Active section
         this.$section[i].classList.remove(this.isActive);
         // Active indicator
-        // this.$indicatorBtn[i].classList.remove(this.isActive);
+        this.$indicatorBtn[i].classList.remove(this.isActive);
 
         if (dir !== 0 && dir === this.UP) {
           this.$section[i - 1].classList.remove(this.isAnimated);
@@ -131,7 +129,7 @@ class ScrollMotion {
     }
 
     // Active indicator
-    // this.$indicatorBtn[this.index].classList.add(this.isActive);
+    this.$indicatorBtn[this.index].classList.add(this.isActive);
     // Active section
     this.$section[this.index].classList.add(this.isActive);
 
