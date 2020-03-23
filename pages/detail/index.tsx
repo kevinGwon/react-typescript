@@ -10,7 +10,6 @@ function Index(props) {
       </Head>
       <Article>
         <h2 className="a11y">영화정보 상세페이지</h2>
-        <DetailContainer />
       </Article>
     </>
   );
