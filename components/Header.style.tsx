@@ -95,7 +95,7 @@ export const StyledHeaderSearchInput = styled.input.attrs(props => ({
   width: 100%;
 `;
 export const StyledHeaderSearchBtn = styled.button.attrs(props => ({
-  type: 'search',
+  type: 'button',
   className: 'btn',
 }))`
   position: absolute;
