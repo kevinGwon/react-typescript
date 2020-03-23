@@ -1,40 +1,33 @@
 import * as React from 'react';
-import { StyledHeader } from './Header.style';
+import {
+  StyledHeader,
+  StyledLayoutHeader,
+  StyledHeaderForm,
+  StyledHeaderSearch,
+  StyledHeaderSearchBtn,
+  StyledHeaderSearchInput,
+  StyledHeaderSearchInputGroup,
+} from './Header.style';
 
-function Header({ user, onLogin }) {
+function Header({
+  searchActive,
+  runSubmit,
+  runSearchActive,
+}: {
+  searchActive: boolean;
+  runSubmit: (e: React.FormEvent) => void;
+  runSearchActive: () => void;
+}) {
   return (
     <StyledHeader>
-      <div className="l-header">
-        <h1 className="logo a11y">The movie</h1>
-        <button className="btn-home">
-          <svg viewBox="0 0 40 40">
-            <polyline points="25.9,32.1 13.4,19.5 25.9,7" />
-          </svg>
-          <span>돌아가기</span>
-        </button>
-        <div className="header-login">
-          {user.uid !== null ? (
-            <>
-              <span>{user.name} 님</span> 반갑습니다.
-            </>
-          ) : (
-            <>
-              <button className="btn login-btn" onClick={onLogin}>
-                Login
-              </button>
-            </>
-          )}
-        </div>
-        <div className="header-search">
-          <form>
-            <div className="input-group">
-              <input
-                type="search"
-                className="input-block"
-                placeholder="제목을 입력하세요"
-              />
-              <button type="button" className="btn-search">
-                <svg className="icon-search" viewBox="0 0 483.083 483.083">
+      <StyledLayoutHeader>
+        <h1 className="a11y">The movie</h1>
+        <StyledHeaderSearch active={searchActive}>
+          <StyledHeaderForm onSubmit={runSubmit}>
+            <StyledHeaderSearchInputGroup>
+              <StyledHeaderSearchInput placeholder="제목을 입력하세요" />
+              <StyledHeaderSearchBtn onClick={runSearchActive}>
+                <svg viewBox="0 0 483.083 483.083">
                   <g>
                     <g>
                       <path
@@ -46,11 +39,11 @@ function Header({ user, onLogin }) {
                     </g>
                   </g>
                 </svg>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+              </StyledHeaderSearchBtn>
+            </StyledHeaderSearchInputGroup>
+          </StyledHeaderForm>
+        </StyledHeaderSearch>
+      </StyledLayoutHeader>
     </StyledHeader>
   );
 }

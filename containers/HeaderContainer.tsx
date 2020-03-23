@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../components/Header';
 import { USER_INFO } from '../redux/reducers/user';
@@ -8,7 +8,8 @@ import 'firebase/auth';
 function HeaderContainer() {
   const user = useSelector(store => store.user);
   const dispatch = useDispatch();
-  const onLogin = React.useCallback(
+  const [searchActive, setSearchActive] = useState(false);
+  const onLogin = useCallback(
     e => {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase
@@ -28,7 +29,20 @@ function HeaderContainer() {
     },
     [firebase],
   );
-  return <Header user={user} onLogin={onLogin} />;
+  const runSubmit = useCallback((e: React.FormEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, []);
+  const runSearchActive = useCallback(() => {
+    setSearchActive(!searchActive);
+  }, [searchActive]);
+  return (
+    <Header
+      searchActive={searchActive}
+      runSubmit={runSubmit}
+      runSearchActive={runSearchActive}
+    />
+  );
 }
 
 export default React.memo(HeaderContainer);
