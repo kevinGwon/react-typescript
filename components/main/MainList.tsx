@@ -42,13 +42,13 @@ function MainList({
   }, []);
 
   return (
-    <MainSection active={data[0].category === 'action'}>
+    <>
       <MainSectionBg bgUrl={data[0].bgImage} $sectionBg={$sectionBg} />
       <StyledLayout>
         <MainHeading category={data[0].category} />
         <MainSwiper data={data} />
       </StyledLayout>
-    </MainSection>
+    </>
   );
 }
 

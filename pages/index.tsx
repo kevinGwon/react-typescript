@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 // Components
 import MainListContainer from '../containers/main/MainListContainer';
 import MainSectionBox from '../components/main/MainSectionBox';
+import Article from '../components/Article';
+import MainSection from '../components/main/MainSection';
 
 // Modules
 import {
@@ -20,8 +23,6 @@ import ScrollMotion from '../modules/scroll-motion';
 
 // Types
 import { IndexType } from '../types';
-import axios from 'axios';
-import Article from '../components/Article';
 
 const scrollMotion = new ScrollMotion();
 
@@ -45,7 +46,14 @@ const Index = ({ API }: IndexType) => {
         <MainSectionBox>
           {Object.keys(API).map(category => {
             if (category !== 'search')
-              return <MainListContainer key={category} data={API[category]} />;
+              return (
+                <MainSection
+                  key={category}
+                  active={API[category][0].category === 'action'}
+                >
+                  <MainListContainer data={API[category]} />
+                </MainSection>
+              );
           })}
         </MainSectionBox>
       </Article>
