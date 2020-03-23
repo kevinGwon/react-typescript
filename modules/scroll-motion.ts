@@ -16,6 +16,7 @@ class ScrollMotion {
   $sectionBox: HTMLDivElement | null;
   $section: NodeListOf<HTMLElement> | null;
   $indicatorBtn: NodeListOf<Element> | null;
+  $footer: HTMLElement | null;
   constructor() {
     this.DOWN = 'DOWN';
     this.UP = 'UP';
@@ -32,9 +33,11 @@ class ScrollMotion {
     this.$sectionBox = null;
     this.$section = null;
     this.$indicatorBtn = null;
+    this.$footer = null;
   }
 
   init() {
+    this.$footer = document.querySelector('#footer');
     this.$sectionBox = document.querySelector('.movie-section-box');
     this.$section = this.$sectionBox.querySelectorAll('section');
     this.$indicatorBtn = this.$sectionBox.querySelectorAll('.indicator button');
@@ -110,11 +113,11 @@ class ScrollMotion {
       }
 
       // footer show & hide
-      // if (this.index === this.sectionLength) {
-      //   IG.$footer.classList.add('is-toggle');
-      // } else {
-      //   IG.$footer.classList.remove('is-toggle');
-      // }
+      if (this.index === this.sectionLength) {
+        this.$footer.classList.add('is-toggle');
+      } else {
+        this.$footer.classList.remove('is-toggle');
+      }
 
       if (this.$section[i].classList.contains(this.isActive)) {
         // Active section
@@ -158,7 +161,7 @@ class ScrollMotion {
 
   destroy() {
     console.log('Destroy ScrollMotion');
-    // IG.$footer && IG.$footer.classList.remove('is-toggle');
+    this.$footer.classList.remove('is-toggle');
     document.removeEventListener('wheel', this.eventMap[this.eventWheel]);
     delete this.eventMap[this.eventWheel];
     this.isDestroy = true;
