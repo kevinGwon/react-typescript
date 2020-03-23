@@ -1,26 +1,20 @@
 {
+  "strict": true,
   "compilerOptions": {
-    // leave JSX as it is
-    "jsx": "react",
-    // resolve modules as you would expect
-    "moduleResolution": "node",
-    // leave imports as they are
-    "module": "commonjs",
-    // do not transpile stuff like classes, async/await, ...
-    "target": "es5",
-    "lib": ["es2015", "es6", "esnext", "dom"],
+    "lib": ["es5", "es2015", "es2016", "es2017", "dom", "esnext"],
     "allowJs": true,
-    // produce a source map
-    "sourceMap": true,
-    "baseUrl": ".",
-    "outDir": "./dist",
-    "paths": {
-      "components/*": ["./src/js/components/*"],
-      "containers/*": ["./src/js/containers/*"]
-    },
-    "allowSyntheticDefaultImports": true,
-    "keyofStringsOnly": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "target": "es5",
+    "strict": false
   },
-  "include": ["./src/**/*"],
-  "exclude": ["./node_modules/**/*"]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
