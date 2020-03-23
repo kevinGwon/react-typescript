@@ -4,6 +4,7 @@ import {
   $mqLarge,
   $dur,
   $colorPrimary,
+  $headerHeightSm,
 } from '../../styled/global/StyledVariable.style';
 
 export const StyledMainIndicator = styled.div.attrs(props => ({
@@ -33,7 +34,7 @@ export const StyledMainIndicator = styled.div.attrs(props => ({
     z-index: 100;
     left: 0;
     right: 0;
-    top: $header-height-sm + 10px;
+    top: ${$headerHeightSm};
     margin-left: 1rem;
     margin-right: 1rem;
     text-align: center;
