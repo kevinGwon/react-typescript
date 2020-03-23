@@ -2,10 +2,6 @@ import styled, { css } from 'styled-components';
 import { FullPos } from '../../styled/mixin';
 import { $dur, $ease } from '../../styled/global/StyledVariable.style';
 
-export const StyledArticle = styled.article`
-  overflow: hidden;
-  height: 100vh;
-`;
 export const StyledMainSectionBox = styled.div.attrs(props => ({
   className: `movie-section-box`,
 }))`
@@ -13,7 +9,7 @@ export const StyledMainSectionBox = styled.div.attrs(props => ({
   ${FullPos}
 `;
 export const StyledMainSection = styled.section.attrs(props => ({
-  className: `movie-section ${props.active ? 'is-active' : ''}`,
+  className: `${props.active ? 'is-active' : ''}`,
 }))`
   display: flex;
   justify-content: center;
@@ -23,6 +19,33 @@ export const StyledMainSection = styled.section.attrs(props => ({
   opacity: 0;
   transition: all ${$dur} linear;
 
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 35%;
+    background: linear-gradient(black 5%, transparent);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 35%;
+    background: linear-gradient(transparent 30%, black);
+  }
+  &.is-animated {
+    transform: translateY(-5%);
+  }
+  &.is-active {
+    visibility: visible;
+    opacity: 1;
+  }
   h1 {
     display: block;
     width: 100%;
@@ -32,16 +55,9 @@ export const StyledMainSection = styled.section.attrs(props => ({
   .l-wrap {
     flex-direction: column;
   }
-  &.is-animated {
-    transform: translateY(-5%);
-  }
-  &.is-active {
-    visibility: visible;
-    opacity: 1;
-  }
 `;
 export const StyledMainSectionBg = styled.div.attrs(props => ({
-  className: 'movie-section-bg',
+  className: 'bg',
 }))`
   ${FullPos};
   transition: all ${$dur} linear;
@@ -56,7 +72,7 @@ export const StyledMainSectionBg = styled.div.attrs(props => ({
       background-image: url('${props.bgUrl}')};
     `;
   }}
-  & + .movie-section-bg--next {
+  & + .bg--next {
     transform: scale(1.25);
   }
 `;

@@ -16,13 +16,8 @@ const runBackUpBg = ({
 }) => {
   const $div: HTMLDivElement = document.createElement('div');
   slideLength === 1
-    ? $div.classList.add(
-        classList[0],
-        classList[1],
-        'movie-section-bg',
-        'movie-section-bg--next',
-      )
-    : $div.classList.add(classList[0], classList[1], 'movie-section-bg');
+    ? $div.classList.add(classList[0], classList[1], 'bg', 'bg--next')
+    : $div.classList.add(classList[0], classList[1], 'bg');
   $div.style.backgroundImage = `url('${bgUrl}')`;
 
   if (slideLength === 1) {
@@ -38,8 +33,8 @@ const runTransition = $target => {
     $slide = $target.slides[index],
     $section: HTMLDivElement =
       $slide.parentNode.offsetParent.offsetParent.offsetParent,
-    $bgAll: NodeList = $section.querySelectorAll('.movie-section-bg'),
-    $bg: HTMLDivElement = $section.querySelector('.movie-section-bg'),
+    $bgAll: NodeList = $section.querySelectorAll('.bg'),
+    $bg: HTMLDivElement = $section.querySelector('.bg'),
     bgUrl: string = $slide.querySelector('img').getAttribute('data-bg'),
     classList: DOMTokenList = $bg.classList,
     slideLength: number = $bgAll.length;
@@ -54,7 +49,7 @@ const runTransition = $target => {
     $current: HTMLDivElement = $bg,
     $next: HTMLDivElement = null;
   runBackUpBg({ slideLength, $bg, bgUrl, classList });
-  $next = $section.querySelector('.movie-section-bg--next');
+  $next = $section.querySelector('.bg--next');
   $current = $next;
   $prev = $current.previousElementSibling;
   TweenMax.to($next, 1 / 1.5, {
@@ -63,7 +58,7 @@ const runTransition = $target => {
   TweenMax.to($prev, 1, {
     autoAlpha: 0,
     onComplete: () => {
-      $current.classList.remove('movie-section-bg--next');
+      $current.classList.remove('bg--next');
       $prev.remove();
     },
   });
