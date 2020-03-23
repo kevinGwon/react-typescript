@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import { StyledLayout } from '../styled/global/StyledLayout.style';
-import Detail from '../components/Detail';
 import { ListType } from '../types/redux/list';
+import Detail from '../components/Detail';
 
-function DetailContainer({ API }: { API: ListType }) {
+function DetailContainer({ API }: { API: any }) {
   const scrollToUp = useCallback(() => {
     window.scrollTo(0, 0);
   }, []);

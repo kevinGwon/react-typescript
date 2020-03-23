@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Article from '../../components/Article';
-import DetailContainer from '../../containers/DetailContainer';
 import {
   GET_DETAIL,
   API_DEDAILT_FILTER,
@@ -11,8 +10,9 @@ import {
 import axios from 'axios';
 import { API_FILTER } from '../../modules/api/list';
 import { ListType } from '../../types/redux/list';
+import DetailContainer from '../../containers/DetailContainer';
 
-function Id({ API }: { API: ListType }) {
+function Id({ API }: { API: any }) {
   return (
     <>
       <Head>
