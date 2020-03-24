@@ -9,6 +9,7 @@ import {
   $fog,
   $gray4,
 } from './StyledVariable.style';
+import { rgba } from '../mixin';
 
 export default createGlobalStyle`
   // -----------------------------------------------------------------------------
@@ -29,7 +30,7 @@ export default createGlobalStyle`
   textarea {
     box-sizing: border-box;
     padding: ${$inputPaddingTb} ${$inputPaddingLr};
-    border: 2px solid ${$colorPrimary};
+    border: 1px solid ${rgba($colorPrimary, 0.8)};
     background: transparent;
     color: ${$white};
     font-size: 16px;
@@ -166,18 +167,6 @@ export default createGlobalStyle`
       font-size: 18px;
       line-height: 34px;
       height: 56px;
-    }
-  }
-
-  .ta {
-    position: relative;
-
-    &-counter {
-      position: absolute;
-      right: 20px;
-      bottom: 10px;
-      font-size: 14px;
-      color: ${$gray4};
     }
   }
 `;
