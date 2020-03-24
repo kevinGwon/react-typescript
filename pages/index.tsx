@@ -1,12 +1,14 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 // Components
 import MainListContainer from '../containers/main/MainListContainer';
 import MainSectionBox from '../components/main/MainSectionBox';
 import Article from '../components/Article';
 import MainSection from '../components/main/MainSection';
+import LoginContainer from '../containers/LoginContainer';
 
 // Modules
 import {
@@ -28,15 +30,18 @@ import Main from '../components/Main';
 const scrollMotion = new ScrollMotion();
 
 const Index = ({ API }: IndexType) => {
+  const { isLogin } = useSelector(store => store.user);
+
   useEffect(() => {
-    scrollMotion.init();
+    isLogin && scrollMotion.init();
     return () => {
       setTimeout(() => {
-        scrollMotion.destroy();
+        isLogin && scrollMotion.destroy();
       }, 0);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isLogin]);
+
   return (
     <>
       <Head>
@@ -46,6 +51,7 @@ const Index = ({ API }: IndexType) => {
         <h2 className="a11y">영화정보 리스트</h2>
         <MainSectionBox API={API} />
       </Article>
+      {!isLogin && <LoginContainer />}
     </>
   );
 };

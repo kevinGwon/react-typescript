@@ -1,44 +1,48 @@
 import axios from 'axios';
+import { API_CONFIG } from './api.config';
 
-export const GET_LOGIN = async (token: string) => {
+export const GET_LOGIN = async (
+  data: { id: string; password: string },
+  token: string,
+) => {
   try {
     return await axios.post(
-      `https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=1e006c1e39b26bfadaa6f757bc1435cf`,
+      `https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=${API_CONFIG.key}`,
       {
-        username: 'godyel7',
-        password: 'kevingwon',
+        username: data.id,
+        password: data.password,
         request_token: token,
       },
     );
   } catch (error) {
-    console.log(error);
+    alert('Login 정보가 일치하지 않습니다.');
   }
 };
 
 export const GET_TOKEN = async () => {
   try {
     return await axios.get(
-      'https://api.themoviedb.org/3/authentication/token/new?api_key=1e006c1e39b26bfadaa6f757bc1435cf',
+      `https://api.themoviedb.org/3/authentication/token/new?api_key=${API_CONFIG.key}`,
     );
   } catch (error) {
-    console.log(error);
+    console.log('Token을 받아오는데 실패했습니다.');
   }
 };
 
 export const GET_SESSION = async (token: string) => {
   try {
     return await axios.post(
-      `https://api.themoviedb.org/3/authentication/session/new?api_key=1e006c1e39b26bfadaa6f757bc1435cf`,
+      `https://api.themoviedb.org/3/authentication/session/new?api_key=${API_CONFIG.key}`,
       {
         request_token: token,
       },
     );
   } catch (error) {
-    console.log(error);
+    console.log('Session을 받아오는데 실패했습니다.');
   }
 };
 
-export const LOGIN = async () => {
+export const LOGIN = async data => {
   try {
     let token, session;
 
@@ -47,7 +51,7 @@ export const LOGIN = async () => {
     token = getToken.data.request_token;
 
     // Login
-    const login = await GET_LOGIN(token);
+    const login = await GET_LOGIN(data, token);
 
     // Session
     const getSession = await GET_SESSION(token);
@@ -55,8 +59,8 @@ export const LOGIN = async () => {
 
     // Set Token, Session
     localStorage.setItem('token', token);
-    localStorage.setItem('session', session);
+    sessionStorage.setItem('session', session);
   } catch (error) {
-    console.log(error);
+    console.log('Token or Session을 받아오는데 실패했습니다.');
   }
 };
