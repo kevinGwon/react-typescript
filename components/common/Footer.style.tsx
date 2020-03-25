@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { $ease } from '../styled/global/StyledVariable.style';
+import { $ease } from '../../styled/global/StyledVariable.style';
 
 export const StyledFooter = styled.footer.attrs(props => ({
   id: 'footer',

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 // Components
 import MainListContainer from '../containers/main/MainListContainer';
 import MainSectionBox from '../components/main/MainSectionBox';
-import Article from '../components/Article';
+import Article from '../components/common/Article';
 import MainSection from '../components/main/MainSection';
 
 // Modules
@@ -24,7 +24,7 @@ import ScrollMotion from '../modules/scroll-motion';
 
 // Types
 import { IndexType } from '../types';
-import Main from '../components/Main';
+import Main from '../components/common/Main';
 import { USER_LOGIN_ON } from '../redux/reducers/user';
 
 const scrollMotion = new ScrollMotion();

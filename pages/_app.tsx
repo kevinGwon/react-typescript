@@ -5,9 +5,9 @@ import withRedux from 'next-redux-wrapper';
 
 // Components
 import HeaderContainer from '../containers/HeaderContainer';
-import Footer from '../components/Footer';
-import Article from '../components/Article';
-import Main from '../components/Main';
+import Footer from '../components/common/Footer';
+import Article from '../components/common/Article';
+import Main from '../components/common/Main';
 import LoginContainer from '../containers/LoginContainer';
 
 // Styled

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Article from '../../components/Article';
+import Article from '../../components/common/Article';
 import {
   GET_DETAIL,
   API_DEDAILT_FILTER,

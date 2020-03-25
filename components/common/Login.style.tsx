@@ -1,7 +1,11 @@
 import styled from 'styled-components';
-import { FullPos, rgba } from '../styled/mixin';
-import { $black, $gray9, $gray } from '../styled/global/StyledVariable.style';
-import { StyledBtn } from './common/Btn.style';
+import { FullPos, rgba } from '../../styled/mixin';
+import {
+  $black,
+  $gray9,
+  $gray,
+} from '../../styled/global/StyledVariable.style';
+import { StyledBtn } from './Btn.style';
 
 export const StyledFormLogo = styled.div`
   max-width: 90px;

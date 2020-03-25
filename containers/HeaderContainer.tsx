@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import Router from 'next/router';
-import Header from '../components/Header';
+import Header from '../components/common/header/Header';
 
 function HeaderContainer() {
   const [searchActive, setSearchActive] = useState(false);

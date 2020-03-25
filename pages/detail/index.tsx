@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Article from '../../components/Article';
+import Article from '../../components/common/Article';
 import DetailContainer from '../../containers/DetailContainer';
 
 function Index(props) {

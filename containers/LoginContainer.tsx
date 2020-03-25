@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useSelector } from 'react-redux';
-import Login from '../components/Login';
+import Login from '../components/common/Login';
 
 import {
   USER_LOGIN_SAGA,

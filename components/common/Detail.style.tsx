@@ -4,9 +4,9 @@ import {
   $mqLarge,
   $black,
   $colorPrimary,
-} from '../styled/global/StyledVariable.style';
-import { FullPos, rgba } from '../styled/mixin';
-import { StyledHeding2 } from '../styled/global/StyledHeading.style';
+} from '../../styled/global/StyledVariable.style';
+import { FullPos, rgba } from '../../styled/mixin';
+import { StyledHeding2 } from '../../styled/global/StyledHeading.style';
 
 export const StyledDetailLayout = styled.div`
   position: relative;

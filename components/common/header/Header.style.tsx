@@ -10,9 +10,9 @@ import {
   $ease,
   $mqMedium,
   $offsetLg,
-} from '../styled/global/StyledVariable.style';
-import { rgba } from '../styled/mixin';
-import Input from './common/Input';
+} from '../../../styled/global/StyledVariable.style';
+import { rgba } from '../../../styled/mixin';
+import Input from '../Input';
 
 export const StyledHeader = styled.header.attrs(props => ({
   id: 'header',

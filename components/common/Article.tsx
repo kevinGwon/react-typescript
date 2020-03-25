@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 // Components
-import HeaderContainer from '../containers/HeaderContainer';
-import Footer from '../components/Footer';
+import HeaderContainer from '../../containers/HeaderContainer';
+import Footer from './Footer';
 
 // Styled
 import { StyledArticle } from './Article.style';

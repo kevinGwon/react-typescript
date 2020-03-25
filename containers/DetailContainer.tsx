@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from 'react';
 import { connect } from 'react-redux';
 import { StyledLayout } from '../styled/global/StyledLayout.style';
 import { ListType } from '../types/redux/list';
-import Detail from '../components/Detail';
+import Detail from '../components/common/Detail';
 import {
   LOADING_ON,
   LOADING_OFF,

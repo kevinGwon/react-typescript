@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
-import Logo from './svg/Logo';
+import Logo from '../svg/Logo';
 import ReactDOM from 'react-dom';
 
 // Components
-import DimLayer from './common/DimLayer';
-import Input from './common/Input';
-import Loading from './common/Loading';
+import DimLayer from './DimLayer';
+import Input from './Input';
+import Loading from './Loading';
 
 // Styled
 import { StyledForm, StyledFormLogo } from './Login.style';
-import { StyledBtn } from './common/Btn.style';
+import { StyledBtn } from './Btn.style';
 
 function Login({ runSubmit }: { runSubmit: (e: React.FormEvent) => void }) {
   return (

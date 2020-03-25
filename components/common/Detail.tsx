@@ -1,7 +1,7 @@
 import React, { useEffect, ReactNode, ReactHTMLElement } from 'react';
-import { StyledLayout } from '../styled/global/StyledLayout.style';
-import { ListType } from '../types/redux/list';
-import filterImages from '../modules/filterImages';
+import { StyledLayout } from '../../styled/global/StyledLayout.style';
+import { ListType } from '../../types/redux/list';
+import filterImages from '../../modules/filterImages';
 import Link from 'next/link';
 import Swiper from 'swiper';
 import {
@@ -24,8 +24,8 @@ import StarRatings from 'react-star-ratings';
 import {
   StyledHeding2,
   StyledHeding5,
-} from '../styled/global/StyledHeading.style';
-import '../scss/swiper.scss';
+} from '../../styled/global/StyledHeading.style';
+import '../../scss/swiper.scss';
 function Detail({ API, scrollToUp }: { API: any; scrollToUp: () => void }) {
   const {
     title,
