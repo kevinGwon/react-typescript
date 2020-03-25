@@ -1,3 +1,3 @@
 export interface CommonType {
-  isLoading: boolean;
+  loading: boolean;
 }

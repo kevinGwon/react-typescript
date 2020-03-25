@@ -2,7 +2,7 @@ import { CommonType } from '../../../types/redux/common';
 import { LOADING_ON, LOADING_OFF, LOADING_ON_SAGA } from './action';
 
 const COMMON_STATE: CommonType = {
-  isLoading: false,
+  loading: false,
 };
 
 const common = (state: CommonType = COMMON_STATE, action): CommonType => {
@@ -10,12 +10,12 @@ const common = (state: CommonType = COMMON_STATE, action): CommonType => {
     case LOADING_ON:
       return {
         ...state,
-        isLoading: true,
+        loading: true,
       };
     case LOADING_OFF:
       return {
         ...state,
-        isLoading: false,
+        loading: false,
       };
     case LOADING_ON_SAGA:
       return {
