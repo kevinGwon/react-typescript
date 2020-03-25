@@ -12,6 +12,7 @@ import {
   $offsetLg,
 } from '../styled/global/StyledVariable.style';
 import { rgba } from '../styled/mixin';
+import Input from './common/Input';
 
 export const StyledHeader = styled.header.attrs(props => ({
   id: 'header',
@@ -95,7 +96,7 @@ export const StyledHeaderSearchInputGroup = styled.div.attrs(props => ({
   width: 100%;
   padding-right: 30px;
 `;
-export const StyledHeaderSearchInput = styled.input.attrs(props => ({
+export const StyledHeaderSearchInput = styled(Input).attrs(props => ({
   type: 'search',
   className: 'input-search',
 }))`
