@@ -11,6 +11,7 @@ import {
   GET_USER,
   GET_SESSION,
   GET_ACCOUNT,
+  GET_FAVORITE,
 } from '../../../modules/api/login';
 
 const pending = () => ({
@@ -19,7 +20,9 @@ const pending = () => ({
 
 const success = action => ({
   type: USER_SUCCESS,
+  id: action.id,
   name: action.name,
+  favorite: action.favorite,
   token: action.token,
   session: action.session,
 });
@@ -44,13 +47,21 @@ function* runLogin(action) {
     // Session
     const sessionResponse = yield call(GET_SESSION, token);
     const { session_id: session } = sessionResponse.data;
-    const accountResponse = yield call(GET_ACCOUNT, session);
 
+    // Account
+    const accountResponse = yield call(GET_ACCOUNT, session);
+    const { id, name } = accountResponse.data;
     console.log(accountResponse);
+
+    // Favorite
+    const favoriteResponse = yield call(GET_FAVORITE, id, session);
+    const favorite = favoriteResponse.data.results;
 
     // Info
     const info = {
-      name: accountResponse.data.username,
+      name,
+      id,
+      favorite,
       session,
       token,
     };

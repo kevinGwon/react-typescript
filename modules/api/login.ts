@@ -32,3 +32,9 @@ export const GET_ACCOUNT = (session: string) => {
     `https://api.themoviedb.org/3/account?api_key=1e006c1e39b26bfadaa6f757bc1435cf&session_id=${session}`,
   );
 };
+
+export const GET_FAVORITE = (id: number, session: string) => {
+  return axios.get(
+    `https://api.themoviedb.org/3/account/${id}/favorite/movies?api_key=${API_CONFIG.key}&session_id=${session}&language=${API_CONFIG.lang}&sort_by=created_at.asc&page=1`,
+  );
+};

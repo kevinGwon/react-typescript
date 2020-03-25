@@ -19,6 +19,8 @@ export const userSuccess = payload => ({
 export const USER_STATE: UserStateType = {
   login: false,
   name: null,
+  id: null,
+  favorite: [],
   token: null,
   session: null,
   loading: false,
@@ -39,6 +41,8 @@ const user = (state: UserStateType = USER_STATE, action) => {
         ...state,
         loading: false,
         name: action.name,
+        id: action.id,
+        favorite: action.favorite,
         token: action.token,
         session: action.session,
       };

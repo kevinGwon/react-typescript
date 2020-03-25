@@ -18,7 +18,7 @@ export const StyledHeader = styled.header.attrs(props => ({
   id: 'header',
 }))`
   position: fixed;
-  z-index: 100;
+  z-index: 101;
   top: 0;
   left: 0;
   height: ${$headerHeightSm};
@@ -68,16 +68,16 @@ export const StyledHeaderSearch = styled.div.attrs(props => ({
     width: 100%;
     transition: width 0.2s ${$ease};
   }
-  .input-search {
+  /* .input-search {
     padding: 0;
     border: 0;
     border-bottom: 1px solid ${rgba($white, 0.7)};
-  }
-  .btn {
+  } */
+  /* .btn {
     width: 25px;
     padding: 0;
     border: 0;
-  }
+  } */
   svg {
     fill: ${$white};
     width: 100%;
