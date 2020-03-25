@@ -3,6 +3,7 @@ import { LIST_STATE } from '../../redux/reducers/list';
 import { API_CONFIG } from './api.config';
 import extend from '../extend';
 import axios from 'axios';
+import { IndexType } from '../../types';
 
 const opt: ExtendType = extend(API_CONFIG, {
   year: LIST_STATE.year,
@@ -40,8 +41,8 @@ export const GET_SIMILAR = async id => {
 };
 
 export const API_DEDAILT_FILTER = API => {
-  let _API: any = {};
-  console.log(API);
+  let _API = {};
+
   return (_API = {
     title: API[0].data.title,
     id: API[0].data.id,
