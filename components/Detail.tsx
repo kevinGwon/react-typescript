@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, ReactNode, ReactHTMLElement } from 'react';
 import { StyledLayout } from '../styled/global/StyledLayout.style';
 import { ListType } from '../types/redux/list';
 import filterImages from '../modules/filterImages';

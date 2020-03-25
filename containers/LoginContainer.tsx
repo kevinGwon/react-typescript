@@ -18,7 +18,7 @@ function LoginContainer({
   runGetToken: (token: string) => void;
   runSubmit: (e: React.FormEvent) => void;
 }) {
-  return <>{!token && <Login runSubmit={runSubmit} />}</>;
+  return <>{!token ? <Login runSubmit={runSubmit} /> : null}</>;
 }
 
 export default connect(

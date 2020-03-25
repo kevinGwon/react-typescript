@@ -17,14 +17,20 @@ import {
   StyledMainSwiperButton,
 } from './MainSwiper.style';
 
-function MainSwiper({ data }: { data: ListType[] }) {
+function MainSwiper({
+  data,
+  runLoading,
+}: {
+  data: ListType[];
+  runLoading: () => void;
+}) {
   return (
     <StyledSwiperContainer category={data[0].category}>
       <div className="swiper-wrapper">
         {data.map(item => (
           <StyledSwiperSlide key={item.id} className="swiper-slide">
             <Link href="/detail/[id]" as={`/detail/${item.id}`}>
-              <a>
+              <a onClick={runLoading}>
                 <div className="thumb">
                   <img
                     data-src={
