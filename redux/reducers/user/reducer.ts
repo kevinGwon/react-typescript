@@ -5,6 +5,7 @@ import {
   USER_PENDING,
   USER_SUCCESS,
   USER_ERROR,
+  USER_TOKEN,
 } from './action';
 import { UserStateType } from '../../../types/redux/user';
 
@@ -36,7 +37,6 @@ const user = (state: UserStateType = USER_STATE, action) => {
     case USER_SUCCESS: {
       return {
         ...state,
-        login: true,
         loading: false,
         name: action.name,
         token: action.token,
@@ -60,12 +60,10 @@ const user = (state: UserStateType = USER_STATE, action) => {
         ...state,
         login: false,
       };
-    case USER_INFO:
+    case USER_TOKEN:
       return {
         ...state,
-        name: action.name,
-        email: action.email,
-        uid: action.uid,
+        token: action.token,
       };
     default:
       return state;

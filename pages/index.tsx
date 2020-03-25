@@ -31,17 +31,17 @@ import { USER_LOGIN_ON } from '../redux/reducers/user';
 const scrollMotion = new ScrollMotion();
 
 const Index = ({ API }: IndexType) => {
-  const { login } = useSelector(store => store.user);
+  const { token } = useSelector(store => store.user);
 
   useEffect(() => {
-    login && scrollMotion.init();
+    token && scrollMotion.init();
     return () => {
       setTimeout(() => {
-        login && scrollMotion.destroy();
+        token && scrollMotion.destroy();
       }, 0);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [login]);
+  }, [token]);
 
   return (
     <>
@@ -52,7 +52,7 @@ const Index = ({ API }: IndexType) => {
         <h2 className="a11y">영화정보 리스트</h2>
         <MainSectionBox API={API} />
       </Article>
-      {!login && <LoginContainer />}
+      {!token && <LoginContainer />}
     </>
   );
 };

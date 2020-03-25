@@ -46,6 +46,8 @@ function* runLogin(action) {
     const { session_id: session } = sessionResponse.data;
     const accountResponse = yield call(GET_ACCOUNT, session);
 
+    console.log(accountResponse);
+
     // Info
     const info = {
       name: accountResponse.data.username,
@@ -61,7 +63,6 @@ function* runLogin(action) {
 
     // Set Token, Session
     localStorage.setItem('token', token);
-    localStorage.setItem('name', info.name);
     sessionStorage.setItem('session', session);
 
     // Fail

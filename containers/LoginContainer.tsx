@@ -1,36 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import Login from '../components/Login';
 
-import { USER_LOGIN_SAGA } from '../redux/reducers/user/index';
+import {
+  USER_LOGIN_SAGA,
+  USER_LOGIN_ON,
+  USER_TOKEN,
+} from '../redux/reducers/user/index';
 import { userSuccess } from '../redux/reducers/user/reducer';
 import Loading from '../components/Loading';
 
 function LoginContainer({
-  runLogin,
+  token,
+  runGetToken,
   runSubmit,
 }: {
-  runLogin: () => void;
+  token: string;
+  runGetToken: (token: string) => void;
   runSubmit: (e: React.FormEvent) => void;
 }) {
-  const [token, setToken] = useState(null);
   useEffect(() => {
-    if (!token) {
-      setToken(localStorage.getItem('token'));
-      runLogin();
-    }
-  }, [token]);
+    runGetToken(localStorage.getItem('token'));
+  }, []);
   return <>{!token && <Login runSubmit={runSubmit} />}</>;
 }
 
 export default connect(
-  state => ({}),
+  store => ({
+    token: store.user.token,
+  }),
   dispatch => ({
-    runLogin: () => {
-      const name: string = localStorage.getItem('name');
-      const token: string = localStorage.getItem('token');
-      const session: string = sessionStorage.getItem('session');
-      dispatch(userSuccess({ name, token, session }));
+    runGetToken: (token: string) => {
+      dispatch({
+        type: USER_TOKEN,
+        token,
+      });
     },
     runSubmit: (e: React.FormEvent) => {
       e.preventDefault();
