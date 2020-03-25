@@ -155,10 +155,14 @@ function Detail({ API, scrollToUp }: { API: any; scrollToUp: () => void }) {
                                   className="swiper-lazy"
                                   data-src={
                                     filterImages(item.poster_path)
-                                      ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+                                      ? `https://image.tmdb.org/t/p/w500/${item.poster_path.replace(
+                                          /\//g,
+                                          '',
+                                        )}`
                                       : 'http://placehold.it/500x747?text=Not Found'
                                   }
                                   alt=""
+                                  // http://localhost:3000/detail/270946
                                 />
                                 <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                               </div>
