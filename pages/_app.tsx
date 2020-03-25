@@ -1,5 +1,6 @@
 import { Provider } from 'react-redux';
 import { initStore } from '../redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import withRedux from 'next-redux-wrapper';
 
 // Components
@@ -17,14 +18,16 @@ const App = ({ Component, pageProps, store }) => {
   return (
     <>
       <Provider store={store}>
-        <HeaderContainer />
-        <Main>
-          <Component {...pageProps} />
-        </Main>
-        <Footer />
-        <Loading />
-        <StyledReset />
-        <StyledHelper />
+        <PersistGate loading={null} persistor={store.__persistor}>
+          <HeaderContainer />
+          <Main>
+            <Component {...pageProps} />
+          </Main>
+          <Footer />
+          <Loading />
+          <StyledReset />
+          <StyledHelper />
+        </PersistGate>
       </Provider>
     </>
   );

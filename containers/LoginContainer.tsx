@@ -19,9 +19,6 @@ function LoginContainer({
   runGetToken: (token: string) => void;
   runSubmit: (e: React.FormEvent) => void;
 }) {
-  useEffect(() => {
-    runGetToken(localStorage.getItem('token'));
-  }, []);
   return <>{!token && <Login runSubmit={runSubmit} />}</>;
 }
 
