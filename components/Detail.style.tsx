@@ -43,7 +43,28 @@ height: 400px;
     background: linear-gradient(transparent 30%, black);
   }
 `;
-export const StyledDetailSection = styled.div``;
+export const StyledDetailSection = styled.div`
+  .swiper-slide {
+    position: relative;
+    height: auto;
+    padding-bottom: 0;
+
+    a {
+      position: static;
+    }
+    img {
+      height: auto;
+    }
+  }
+  .swiper-lazy-preloader,
+  .swiper-lazy-preloader-white {
+    border-color: ${$colorPrimary};
+    border-top-color: transparent;
+    &:after {
+      background-image: url('/images/loading.svg') !important;
+    }
+  }
+`;
 export const StyledDetailHeader = styled.header`
   position: absolute;
   left: 0;
