@@ -8,7 +8,6 @@ import MainListContainer from '../containers/main/MainListContainer';
 import MainSectionBox from '../components/main/MainSectionBox';
 import Article from '../components/Article';
 import MainSection from '../components/main/MainSection';
-import LoginContainer from '../containers/LoginContainer';
 
 // Modules
 import {
@@ -52,7 +51,6 @@ const Index = ({ API }: IndexType) => {
         <h2 className="a11y">영화정보 리스트</h2>
         <MainSectionBox API={API} />
       </Article>
-      {!token && <LoginContainer />}
     </>
   );
 };

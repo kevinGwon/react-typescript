@@ -8,6 +8,7 @@ import HeaderContainer from '../containers/HeaderContainer';
 import Footer from '../components/Footer';
 import Article from '../components/Article';
 import Main from '../components/Main';
+import LoginContainer from '../containers/LoginContainer';
 
 // Styled
 import StyledReset from '../styled/global/StyledReset.style';
@@ -18,18 +19,17 @@ const App = ({ Component, pageProps, store }) => {
   return (
     <>
       <Provider store={store}>
-        {/* 
-        PersistGate는 persisted된 상태가 Redux에 저장될때 까지 렌더링을 지연시킨다. 따라서 SSR에 사용할 경우 영향을 준다..
-        <PersistGate loading={null} persistor={store.__persistor}></PersistGate> 
-        */}
         <HeaderContainer />
         <Main>
           <Component {...pageProps} />
         </Main>
         <Footer />
+        <LoginContainer />
         <Loading />
         <StyledReset />
         <StyledHelper />
+        {/* PersistGate는 persisted된 상태가 Redux에 저장될때 까지 렌더링을 지연시킨다. 따라서 SSR에 사용할 경우 영향을 준다.. */}
+        <PersistGate loading={null} persistor={store.__persistor} />
       </Provider>
     </>
   );
