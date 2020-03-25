@@ -26,21 +26,22 @@ import ScrollMotion from '../modules/scroll-motion';
 // Types
 import { IndexType } from '../types';
 import Main from '../components/Main';
+import { USER_LOGIN_ON } from '../redux/reducers/user';
 
 const scrollMotion = new ScrollMotion();
 
 const Index = ({ API }: IndexType) => {
-  const { isLogin } = useSelector(store => store.user);
+  const { login } = useSelector(store => store.user);
 
   useEffect(() => {
-    isLogin && scrollMotion.init();
+    login && scrollMotion.init();
     return () => {
       setTimeout(() => {
-        isLogin && scrollMotion.destroy();
+        login && scrollMotion.destroy();
       }, 0);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLogin]);
+  }, [login]);
 
   return (
     <>
@@ -51,7 +52,7 @@ const Index = ({ API }: IndexType) => {
         <h2 className="a11y">영화정보 리스트</h2>
         <MainSectionBox API={API} />
       </Article>
-      {!isLogin && <LoginContainer />}
+      {!login && <LoginContainer />}
     </>
   );
 };

@@ -11,7 +11,7 @@ import Main from '../components/Main';
 // Styled
 import StyledReset from '../styled/global/StyledReset.style';
 import StyledHelper from '../styled/global/StyledHelper.style';
-import StyledForm from '../styled/global/StyledForm.style';
+import Loading from '../components/Loading';
 
 const App = ({ Component, pageProps, store }) => {
   return (
@@ -22,9 +22,9 @@ const App = ({ Component, pageProps, store }) => {
           <Component {...pageProps} />
         </Main>
         <Footer />
+        <Loading />
         <StyledReset />
         <StyledHelper />
-        <StyledForm />
       </Provider>
     </>
   );
