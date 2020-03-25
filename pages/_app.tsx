@@ -18,16 +18,18 @@ const App = ({ Component, pageProps, store }) => {
   return (
     <>
       <Provider store={store}>
-        <PersistGate loading={null} persistor={store.__persistor}>
-          <HeaderContainer />
-          <Main>
-            <Component {...pageProps} />
-          </Main>
-          <Footer />
-          <Loading />
-          <StyledReset />
-          <StyledHelper />
-        </PersistGate>
+        {/* 
+        PersistGate는 persisted된 상태가 Redux에 저장될때 까지 렌더링을 지연시킨다. 따라서 SSR에 사용할 경우 영향을 준다..
+        <PersistGate loading={null} persistor={store.__persistor}></PersistGate> 
+        */}
+        <HeaderContainer />
+        <Main>
+          <Component {...pageProps} />
+        </Main>
+        <Footer />
+        <Loading />
+        <StyledReset />
+        <StyledHelper />
       </Provider>
     </>
   );
