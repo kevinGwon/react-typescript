@@ -3,14 +3,13 @@ import Logo from './svg/Logo';
 import ReactDOM from 'react-dom';
 
 // Components
-
 import DimLayer from './common/DimLayer';
 import Input from './common/Input';
+import Loading from './common/Loading';
 
 // Styled
 import { StyledForm, StyledFormLogo } from './Login.style';
 import { StyledBtn } from './common/Btn.style';
-import Loading from './Loading';
 
 function Login({ runSubmit }: { runSubmit: (e: React.FormEvent) => void }) {
   return (

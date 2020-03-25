@@ -8,7 +8,6 @@ import {
   USER_TOKEN,
 } from '../redux/reducers/user/index';
 import { userSuccess } from '../redux/reducers/user/reducer';
-import Loading from '../components/Loading';
 
 function LoginContainer({
   token,

@@ -12,7 +12,7 @@ import Main from '../components/Main';
 // Styled
 import StyledReset from '../styled/global/StyledReset.style';
 import StyledHelper from '../styled/global/StyledHelper.style';
-import Loading from '../components/Loading';
+import Loading from '../components/common/Loading';
 
 const App = ({ Component, pageProps, store }) => {
   return (
