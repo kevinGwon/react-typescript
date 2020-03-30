@@ -8,7 +8,12 @@ export const FullPos = css`
   bottom: 0;
 `;
 
-const hexToRgb = hex => {
+export const rgba = (hex, alpha) => {
+  const color = hexToRgb(hex);
+  return `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
+};
+
+function hexToRgb(hex) {
   // http://stackoverflow.com/a/5624139
   var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   hex = hex.replace(shorthandRegex, function(m, r, g, b) {
@@ -23,12 +28,7 @@ const hexToRgb = hex => {
         b: parseInt(result[3], 16),
       }
     : null;
-};
-
-export const rgba = (hex, alpha) => {
-  const color = hexToRgb(hex);
-  return `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
-};
+}
 
 // @mixin ellipsis($line-cnt, $line-height) {
 //   overflow: hidden;
