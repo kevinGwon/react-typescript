@@ -20,6 +20,7 @@ import {
 
 // Swiper Style Modules
 import { StyledMainSwiperLazy } from './MainSwiper.style';
+import MainSwiperContainer from '../../containers/main/MainSwiperContainer';
 
 function MainList({
   data,
@@ -46,7 +47,7 @@ function MainList({
       <MainSectionBg bgUrl={data[0].bgImage} $sectionBg={$sectionBg} />
       <StyledLayout>
         <MainHeading category={data[0].category} />
-        <MainSwiper data={data} />
+        <MainSwiperContainer data={data} />
       </StyledLayout>
     </>
   );

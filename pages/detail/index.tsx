@@ -1,14 +1,18 @@
 import Head from 'next/head';
+import Article from '../../components/common/Article';
+import DetailContainer from '../../containers/DetailContainer';
 
-function Detail(props) {
+function Index(props) {
   return (
     <>
       <Head>
         <title>Portfolio of KevinGwon | Detail</title>
       </Head>
-      <p>Detail</p>
+      <Article>
+        <h2 className="a11y">영화정보 상세페이지</h2>
+      </Article>
     </>
   );
 }
 
-export default Detail;
+export default Index;

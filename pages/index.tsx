@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 // Components
 import MainListContainer from '../containers/main/MainListContainer';
 import MainSectionBox from '../components/main/MainSectionBox';
-import Article from '../components/Article';
+import Article from '../components/common/Article';
 import MainSection from '../components/main/MainSection';
 
 // Modules
@@ -23,20 +24,24 @@ import ScrollMotion from '../modules/scroll-motion';
 
 // Types
 import { IndexType } from '../types';
-import Main from '../components/Main';
+import Main from '../components/common/Main';
+import { USER_LOGIN_ON } from '../redux/reducers/user';
 
 const scrollMotion = new ScrollMotion();
 
 const Index = ({ API }: IndexType) => {
+  const { token } = useSelector(store => store.user);
+
   useEffect(() => {
-    scrollMotion.init();
+    token && scrollMotion.init();
     return () => {
       setTimeout(() => {
-        scrollMotion.destroy();
+        token && scrollMotion.destroy();
       }, 0);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [token]);
+
   return (
     <>
       <Head>

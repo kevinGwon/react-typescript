@@ -2,7 +2,7 @@
   "Create Functional React Component": {
     "prefix": "fc",
     "body": [
-      "import * as React from 'react';",
+      "import React from 'react';",
       "",
       "function ${TM_FILENAME_BASE}() {",
       "  return (",

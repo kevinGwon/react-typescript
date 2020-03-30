@@ -41,6 +41,7 @@ export default class extends Document {
         <body>
           <Main />
           <NextScript />
+          <div id="loading-box"></div>
         </body>
       </html>
     );

@@ -20,14 +20,14 @@ export const $offsetSm = '20px';
 export const $offsetMd = '30px';
 export const $offsetLg = '50px';
 
-export const $headerHeightSm = '60px;'; // 모바일 header 높이
-export const $headerHeightLg = '85px;'; // 데스크탑 header 높이
-export const $headerHeightCompact = '45px;'; // 데스크탑 header 최소화 시 높이
+export const $headerHeightSm = '60px'; // 모바일 header 높이
+export const $headerHeightLg = '85px'; // 데스크탑 header 높이
+export const $headerHeightCompact = '45px'; // 데스크탑 header 최소화 시 높이
 
-export const $inputPaddingTb = '10px;';
-export const $inputPaddingLr = '15px;';
+export const $inputPaddingTb = '10px';
+export const $inputPaddingLr = '15px';
 
-export const $elementMarginLr = '10px;';
+export const $elementMarginLr = '10px';
 
 // fonts
 // -----------------------------------------------------------------------------
