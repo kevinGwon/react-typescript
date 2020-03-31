@@ -75,9 +75,7 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
-  button,
-  [type='reset'],
-  [type='submit'] {
+  button {
     -webkit-appearance: none;
     box-sizing: content-box;
     padding: 0;
