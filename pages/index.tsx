@@ -43,7 +43,7 @@ const Index = ({ API }: IndexType) => {
     return () => {
       setTimeout(() => {
         scrollMotion.destroy();
-      }, 0);
+      }, 500);
     };
   }, []);
 

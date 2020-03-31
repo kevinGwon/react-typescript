@@ -10,7 +10,7 @@ function Loading() {
   return (
     <>
       {(commonLoading || userLoading) && (
-        <DimLayer>
+        <DimLayer z={120}>
           <StyledLoading>
             <span></span>
           </StyledLoading>

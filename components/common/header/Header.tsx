@@ -9,15 +9,25 @@ import {
   StyledHeaderSearchInputGroup,
   StyledHeaderMenuBtn,
   StyledHeaderUtils,
+  StyledHeaderLogo,
 } from './Header.style';
 import HeaderSearchContainer from '../../../containers/HeaderSearchContainer';
 import HeaderMenuContainer from '../../../containers/HeaderMenuContainer';
+import Logo from '../../svg/Logo';
+import Link from 'next/link';
 
 function Header({ runOpenMenu }: { runOpenMenu: () => void }) {
   return (
     <StyledHeader>
       <StyledLayoutHeader>
         <h1 className="a11y">The movie</h1>
+        <StyledHeaderLogo>
+          <Link href="/">
+            <a>
+              <Logo />
+            </a>
+          </Link>
+        </StyledHeaderLogo>
         <StyledHeaderUtils>
           <StyledHeaderMenuBtn type="button" onClick={runOpenMenu}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

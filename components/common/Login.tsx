@@ -13,7 +13,7 @@ import { StyledBtn } from './Btn.style';
 
 function Login({ runSubmit }: { runSubmit: (e: React.FormEvent) => void }) {
   return (
-    <DimLayer>
+    <DimLayer z={110}>
       <StyledForm>
         <StyledFormLogo>
           <Logo />
