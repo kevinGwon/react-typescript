@@ -6,24 +6,53 @@ import {
   StyledHeaderUser,
   StyledHeaderFavorite,
 } from './HeaderMenu.style';
+import { StyledHeaderMenuBtn } from './Header.style';
+import HeaderMenuDimlayer from './HeaderMenuDimlayer';
+import { API_CONFIG } from '../../../modules/api/api.config';
+import Link from 'next/link';
 
-function HeaderMenu({ name, favorite }: { name: string; favorite: any[] }) {
+function HeaderMenu({
+  menu,
+  name,
+  favorite,
+  runMenuClose,
+}: {
+  menu: boolean;
+  name: string;
+  favorite: any[];
+  runMenuClose: () => void;
+}) {
   return (
-    <StyledHeaderMenu>
-      <StyledHeaderMenuLayout>
-        <StyledHeaderUser>{name}님 반갑습니다.</StyledHeaderUser>
-        <StyledHeaderLogoutBtn type="button" block invert>
-          로그아웃
-        </StyledHeaderLogoutBtn>
-        <StyledHeaderFavorite>
-          {favorite.length ? (
-            favorite.map((item, i) => `<li key={${i}}>${i}</li>`)
-          ) : (
-            <li className="empty">Favorite 목록이 없습니다.</li>
-          )}
-        </StyledHeaderFavorite>
-      </StyledHeaderMenuLayout>
-    </StyledHeaderMenu>
+    <>
+      {menu && <HeaderMenuDimlayer />}
+      <StyledHeaderMenu className={menu ? 'is-active' : ''}>
+        <StyledHeaderMenuLayout>
+          <StyledHeaderUser>{name}님 반갑습니다.</StyledHeaderUser>
+          <StyledHeaderLogoutBtn type="button" block invert>
+            로그아웃
+          </StyledHeaderLogoutBtn>
+          <StyledHeaderFavorite>
+            {favorite.length ? (
+              favorite.map((item, i) => (
+                <li key={item.id}>
+                  <Link href="/detail/[id]" as={`/detail/${item.id}`}>
+                    <a onClick={runMenuClose}>
+                      <img
+                        src={`${API_CONFIG.baseBgImageUrl}${item.poster_path}`}
+                        alt=""
+                      />
+                      <strong>{item.title}</strong>
+                    </a>
+                  </Link>
+                </li>
+              ))
+            ) : (
+              <li className="empty">Favorite 목록이 없습니다.</li>
+            )}
+          </StyledHeaderFavorite>
+        </StyledHeaderMenuLayout>
+      </StyledHeaderMenu>
+    </>
   );
 }
 

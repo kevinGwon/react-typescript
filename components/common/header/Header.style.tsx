@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import {
   $wWrap,
   $offsetSm,
@@ -10,9 +10,11 @@ import {
   $ease,
   $mqMedium,
   $offsetLg,
+  $colorPrimary,
 } from '../../../styled/global/StyledVariable.style';
 import { rgba } from '../../../styled/mixin';
 import Input from '../Input';
+import { NONAME } from 'dns';
 
 export const StyledHeader = styled.header.attrs(props => ({
   id: 'header',
@@ -21,14 +23,25 @@ export const StyledHeader = styled.header.attrs(props => ({
   z-index: 101;
   top: 0;
   left: 0;
-  height: ${$headerHeightSm};
+  height: ${$headerHeightSm}px;
   width: 100%;
   box-sizing: border-box;
   font-size: 1.6rem;
 
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(black 5%, transparent);
+  }
+
   @media (min-width: ${$mqLarge}) {
-    height: ${$headerHeightLg};
-    padding: 0 10px;
+    height: ${$headerHeightLg}px;
+    padding: 2.5rem 10px 0;
   }
 `;
 export const StyledLayoutHeader = styled.div`
@@ -37,16 +50,29 @@ export const StyledLayoutHeader = styled.div`
   justify-content: flex-end;
   position: relative;
   height: 100%;
-  max-width: ${$wWrap};
+  max-width: ${$wWrap}px;
   width: 100%;
   margin: auto;
-  padding-left: ${$offsetSm};
-  padding-right: ${$offsetSm};
+  padding-left: ${$offsetSm}px;
+  padding-right: ${$offsetSm}px;
   box-sizing: border-box;
 
   @media (min-width: ${$mqMedium}) {
-    padding-left: ${$offsetLg};
-    padding-right: ${$offsetLg};
+    padding-left: ${$offsetLg}px;
+    padding-right: ${$offsetLg}px;
+  }
+`;
+export const StyledHeaderLogo = styled.div`
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  margin-left: -32px;
+  margin-top: -28px;
+
+  a {
+    display: block;
   }
 `;
 export const StyledHeaderForm = styled.form`
@@ -111,3 +137,64 @@ export const StyledHeaderSearchBtn = styled.button.attrs(props => ({
   top: 50%;
   transform: translateY(-50%);
 `;
+
+export const StyledHeaderUtils = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: ${$headerHeightSm}px;
+`;
+
+export const StyledHeaderMenuBtn = styled.button`
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  font-size: 0;
+
+  svg {
+    rect {
+      fill: ${$colorPrimary};
+      height: 2px;
+      width: 18px;
+    }
+    .rect-1 {
+      transform: translate(3px, 6px);
+    }
+    .rect-2 {
+      transform: translate(3px, 11px);
+    }
+    .rect-3 {
+      width: 12px;
+      transform: translate(3px, 16px);
+    }
+  }
+  &:hover {
+    .rect-1 {
+      animation: ${rectKeyFramesTop()} 600ms ease-in-out;
+    }
+    .rect-2 {
+      animation: ${rectKeyFramesTop()} 600ms 100ms ease-in-out;
+    }
+    .rect-3 {
+      animation: ${rectKeyFramseBottom()} 600ms 200ms ease-in-out;
+    }
+  }
+`;
+
+function rectKeyFramesTop() {
+  return keyframes`
+    0% { width: 18px; }
+    20% { width: 2px; }
+    80% { width: 21px; }
+    100% { width: 18px; }
+  `;
+}
+
+function rectKeyFramseBottom() {
+  return keyframes`
+    0% { width: 12px; }
+    20% { width: 2px; }
+    75% { width: 21px; }
+    100% { width: 12px; }
+  `;
+}

@@ -17,7 +17,7 @@ export const StyledMainSection = styled.section.attrs(props => ({
   visibility: hidden;
   ${FullPos}
   opacity: 0;
-  transition: all ${$dur} linear;
+  transition: all ${$dur}s linear;
 
   &::before {
     content: '';
@@ -60,7 +60,7 @@ export const StyledMainSectionBg = styled.div.attrs(props => ({
   className: 'bg',
 }))`
   ${FullPos};
-  transition: all ${$dur} linear;
+  transition: all ${$dur}s linear;
   z-index: 1;
   background-repeat: no-repeat;
   background-size: cover;

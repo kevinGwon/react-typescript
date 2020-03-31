@@ -15,7 +15,7 @@ export const StyledInput = styled.input`
     `}
   height: 46px;
   box-sizing: border-box;
-  padding: ${$inputPaddingTb} ${$inputPaddingLr};
+  padding: ${$inputPaddingTb}px ${$inputPaddingLr}px;
   border: 1px solid ${$colorPrimary};
   background: transparent;
   color: ${$white};

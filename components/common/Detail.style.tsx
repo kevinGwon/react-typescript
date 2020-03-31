@@ -17,12 +17,11 @@ export const StyledDetailLayout = styled.div`
 `;
 export const StyledDetailCover = styled.div`
   position: relative;
-height: 400px;
+  height: 400px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-image: ${props => `url('${props.bgUrl}')`};
-  /* margin-top: ${$headerHeightSm}; */
 
   &::before {
     content: '';
@@ -198,4 +197,16 @@ export const StyledDetailCast = styled.ul`
       flex: 0 0 ${`${(1 / 5) * 100}%`};
     }
   }
+`;
+
+export const StyledDetailFavoriteWrap = styled.div`
+  position: absolute;
+  right: 0;
+  top: -30px;
+`;
+
+export const StyledDetailFavoriteBtn = styled.button`
+  width: 30px;
+  height: 30px;
+  fill: ${$colorPrimary};
 `;

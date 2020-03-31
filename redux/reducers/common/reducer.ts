@@ -1,8 +1,9 @@
 import { CommonType } from '../../../types/redux/common';
-import { LOADING_ON, LOADING_OFF } from './action';
+import { LOADING_ON, LOADING_OFF, MENU_OPEN, MENU_CLOSE } from './action';
 
 const COMMON_STATE: CommonType = {
   loading: false,
+  menu: false,
 };
 
 const common = (state: CommonType = COMMON_STATE, action): CommonType => {
@@ -16,6 +17,16 @@ const common = (state: CommonType = COMMON_STATE, action): CommonType => {
       return {
         ...state,
         loading: false,
+      };
+    case MENU_OPEN:
+      return {
+        ...state,
+        menu: true,
+      };
+    case MENU_CLOSE:
+      return {
+        ...state,
+        menu: false,
       };
   }
   return state;
