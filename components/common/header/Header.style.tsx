@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import {
   $wWrap,
   $offsetSm,
@@ -120,60 +120,57 @@ export const StyledHeaderUtils = styled.div`
   align-items: center;
   height: ${$headerHeightSm}px;
 `;
+
 export const StyledHeaderMenuBtn = styled.button`
-  visibility: visible;
-  position: relative;
-  width: 40px;
-  height: 30px;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
   font-size: 0;
-  line-height: 1;
-  transform: rotate(0deg);
-  transition: all 0.5s ease-in-out;
 
-  &.is-active {
-    span {
-      &:nth-child(1) {
-        top: 13px;
-        width: 0%;
-        left: 50%;
-      }
-      &:nth-child(2) {
-        transform: rotate(45deg);
-      }
-
-      &:nth-child(3) {
-        transform: rotate(-45deg);
-      }
-
-      &:nth-child(4) {
-        top: 13px;
-        width: 0%;
-        left: 50%;
-      }
+  svg {
+    rect {
+      fill: ${$colorPrimary};
+      height: 2px;
+      width: 18px;
+    }
+    .rect-1 {
+      transform: translate(3px, 6px);
+    }
+    .rect-2 {
+      transform: translate(3px, 11px);
+    }
+    .rect-3 {
+      width: 12px;
+      transform: translate(3px, 16px);
     }
   }
-  span {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background-color: ${$colorPrimary};
-    border-radius: 3px;
-    opacity: 1;
-    left: 0;
-    font-size: 0;
-    transform: rotate(0deg);
-    transition: 0.1s ease-in-out;
-
-    &:nth-child(1) {
-      top: 0px;
+  &:hover {
+    .rect-1 {
+      animation: ${rectKeyFramesTop()} 600ms ease-in-out;
     }
-    &:nth-child(2),
-    &:nth-child(3) {
-      top: 13px;
+    .rect-2 {
+      animation: ${rectKeyFramesTop()} 600ms 100ms ease-in-out;
     }
-    &:nth-child(4) {
-      top: 26px;
+    .rect-3 {
+      animation: ${rectKeyFramseBottom()} 600ms 200ms ease-in-out;
     }
   }
 `;
+
+function rectKeyFramesTop() {
+  return keyframes`
+    0% { width: 18px; }
+    20% { width: 2px; }
+    80% { width: 21px; }
+    100% { width: 18px; }
+  `;
+}
+
+function rectKeyFramseBottom() {
+  return keyframes`
+    0% { width: 12px; }
+    20% { width: 2px; }
+    75% { width: 21px; }
+    100% { width: 12px; }
+  `;
+}
