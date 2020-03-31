@@ -28,9 +28,7 @@ month =
     ? '0' + (date.getMonth() + 1)
     : date.getMonth() + 1;
 day =
-  String(date.getDate()).length === 1
-    ? '0' + date.getDate()
-    : date.getDate() + 1;
+  String(date.getDate()).length === 1 ? '0' + date.getDate() : date.getDate();
 
 export const LIST_STATE: ListStateType = {
   year: year,
