@@ -16,14 +16,20 @@ import HeaderMenuContainer from '../../../containers/HeaderMenuContainer';
 import Logo from '../../svg/Logo';
 import Link from 'next/link';
 
-function Header({ runOpenMenu }: { runOpenMenu: () => void }) {
+function Header({
+  runOpenMenu,
+  runGoHome,
+}: {
+  runOpenMenu: () => void;
+  runGoHome: () => void;
+}) {
   return (
     <StyledHeader>
       <StyledLayoutHeader>
         <h1 className="a11y">The movie</h1>
         <StyledHeaderLogo>
           <Link href="/">
-            <a>
+            <a onClick={runGoHome}>
               <Logo />
             </a>
           </Link>

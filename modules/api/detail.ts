@@ -11,38 +11,59 @@ const opt: ExtendType = extend(API_CONFIG, {
   day: LIST_STATE.day,
 });
 
-export const GET_URL = id => {
-  return `https://api.themoviedb.org/3/movie/${id}?api_key=${opt.key}&language=${opt.lang}$video=true`;
+export const GET_URL = (category: null | string, id: number) => {
+  return `https://api.themoviedb.org/3/movie/${id}${
+    category ? `/${category}` : ''
+  }?api_key=${opt.key}&language=${opt.lang}&page=1`;
 };
 
-export const GET_DETAIL = async id => {
+export const GET_DETAIL = async (id: number) => {
   return await axios({
     method: 'get',
-    url: GET_URL(id),
+    url: GET_URL(null, id),
   });
 };
 
-export const GET_CAST = async id => {
-  const getUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${opt.key}&language=${opt.lang}&page=1`;
-
+export const GET_CAST = async (id: number) => {
   return await axios({
     method: 'get',
-    url: getUrl,
+    url: GET_URL('credits', id),
   });
 };
 
-export const GET_SIMILAR = async id => {
-  let getUrl = `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${opt.key}&language=${opt.lang}&page=1`;
-
+export const GET_SIMILAR = async (id: number) => {
   return await axios({
     method: 'get',
-    url: getUrl,
+    url: GET_URL('similar', id),
+  });
+};
+
+export const POST_FAVORITE = async (
+  account_id: number,
+  session_id: number,
+  id: number,
+) => {
+  let url = `https://api.themoviedb.org/3/account/${account_id}/favorite?api_key=${opt.key}&session_id=${session_id}`;
+
+  console.log('account_id = ', account_id);
+  console.log('session_id = ', session_id);
+  console.log('id = ', id);
+  console.log('url = ', url);
+
+  return await axios({
+    method: 'post',
+    url: url,
+    data: {
+      media_type: 'movie',
+      media_id: id,
+      favorite: true,
+    },
   });
 };
 
 export const API_DEDAILT_FILTER = API => {
   let _API = {};
-
+  console.log(API[0]);
   return (_API = {
     title: API[0].data.title,
     id: API[0].data.id,

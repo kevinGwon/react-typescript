@@ -8,15 +8,19 @@ import {
 } from './HeaderMenu.style';
 import { StyledHeaderMenuBtn } from './Header.style';
 import HeaderMenuDimlayer from './HeaderMenuDimlayer';
+import { API_CONFIG } from '../../../modules/api/api.config';
+import Link from 'next/link';
 
 function HeaderMenu({
   menu,
   name,
   favorite,
+  runMenuClose,
 }: {
   menu: boolean;
   name: string;
   favorite: any[];
+  runMenuClose: () => void;
 }) {
   return (
     <>
@@ -29,7 +33,19 @@ function HeaderMenu({
           </StyledHeaderLogoutBtn>
           <StyledHeaderFavorite>
             {favorite.length ? (
-              favorite.map((item, i) => `<li key={${i}}>${i}</li>`)
+              favorite.map((item, i) => (
+                <li key={item.id}>
+                  <Link href="/detail/[id]" as={`/detail/${item.id}`}>
+                    <a onClick={runMenuClose}>
+                      <img
+                        src={`${API_CONFIG.baseBgImageUrl}${item.poster_path}`}
+                        alt=""
+                      />
+                      <strong>{item.title}</strong>
+                    </a>
+                  </Link>
+                </li>
+              ))
             ) : (
               <li className="empty">Favorite 목록이 없습니다.</li>
             )}

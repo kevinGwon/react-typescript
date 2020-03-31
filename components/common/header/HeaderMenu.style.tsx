@@ -5,6 +5,7 @@ import {
   $dur,
   $ease,
   $menuWidth,
+  $white,
 } from '../../../styled/global/StyledVariable.style';
 import { StyledBtn } from '../Btn.style';
 import { StyledDimLayer } from '../DimLayer.style';
@@ -51,5 +52,25 @@ export const StyledHeaderFavorite = styled.ul`
     align-items: center;
     height: 100%;
     text-align: center;
+  }
+  li {
+    & + li {
+      margin-top: 2rem;
+    }
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ${$white};
+
+    img {
+      max-width: 100px;
+    }
+    strong {
+      flex: 1;
+      margin-left: 2rem;
+      font-weight: normal;
+    }
   }
 `;

@@ -19,6 +19,8 @@ import {
   StyledDetailContent,
   StyledDetailParagrap,
   StyledDetailCast,
+  StyledDetailFavoriteBtn,
+  StyledDetailFavoriteWrap,
 } from './Detail.style';
 import StarRatings from 'react-star-ratings';
 import {
@@ -26,8 +28,22 @@ import {
   StyledHeding5,
 } from '../../styled/global/StyledHeading.style';
 import '../../scss/swiper.scss';
-function Detail({ API, scrollToUp }: { API: any; scrollToUp: () => void }) {
+import { StyledBtn } from './Btn.style';
+function Detail({
+  API,
+  account,
+  session,
+  scrollToUp,
+  runAddFavorite,
+}: {
+  API: any;
+  account: number;
+  session: number;
+  scrollToUp: () => void;
+  runAddFavorite: (account: number, session: number, id: number) => void;
+}) {
   const {
+    id,
     title,
     backdrop_path,
     posterImage,
@@ -107,6 +123,28 @@ function Detail({ API, scrollToUp }: { API: any; scrollToUp: () => void }) {
                 </StyledDetailImg>
               </StyledDetailHeaderInner>
             </StyledDetailHeader>
+
+            <StyledDetailFavoriteWrap>
+              <StyledDetailFavoriteBtn
+                onClick={() => runAddFavorite(account, session, id)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                  <path
+                    strokeWidth="1"
+                    d="
+                      M 15 3
+                      l -2.833 8.718 
+                      h -9.167
+                      l 7.416 5.389 -2.833 8.718 7.417 -5.388 7.416 5.388 -2.833 -8.718 7.417 -5.389
+                      h -9.167
+                      l -2.833 -8.718
+                      z
+                    "
+                  />
+                </svg>
+                <span className="a11y">추가</span>
+              </StyledDetailFavoriteBtn>
+            </StyledDetailFavoriteWrap>
 
             {/* Contents */}
             <StyledDetailContent>
