@@ -23,13 +23,13 @@ export const StyledHeader = styled.header.attrs(props => ({
   z-index: 101;
   top: 0;
   left: 0;
-  height: ${$headerHeightSm};
+  height: ${$headerHeightSm}px;
   width: 100%;
   box-sizing: border-box;
   font-size: 1.6rem;
 
   @media (min-width: ${$mqLarge}) {
-    height: ${$headerHeightLg};
+    height: ${$headerHeightLg}px;
     padding: 0 10px;
   }
 `;
@@ -39,16 +39,16 @@ export const StyledLayoutHeader = styled.div`
   justify-content: flex-end;
   position: relative;
   height: 100%;
-  max-width: ${$wWrap};
+  max-width: ${$wWrap}px;
   width: 100%;
   margin: auto;
-  padding-left: ${$offsetSm};
-  padding-right: ${$offsetSm};
+  padding-left: ${$offsetSm}px;
+  padding-right: ${$offsetSm}px;
   box-sizing: border-box;
 
   @media (min-width: ${$mqMedium}) {
-    padding-left: ${$offsetLg};
-    padding-right: ${$offsetLg};
+    padding-left: ${$offsetLg}px;
+    padding-right: ${$offsetLg}px;
   }
 `;
 export const StyledHeaderForm = styled.form`
@@ -118,7 +118,7 @@ export const StyledHeaderUtils = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: ${$headerHeightSm};
+  height: ${$headerHeightSm}px;
 `;
 export const StyledHeaderMenuBtn = styled.button`
   visibility: visible;

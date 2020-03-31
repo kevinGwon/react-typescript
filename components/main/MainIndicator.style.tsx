@@ -34,7 +34,7 @@ export const StyledMainIndicator = styled.div.attrs(props => ({
     z-index: 100;
     left: 0;
     right: 0;
-    top: ${$headerHeightSm};
+    top: ${$headerHeightSm}px;
     margin-left: 1rem;
     margin-right: 1rem;
     text-align: center;
@@ -76,7 +76,7 @@ export const StyledMainIndicatorBtn = styled.button.attrs(props => ({
     width: 0%;
     margin-top: -1px;
     border-bottom: 2px solid ${$colorPrimary};
-    transition: width ${$dur} ease;
+    transition: width ${$dur}s ease;
   }
   &.is-active {
     &::before {

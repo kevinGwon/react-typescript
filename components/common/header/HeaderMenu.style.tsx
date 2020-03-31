@@ -18,7 +18,7 @@ export const StyledHeaderMenu = styled.div`
   width: ${$menuWidth}px;
   box-sizing: border-box;
   background-color: ${rgba($black, 0.95)};
-  transition: transform ${$dur} ${$ease};
+  transition: transform ${$dur}s ${$ease};
   transform: translateX(100%);
 
   &.is-active {
