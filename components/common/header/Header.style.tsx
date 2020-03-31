@@ -67,10 +67,9 @@ export const StyledHeaderLogo = styled.div`
   z-index: 10;
   top: 50%;
   left: 50%;
-  max-width: 70px;
-  width: 100%;
-  margin-left: -35px;
-  margin-top: -30px;
+  width: 64px;
+  margin-left: -32px;
+  margin-top: -28px;
 
   a {
     display: block;
