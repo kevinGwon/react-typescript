@@ -17,6 +17,7 @@ import StyledForm from '../styled/global/StyledForm.style';
 import Loading from '../components/common/Loading';
 
 const App = ({ Component, pageProps, store }) => {
+  console.log('deploy test....');
   return (
     <>
       <Provider store={store}>
