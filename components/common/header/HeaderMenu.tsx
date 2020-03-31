@@ -15,10 +15,12 @@ function HeaderMenu({
   menu,
   name,
   favorite,
+  runMenuClose,
 }: {
   menu: boolean;
   name: string;
   favorite: any[];
+  runMenuClose: () => void;
 }) {
   return (
     <>
@@ -34,7 +36,7 @@ function HeaderMenu({
               favorite.map((item, i) => (
                 <li key={item.id}>
                   <Link href="/detail/[id]" as={`/detail/${item.id}`}>
-                    <a>
+                    <a onClick={runMenuClose}>
                       <img
                         src={`${API_CONFIG.baseBgImageUrl}${item.poster_path}`}
                         alt=""
