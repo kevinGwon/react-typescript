@@ -198,3 +198,15 @@ export const StyledDetailCast = styled.ul`
     }
   }
 `;
+
+export const StyledDetailFavoriteWrap = styled.div`
+  position: absolute;
+  right: 0;
+  top: -30px;
+`;
+
+export const StyledDetailFavoriteBtn = styled.button`
+  width: 30px;
+  height: 30px;
+  fill: ${$colorPrimary};
+`;

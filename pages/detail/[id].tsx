@@ -1,18 +1,24 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import Article from '../../components/common/Article';
+import axios from 'axios';
+
+// Modules
+import { API_FILTER } from '../../modules/api/list';
 import {
   GET_DETAIL,
   API_DEDAILT_FILTER,
   GET_SIMILAR,
   GET_CAST,
 } from '../../modules/api/detail';
-import axios from 'axios';
-import { API_FILTER } from '../../modules/api/list';
+
+// Types
 import { ListType } from '../../types/redux/list';
+import { IndexType } from '../../types';
+
+// Components
+import Article from '../../components/common/Article';
 import DetailContainer from '../../containers/DetailContainer';
 
-function Id({ API }: { API: any }) {
+function Id({ API }: { API: IndexType }) {
   return (
     <>
       <Head>
