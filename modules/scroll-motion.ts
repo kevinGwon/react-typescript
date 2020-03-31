@@ -161,7 +161,7 @@ class ScrollMotion {
 
   destroy() {
     console.log('[ Destroy ScrollMotion ]');
-    this.$footer.classList.remove('is-toggle');
+    this.$footer && this.$footer.classList.remove('is-toggle');
     document.removeEventListener('wheel', this.eventMap[this.eventWheel]);
     delete this.eventMap[this.eventWheel];
     this.isDestroy = true;
