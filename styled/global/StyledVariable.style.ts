@@ -29,6 +29,8 @@ export const $inputPaddingLr = '15px';
 
 export const $elementMarginLr = '10px';
 
+export const $menuWidth = '320';
+
 // fonts
 // -----------------------------------------------------------------------------
 export const $fontMain = 'Noto Sans KR, sans-serif';

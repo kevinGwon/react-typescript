@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { $dur, $ease, $menuWidth } from './StyledVariable.style';
 
 export default createGlobalStyle`
   .hidden,

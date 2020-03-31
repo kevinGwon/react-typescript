@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   $wWrap,
   $offsetSm,
@@ -10,9 +10,11 @@ import {
   $ease,
   $mqMedium,
   $offsetLg,
+  $colorPrimary,
 } from '../../../styled/global/StyledVariable.style';
 import { rgba } from '../../../styled/mixin';
 import Input from '../Input';
+import { NONAME } from 'dns';
 
 export const StyledHeader = styled.header.attrs(props => ({
   id: 'header',
@@ -110,4 +112,68 @@ export const StyledHeaderSearchBtn = styled.button.attrs(props => ({
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+`;
+
+export const StyledHeaderUtils = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: ${$headerHeightSm};
+`;
+export const StyledHeaderMenuBtn = styled.button`
+  visibility: visible;
+  position: relative;
+  width: 40px;
+  height: 30px;
+  font-size: 0;
+  line-height: 1;
+  transform: rotate(0deg);
+  transition: all 0.5s ease-in-out;
+
+  &.is-active {
+    span {
+      &:nth-child(1) {
+        top: 13px;
+        width: 0%;
+        left: 50%;
+      }
+      &:nth-child(2) {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(4) {
+        top: 13px;
+        width: 0%;
+        left: 50%;
+      }
+    }
+  }
+  span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: ${$colorPrimary};
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    font-size: 0;
+    transform: rotate(0deg);
+    transition: 0.1s ease-in-out;
+
+    &:nth-child(1) {
+      top: 0px;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 13px;
+    }
+    &:nth-child(4) {
+      top: 26px;
+    }
+  }
 `;
