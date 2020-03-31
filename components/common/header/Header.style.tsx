@@ -28,9 +28,20 @@ export const StyledHeader = styled.header.attrs(props => ({
   box-sizing: border-box;
   font-size: 1.6rem;
 
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(black 5%, transparent);
+  }
+
   @media (min-width: ${$mqLarge}) {
     height: ${$headerHeightLg}px;
-    padding: 0 10px;
+    padding: 2.5rem 10px 0;
   }
 `;
 export const StyledLayoutHeader = styled.div`
@@ -49,6 +60,20 @@ export const StyledLayoutHeader = styled.div`
   @media (min-width: ${$mqMedium}) {
     padding-left: ${$offsetLg}px;
     padding-right: ${$offsetLg}px;
+  }
+`;
+export const StyledHeaderLogo = styled.div`
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  max-width: 70px;
+  width: 100%;
+  margin-left: -35px;
+  margin-top: -30px;
+
+  a {
+    display: block;
   }
 `;
 export const StyledHeaderForm = styled.form`
