@@ -13,23 +13,13 @@ import {
 import HeaderSearchContainer from '../../../containers/HeaderSearchContainer';
 import HeaderMenuContainer from '../../../containers/HeaderMenuContainer';
 
-function Header({
-  open,
-  runOpenMenu,
-}: {
-  open: boolean;
-  runOpenMenu: () => void;
-}) {
+function Header({ runOpenMenu }: { runOpenMenu: () => void }) {
   return (
     <StyledHeader>
       <StyledLayoutHeader>
         <h1 className="a11y">The movie</h1>
         <StyledHeaderUtils>
-          <StyledHeaderMenuBtn
-            type="button"
-            className={open ? 'is-active' : ''}
-            onClick={runOpenMenu}
-          >
+          <StyledHeaderMenuBtn type="button" onClick={runOpenMenu}>
             <span></span>
             <span></span>
             <span></span>

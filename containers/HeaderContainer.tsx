@@ -1,33 +1,21 @@
-import React, { useCallback, useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+
+// Components
 import Header from '../components/common/header/Header';
 
 // Types
 import { RootState } from '../types/redux/reducer';
 import { MENU_OPEN } from '../redux/reducers/common';
 
-function HeaderContainer({
-  open,
-  runOpenMenu,
-}: {
-  open: boolean;
-  runOpenMenu: () => void;
-}) {
-  return <Header open={open} runOpenMenu={runOpenMenu} />;
-}
-
-const mapStateToProps = (store: RootState) => ({
-  open: store.common.menu,
-});
-
-const mapDispatchToProps = dispatch => ({
-  runOpenMenu: () => {
+function HeaderContainer() {
+  const dispatch = useDispatch();
+  const runOpenMenu = useCallback(() => {
     dispatch({
       type: MENU_OPEN,
     });
-  },
-});
+  }, []);
+  return <Header runOpenMenu={runOpenMenu} />;
+}
 
-export default React.memo(
-  connect(mapStateToProps, mapDispatchToProps)(HeaderContainer),
-);
+export default React.memo(HeaderContainer);

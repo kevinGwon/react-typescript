@@ -11,8 +11,10 @@ function HeaderMenuDimlayer() {
   }, []);
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+    document.body.classList.add('is-active--nav');
     return () => {
       document.body.style.overflow = 'visible';
+      document.body.classList.remove('is-active--nav');
     };
   }, []);
   return <StyledDimLayer onClick={runClose} />;
