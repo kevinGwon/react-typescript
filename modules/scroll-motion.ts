@@ -54,7 +54,7 @@ class ScrollMotion {
   }
 
   runEventScroll() {
-    console.log('Add scrollMotion');
+    console.log('[ Add scrollMotion ]');
     this.eventMap[this.eventWheel] = this.runScroll.bind(this);
     document.addEventListener('wheel', this.eventMap[this.eventWheel], {
       passive: false,
@@ -145,7 +145,7 @@ class ScrollMotion {
   runMoveTo(dir?: number | string) {
     this.isMove = true;
 
-    console.log(`${this.index} / ${this.sectionLength}`);
+    console.log(`[ Scroll = ${this.index} / ${this.sectionLength} ]`);
     this.runAddClass(dir);
     this.runOnlock();
   }
@@ -160,7 +160,7 @@ class ScrollMotion {
   }
 
   destroy() {
-    console.log('Destroy ScrollMotion');
+    console.log('[ Destroy ScrollMotion ]');
     this.$footer.classList.remove('is-toggle');
     document.removeEventListener('wheel', this.eventMap[this.eventWheel]);
     delete this.eventMap[this.eventWheel];

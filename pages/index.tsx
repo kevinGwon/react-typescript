@@ -26,21 +26,26 @@ import ScrollMotion from '../modules/scroll-motion';
 import { IndexType } from '../types';
 import Main from '../components/common/Main';
 import { USER_LOGIN_ON } from '../redux/reducers/user';
+import { RootState } from '../types/redux/reducer';
 
 const scrollMotion = new ScrollMotion();
 
 const Index = ({ API }: IndexType) => {
-  const { token } = useSelector(store => store.user);
+  const { menu } = useSelector((store: RootState) => store.common);
+  const { token } = useSelector((store: RootState) => store.user);
 
   useEffect(() => {
-    token && scrollMotion.init();
+    token && !menu && scrollMotion.init();
+    menu && scrollMotion.destroy();
+  }, [token, menu]);
+
+  useEffect(() => {
     return () => {
       setTimeout(() => {
-        token && scrollMotion.destroy();
+        scrollMotion.destroy();
       }, 0);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
+  }, []);
 
   return (
     <>
