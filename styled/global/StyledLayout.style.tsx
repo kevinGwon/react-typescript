@@ -11,16 +11,16 @@ export const StyledLayout = styled.div.attrs(props => ({
 }))`
   position: relative;
   z-index: 1;
-  max-width: ${$wWrap};
+  max-width: ${$wWrap}px;
   width: 100%;
-  padding-left: ${$offsetSm};
-  padding-right: ${$offsetSm};
+  padding-left: ${$offsetSm}px;
+  padding-right: ${$offsetSm}px;
   box-sizing: border-box;
 
   @media (min-width: ${$mqMedium}) {
     width: 100%;
-    padding-left: ${$offsetLg};
-    padding-right: ${$offsetLg};
+    padding-left: ${$offsetLg}px;
+    padding-right: ${$offsetLg}px;
     margin-left: auto;
     margin-right: auto;
   }

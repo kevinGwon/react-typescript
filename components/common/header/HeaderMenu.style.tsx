@@ -4,20 +4,26 @@ import {
   $black,
   $dur,
   $ease,
+  $menuWidth,
 } from '../../../styled/global/StyledVariable.style';
 import { StyledBtn } from '../Btn.style';
+import { StyledDimLayer } from '../DimLayer.style';
 
 export const StyledHeaderMenu = styled.div`
   position: fixed;
-  z-index: 100;
+  z-index: 200;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 320px;
+  width: ${$menuWidth}px;
   box-sizing: border-box;
   background-color: ${rgba($black, 0.95)};
-  transition: transform ${$dur} ${$ease};
+  transition: transform ${$dur}s ${$ease};
   transform: translateX(100%);
+
+  &.is-active {
+    transform: translateX(0);
+  }
 `;
 export const StyledHeaderMenuLayout = styled.div`
   ${FullPos};

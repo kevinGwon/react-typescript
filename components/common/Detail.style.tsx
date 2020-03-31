@@ -17,12 +17,11 @@ export const StyledDetailLayout = styled.div`
 `;
 export const StyledDetailCover = styled.div`
   position: relative;
-height: 400px;
+  height: 400px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-image: ${props => `url('${props.bgUrl}')`};
-  /* margin-top: ${$headerHeightSm}; */
 
   &::before {
     content: '';

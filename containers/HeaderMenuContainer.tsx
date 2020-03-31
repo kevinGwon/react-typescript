@@ -9,6 +9,7 @@ function HeaderMenuContainer(props) {
 
 export default connect(
   (store: RootState) => ({
+    menu: store.common.menu,
     name: store.user.name,
     favorite: store.user.favorite,
   }),
