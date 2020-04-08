@@ -7,13 +7,29 @@ interface IProps {
 }
 
 export default class extends Document<IProps> {
-  static async getInitialProps({ renderPage }) {
+  static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
-    const page = renderPage(App => props =>
-      sheet.collectStyles(<App {...props} />),
-    );
-    const styleTags = sheet.getStyleElement();
-    return { ...page, styleTags };
+    const originalRenderPage = ctx.renderPage;
+
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+        });
+
+      const initialProps = await Document.getInitialProps(ctx);
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      };
+    } finally {
+      sheet.seal();
+    }
   }
   render() {
     return (
@@ -21,11 +37,11 @@ export default class extends Document<IProps> {
         <Head>
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <link href="/normalize.css" rel="stylesheet" />
-          {this.props.styleTags}
           <link
             href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Roboto:400,500&display=swap"
             rel="stylesheet"
           />
+          {this.props.styles}
         </Head>
         <body>
           <Main />
