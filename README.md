@@ -62,5 +62,5 @@ npm install
 #### 실행
 
 ```
-npm run start
+npm run dev
 ```
