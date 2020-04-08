@@ -2,30 +2,18 @@ import * as React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-export default class extends Document {
-  static async getInitialProps(ctx) {
+interface IProps {
+  styleTags: Array<React.ReactElement<{}>>;
+}
+
+export default class extends Document<IProps> {
+  static async getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
-    const originalRenderPage = ctx.renderPage;
-
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
-        });
-
-      const initialProps = await Document.getInitialProps(ctx);
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
-      };
-    } finally {
-      sheet.seal();
-    }
+    const page = renderPage(App => props =>
+      sheet.collectStyles(<App {...props} />),
+    );
+    const styleTags = sheet.getStyleElement();
+    return { ...page, styleTags };
   }
   render() {
     return (
@@ -33,6 +21,7 @@ export default class extends Document {
         <Head>
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <link href="/normalize.css" rel="stylesheet" />
+          {this.props.styleTags}
           <link
             href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Roboto:400,500&display=swap"
             rel="stylesheet"
