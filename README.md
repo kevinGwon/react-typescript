@@ -28,13 +28,13 @@ develop
 
 ## Spec
 
+- Themovie DB: REST API
 - Next.js(9.x)
-- Redux, Redux-saga
+- Redux
+- Redux-saga
 - Styled Components
 - Persist
 - Husky, Prettier, Eslint
-- Themovie DB: REST
-- gsap
 
 ## Editor
 
@@ -62,5 +62,5 @@ npm install
 #### 실행
 
 ```
-npm run start
+npm run dev
 ```

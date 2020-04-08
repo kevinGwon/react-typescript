@@ -51,7 +51,7 @@ function* runLogin(action) {
     // Account
     const accountResponse = yield call(GET_ACCOUNT, session);
     const { id, name } = accountResponse.data;
-    console.log(accountResponse);
+    // console.log(accountResponse);
 
     // Favorite
     const favoriteResponse = yield call(GET_FAVORITE, id, session);
