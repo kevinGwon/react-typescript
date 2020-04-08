@@ -2,11 +2,7 @@ import * as React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-interface IProps {
-  styleTags: Array<React.ReactElement<{}>>;
-}
-
-export default class extends Document<IProps> {
+export default class extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
