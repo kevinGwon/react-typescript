@@ -44,9 +44,11 @@ class ScrollMotion {
     this.sectionLength = this.$section.length - 1;
 
     setTimeout(() => {
+      const index = Number(window.location.hash[1]);
+      this.index = index || this.index;
       this.$sectionBox.classList.add('is-loaded');
-      this.$section[0].classList.add(this.isActive);
-      this.$indicatorBtn[0].classList.add(this.isActive);
+      this.$section[this.index].classList.add(this.isActive);
+      this.$indicatorBtn[this.index].classList.add(this.isActive);
     }, 500);
 
     this.runIndicator();
@@ -131,6 +133,8 @@ class ScrollMotion {
       }
     }
 
+    // Active hash
+    window.location.hash = String(this.index);
     // Active indicator
     this.$indicatorBtn[this.index].classList.add(this.isActive);
     // Active section
