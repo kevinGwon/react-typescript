@@ -128,7 +128,7 @@ class ScrollMotion {
         this.$indicatorBtn[i].classList.remove(this.isActive);
 
         if (dir !== 0 && dir === this.UP) {
-          this.$section[i - 1].classList.remove(this.isAnimated);
+          i && this.$section[i - 1].classList.remove(this.isAnimated);
         }
       }
     }
