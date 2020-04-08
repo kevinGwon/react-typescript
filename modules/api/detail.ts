@@ -63,7 +63,6 @@ export const POST_FAVORITE = async (
 
 export const API_DEDAILT_FILTER = API => {
   let _API = {};
-  console.log(API[0]);
   return (_API = {
     title: API[0].data.title,
     id: API[0].data.id,
