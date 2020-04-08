@@ -6,6 +6,7 @@ import {
   $ease,
   $menuWidth,
   $white,
+  $colorPrimary,
 } from '../../../styled/global/StyledVariable.style';
 import { StyledBtn } from '../Btn.style';
 import { StyledDimLayer } from '../DimLayer.style';
@@ -22,8 +23,25 @@ export const StyledHeaderMenu = styled.div`
   transition: transform ${$dur}s ${$ease};
   transform: translateX(100%);
 
+  &::before {
+    content: '';
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 30px;
+    bottom: 30px;
+    box-shadow: 0 0 10px 1px ${$colorPrimary};
+    opacity: 0;
+  }
   &.is-active {
     transform: translateX(0);
+    &::before {
+      visibility: visible;
+      opacity: 1;
+      transition: all 0.5s linear;
+    }
   }
 `;
 export const StyledHeaderMenuLayout = styled.div`
