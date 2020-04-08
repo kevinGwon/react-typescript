@@ -44,8 +44,13 @@ class ScrollMotion {
     this.sectionLength = this.$section.length - 1;
 
     setTimeout(() => {
+      // Hash값 존재하는지 체크
       const index = Number(window.location.hash[1]);
+      // Hash값 할당
       this.index = index || this.index;
+      // Hash값이 존재할때 첫번째 Section 기본 Active 제거
+      this.index && this.$section[0].classList.remove(this.isActive);
+
       this.$sectionBox.classList.add('is-loaded');
       this.$section[this.index].classList.add(this.isActive);
       this.$indicatorBtn[this.index].classList.add(this.isActive);
