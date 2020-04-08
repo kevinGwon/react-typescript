@@ -18,7 +18,6 @@ import Loading from '../components/common/Loading';
 import StyledStateStyle from '../styled/global/StyledState.style';
 
 const App = ({ Component, pageProps, store }) => {
-  console.log('deploy test....');
   return (
     <>
       <Provider store={store}>
