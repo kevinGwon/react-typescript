@@ -97,18 +97,22 @@ function* runLogout() {
 }
 
 function* runFavorite(action) {
-  // Get info
-  const { account, session, id } = action.data;
+  try {
+    // Get info
+    const { account, session, id } = action.data;
 
-  // Post
-  yield call(POST_FAVORITE, account, session, id);
+    // Post
+    yield call(POST_FAVORITE, account, session, id);
 
-  // Repaint favorite
-  const favorite = yield call(GET_FAVORITE, account, session);
-  const data = favorite.data.results;
+    // Repaint favorite
+    const favorite = yield call(GET_FAVORITE, account, session);
+    const data = favorite.data.results;
 
-  // Dispatch
-  yield put({ type: USER_FAVORITE, data });
+    // Dispatch
+    yield put({ type: USER_FAVORITE, data });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export function* userSaga() {
