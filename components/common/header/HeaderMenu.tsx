@@ -16,11 +16,13 @@ function HeaderMenu({
   name,
   favorite,
   runMenuClose,
+  runLogout,
 }: {
   menu: boolean;
   name: string;
   favorite: any[];
   runMenuClose: () => void;
+  runLogout: () => void;
 }) {
   return (
     <>
@@ -28,7 +30,7 @@ function HeaderMenu({
       <StyledHeaderMenu className={menu ? 'is-active' : ''}>
         <StyledHeaderMenuLayout>
           <StyledHeaderUser>{name}님 반갑습니다.</StyledHeaderUser>
-          <StyledHeaderLogoutBtn type="button" block invert>
+          <StyledHeaderLogoutBtn type="button" block invert onClick={runLogout}>
             로그아웃
           </StyledHeaderLogoutBtn>
           <StyledHeaderFavorite>

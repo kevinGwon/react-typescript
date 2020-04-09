@@ -4,7 +4,7 @@ import Login from '../components/common/Login';
 
 import {
   USER_LOGIN_SAGA,
-  USER_LOGIN_ON,
+  USER_LOGIN,
   USER_TOKEN,
 } from '../redux/reducers/user/index';
 import { userSuccess } from '../redux/reducers/user/reducer';

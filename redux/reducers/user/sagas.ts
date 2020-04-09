@@ -4,7 +4,9 @@ import {
   USER_PENDING,
   USER_SUCCESS,
   USER_ERROR,
-  USER_LOGIN_ON,
+  USER_LOGIN,
+  USER_LOGOUT_SAGA,
+  USER_LOGOUT,
 } from './action';
 import {
   GET_TOKEN,
@@ -13,6 +15,7 @@ import {
   GET_ACCOUNT,
   GET_FAVORITE,
 } from '../../../modules/api/login';
+import { MENU_CLOSE } from '../common';
 
 const pending = () => ({
   type: USER_PENDING,
@@ -70,7 +73,7 @@ function* runLogin(action) {
     yield put(success(info));
 
     // Login
-    yield put({ type: USER_LOGIN_ON });
+    yield put({ type: USER_LOGIN });
 
     // Set Token, Session
     localStorage.setItem('token', token);
@@ -82,6 +85,14 @@ function* runLogin(action) {
   }
 }
 
+function* runLogout() {
+  localStorage.clear();
+  sessionStorage.clear();
+  yield put({ type: USER_LOGOUT });
+  yield put({ type: MENU_CLOSE });
+}
+
 export function* userSaga() {
   yield takeEvery(USER_LOGIN_SAGA, runLogin);
+  yield takeEvery(USER_LOGOUT_SAGA, runLogout);
 }

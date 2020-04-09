@@ -1,6 +1,6 @@
 import {
-  USER_LOGIN_ON,
-  USER_LOGIN_OFF,
+  USER_LOGIN,
+  USER_LOGOUT,
   USER_INFO,
   USER_PENDING,
   USER_SUCCESS,
@@ -54,15 +54,20 @@ const user = (state: UserStateType = USER_STATE, action) => {
         error: action.error,
       };
     }
-    case USER_LOGIN_ON:
+    case USER_LOGIN:
       return {
         ...state,
         login: true,
       };
-    case USER_LOGIN_OFF:
+    case USER_LOGOUT:
       return {
         ...state,
         login: false,
+        favorite: [],
+        token: null,
+        session: null,
+        id: null,
+        name: null,
       };
     case USER_TOKEN:
       return {

@@ -25,7 +25,7 @@ import ScrollMotion from '../modules/scroll-motion';
 // Types
 import { IndexType } from '../types';
 import Main from '../components/common/Main';
-import { USER_LOGIN_ON } from '../redux/reducers/user';
+import { USER_LOGIN } from '../redux/reducers/user';
 import { RootState } from '../types/redux/reducer';
 
 const scrollMotion = new ScrollMotion();
