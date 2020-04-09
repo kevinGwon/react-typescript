@@ -32,8 +32,6 @@ const App = ({ Component, pageProps, store }) => {
         <Footer />
         <Loading />
         <LoginContainer />
-        {/* PersistGate는 persisted된 상태가 Redux에 저장될때 까지 렌더링을 지연시킴으로서 SSR에 영향을 준다. */}
-        <PersistGate loading={null} persistor={store.__persistor} />
       </Provider>
     </>
   );
