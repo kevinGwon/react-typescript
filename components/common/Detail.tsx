@@ -33,12 +33,14 @@ function Detail({
   API,
   account,
   session,
+  favorite,
   scrollToUp,
   runAddFavorite,
 }: {
   API: any;
   account: number;
   session: number;
+  favorite: any[];
   scrollToUp: () => void;
   runAddFavorite: (account: number, session: number, id: number) => void;
 }) {
@@ -54,6 +56,9 @@ function Detail({
     cast,
     similar,
   } = API;
+  const isLike = favorite.some(item => {
+    return item.id === id;
+  });
   useEffect(() => {
     if (!similar.length) return;
     let swiper = null;
@@ -124,14 +129,15 @@ function Detail({
               </StyledDetailHeaderInner>
             </StyledDetailHeader>
 
-            <StyledDetailFavoriteWrap>
-              <StyledDetailFavoriteBtn
-                onClick={() => runAddFavorite(account, session, id)}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                  <path
-                    strokeWidth="1"
-                    d="
+            {!isLike && (
+              <StyledDetailFavoriteWrap>
+                <StyledDetailFavoriteBtn
+                  onClick={() => runAddFavorite(account, session, id)}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                    <path
+                      strokeWidth="1"
+                      d="
                       M 15 3
                       l -2.833 8.718 
                       h -9.167
@@ -140,11 +146,12 @@ function Detail({
                       l -2.833 -8.718
                       z
                     "
-                  />
-                </svg>
-                <span className="a11y">추가</span>
-              </StyledDetailFavoriteBtn>
-            </StyledDetailFavoriteWrap>
+                    />
+                  </svg>
+                  <span className="a11y">추가</span>
+                </StyledDetailFavoriteBtn>
+              </StyledDetailFavoriteWrap>
+            )}
 
             {/* Contents */}
             <StyledDetailContent>
@@ -220,4 +227,4 @@ function Detail({
   );
 }
 
-export default Detail;
+export default React.memo(Detail);

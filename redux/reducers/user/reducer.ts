@@ -6,6 +6,7 @@ import {
   USER_SUCCESS,
   USER_ERROR,
   USER_TOKEN,
+  USER_FAVORITE,
 } from './action';
 import { UserStateType } from '../../../types/redux/user';
 
@@ -66,6 +67,11 @@ const user = (state: UserStateType = USER_STATE, action) => {
       return {
         ...state,
         token: action.token,
+      };
+    case USER_FAVORITE:
+      return {
+        ...state,
+        favorite: action.data,
       };
     default:
       return state;

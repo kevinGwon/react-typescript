@@ -7,6 +7,8 @@ import {
   USER_LOGIN,
   USER_LOGOUT_SAGA,
   USER_LOGOUT,
+  USER_FAVORITE_SAGA,
+  USER_FAVORITE,
 } from './action';
 import {
   GET_TOKEN,
@@ -16,6 +18,7 @@ import {
   GET_FAVORITE,
 } from '../../../modules/api/login';
 import { MENU_CLOSE, INTRO_ON } from '../common';
+import { POST_FAVORITE } from '../../../modules/api/detail';
 
 const pending = () => ({
   type: USER_PENDING,
@@ -93,7 +96,23 @@ function* runLogout() {
   yield put({ type: MENU_CLOSE });
 }
 
+function* runFavorite(action) {
+  // Get info
+  const { account, session, id } = action.data;
+
+  // Post
+  yield call(POST_FAVORITE, account, session, id);
+
+  // Repaint favorite
+  const favorite = yield call(GET_FAVORITE, account, session);
+  const data = favorite.data.results;
+
+  // Dispatch
+  yield put({ type: USER_FAVORITE, data });
+}
+
 export function* userSaga() {
   yield takeEvery(USER_LOGIN_SAGA, runLogin);
   yield takeEvery(USER_LOGOUT_SAGA, runLogout);
+  yield takeEvery(USER_FAVORITE_SAGA, runFavorite);
 }
