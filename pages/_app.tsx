@@ -11,16 +11,14 @@ import Main from '../components/common/Main';
 import LoginContainer from '../containers/LoginContainer';
 
 // Styled
-import StyledReset from '../styled/global/StyledReset.style';
-import StyledHelper from '../styled/global/StyledHelper.style';
-import StyledForm from '../styled/global/StyledForm.style';
+import StyledGlobal from '../styled/global/StyledGlobal';
 import Loading from '../components/common/Loading';
-import StyledStateStyle from '../styled/global/StyledState.style';
 
 const App = ({ Component, pageProps, store }) => {
   return (
     <>
       <Provider store={store}>
+        <StyledGlobal />
         <HeaderContainer />
         <Main>
           <Component {...pageProps} />
@@ -28,11 +26,7 @@ const App = ({ Component, pageProps, store }) => {
         <Footer />
         <LoginContainer />
         <Loading />
-        <StyledForm />
-        <StyledReset />
-        <StyledHelper />
-        <StyledStateStyle />
-        {/* PersistGate는 persisted된 상태가 Redux에 저장될때 까지 렌더링을 지연시킨다. 따라서 SSR에 사용할 경우 영향을 준다.. */}
+        {/* PersistGate는 persisted된 상태가 Redux에 저장될때 까지 렌더링을 지연시킴으로서 SSR에 영향을 준다. */}
         <PersistGate loading={null} persistor={store.__persistor} />
       </Provider>
     </>
