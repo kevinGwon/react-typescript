@@ -12,16 +12,20 @@ import { API_CONFIG } from '../../../modules/api/api.config';
 import Link from 'next/link';
 
 function HeaderMenu({
+  login,
   menu,
   name,
   favorite,
   runMenuClose,
+  runLogin,
   runLogout,
 }: {
+  login: boolean;
   menu: boolean;
   name: string;
   favorite: any[];
   runMenuClose: () => void;
+  runLogin: () => void;
   runLogout: () => void;
 }) {
   return (
@@ -29,9 +33,18 @@ function HeaderMenu({
       {menu && <HeaderMenuDimlayer />}
       <StyledHeaderMenu className={menu ? 'is-active' : ''}>
         <StyledHeaderMenuLayout>
-          <StyledHeaderUser>{name}님 반갑습니다.</StyledHeaderUser>
-          <StyledHeaderLogoutBtn type="button" block invert onClick={runLogout}>
-            로그아웃
+          {login && (
+            <StyledHeaderUser>{`${name}님 반갑습니다.`}</StyledHeaderUser>
+          )}
+          <StyledHeaderLogoutBtn
+            type="button"
+            block
+            invert
+            onClick={() => {
+              login ? runLogout() : runLogin();
+            }}
+          >
+            {login ? '로그아웃' : '로그인'}
           </StyledHeaderLogoutBtn>
           <StyledHeaderFavorite>
             {favorite.length ? (

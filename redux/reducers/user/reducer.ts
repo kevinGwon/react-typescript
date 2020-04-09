@@ -9,13 +9,6 @@ import {
 } from './action';
 import { UserStateType } from '../../../types/redux/user';
 
-export const userSuccess = payload => ({
-  type: USER_SUCCESS,
-  name: payload.name,
-  token: payload.token,
-  session: payload.session,
-});
-
 export const USER_STATE: UserStateType = {
   login: false,
   name: null,

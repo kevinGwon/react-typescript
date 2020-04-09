@@ -13,8 +13,14 @@ import LoginContainer from '../containers/LoginContainer';
 // Styled
 import StyledGlobal from '../styled/global/StyledGlobal';
 import Loading from '../components/common/Loading';
+import { RootState } from '../types/redux/reducer';
+import { useEffect } from 'react';
 
 const App = ({ Component, pageProps, store }) => {
+  useEffect(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+  }, []);
   return (
     <>
       <Provider store={store}>
@@ -24,8 +30,8 @@ const App = ({ Component, pageProps, store }) => {
           <Component {...pageProps} />
         </Main>
         <Footer />
-        <LoginContainer />
         <Loading />
+        <LoginContainer />
         {/* PersistGate는 persisted된 상태가 Redux에 저장될때 까지 렌더링을 지연시킴으로서 SSR에 영향을 준다. */}
         <PersistGate loading={null} persistor={store.__persistor} />
       </Provider>

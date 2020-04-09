@@ -1,4 +1,6 @@
 // ACTION
+export const INTRO_ON = 'common/INTRO_ON' as const;
+export const INTRO_OFF = 'common/INTRO_OFF' as const;
 export const LOADING_ON = 'common/LOADING_ON' as const;
 export const LOADING_OFF = 'common/LOADING_OFF' as const;
 export const LOADING_SAGA = 'common/LOADING_SAGA' as const;

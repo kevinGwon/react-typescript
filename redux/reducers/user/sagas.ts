@@ -15,7 +15,7 @@ import {
   GET_ACCOUNT,
   GET_FAVORITE,
 } from '../../../modules/api/login';
-import { MENU_CLOSE } from '../common';
+import { MENU_CLOSE, INTRO_ON } from '../common';
 
 const pending = () => ({
   type: USER_PENDING,
@@ -73,6 +73,7 @@ function* runLogin(action) {
     yield put(success(info));
 
     // Login
+    yield put({ type: INTRO_ON });
     yield put({ type: USER_LOGIN });
 
     // Set Token, Session
