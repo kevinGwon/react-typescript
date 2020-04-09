@@ -14,7 +14,6 @@ https://developergwon-react-typescript.netlify.com/
 - SSR을 이용하여 SEO 지원합니다.
 - 상태관리를 위해 `Redux` 를 사용하였고 middleware는 `Redux-saga`를 사용하였습니다.
 - Styled Components를 이용하여 컴포넌트 단위로 스타일링 합니다.
-- Persist를 이용하여 상태 유지 합니다.
 
 ## Branch
 
@@ -33,7 +32,6 @@ develop
 - Redux
 - Redux-saga
 - Styled Components
-- Persist
 - Husky, Prettier, Eslint
 
 ## Editor
