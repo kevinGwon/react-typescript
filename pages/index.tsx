@@ -25,19 +25,17 @@ import ScrollMotion from '../modules/scroll-motion';
 // Types
 import { IndexType } from '../types';
 import Main from '../components/common/Main';
-import { USER_LOGIN_ON } from '../redux/reducers/user';
+import { USER_LOGIN } from '../redux/reducers/user';
 import { RootState } from '../types/redux/reducer';
 
 const scrollMotion = new ScrollMotion();
 
 const Index = ({ API }: IndexType) => {
-  const { menu } = useSelector((store: RootState) => store.common);
-  const { token } = useSelector((store: RootState) => store.user);
+  const { intro, menu } = useSelector((store: RootState) => store.common);
 
   useEffect(() => {
-    token && !menu && scrollMotion.init();
-    menu && scrollMotion.destroy();
-  }, [token, menu]);
+    intro && !menu ? scrollMotion.init() : scrollMotion.destroy();
+  }, [intro, menu]);
 
   useEffect(() => {
     return () => {

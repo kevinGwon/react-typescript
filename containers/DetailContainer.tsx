@@ -10,27 +10,22 @@ import {
 } from '../redux/reducers/common';
 import { IndexType } from '../types';
 import { POST_FAVORITE } from '../modules/api/detail';
+import { GET_FAVORITE } from '../modules/api/login';
 import { RootState } from '../types/redux/reducer';
+import { USER_FAVORITE_SAGA } from '../redux/reducers/user';
 
-function DetailContainer({ API, id, session, runLoadingSaga, runAddFavorite }) {
+function DetailContainer(props) {
+  const { runLoadingSaga } = props;
   const scrollToUp = useCallback(() => {
     window.scrollTo(0, 0);
     runLoadingSaga();
   }, []);
-  return (
-    <Detail
-      API={API}
-      scrollToUp={scrollToUp}
-      account={id}
-      session={session}
-      runAddFavorite={runAddFavorite}
-    />
-  );
+  return <Detail {...props} scrollToUp={scrollToUp} />;
 }
-
 const mapStateToProps = (store: RootState) => ({
-  id: store.user.id,
+  account: store.user.id,
   session: store.user.session,
+  favorite: store.user.favorite,
 });
 const mapDispatchToProps = dispatch => ({
   runLoadingSaga: () => {
@@ -39,9 +34,15 @@ const mapDispatchToProps = dispatch => ({
       dispatch: dispatch,
     });
   },
-  runAddFavorite: (account, session, id) => {
-    POST_FAVORITE(account, session, id).then(res => {
-      console.log(res);
+  runAddFavorite: async (account, session, id) => {
+    const data = {
+      account,
+      session,
+      id,
+    };
+    dispatch({
+      type: USER_FAVORITE_SAGA,
+      data,
     });
   },
 });

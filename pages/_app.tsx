@@ -11,27 +11,27 @@ import Main from '../components/common/Main';
 import LoginContainer from '../containers/LoginContainer';
 
 // Styled
-import StyledReset from '../styled/global/StyledReset.style';
-import StyledHelper from '../styled/global/StyledHelper.style';
-import StyledForm from '../styled/global/StyledForm.style';
+import StyledGlobal from '../styled/global/StyledGlobal';
 import Loading from '../components/common/Loading';
-import StyledStateStyle from '../styled/global/StyledState.style';
+import { RootState } from '../types/redux/reducer';
+import { useEffect } from 'react';
 
 const App = ({ Component, pageProps, store }) => {
+  useEffect(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+  }, []);
   return (
     <>
       <Provider store={store}>
+        <StyledGlobal />
         <HeaderContainer />
         <Main>
           <Component {...pageProps} />
         </Main>
         <Footer />
-        <LoginContainer />
         <Loading />
-        <StyledForm />
-        <StyledReset />
-        <StyledHelper />
-        <StyledStateStyle />
+        <LoginContainer />
       </Provider>
     </>
   );

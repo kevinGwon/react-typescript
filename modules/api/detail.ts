@@ -38,6 +38,18 @@ export const GET_SIMILAR = async (id: number) => {
   });
 };
 
+export const GET_FAVORITE = async (account_id: number, session_id: number) => {
+  let url = `https://api.themoviedb.org/3/account/${account_id}/favorite/movies?api_key=${opt.key}&session_id=${session_id}&language=${opt.lang}&sort_by=created_at.desc`;
+
+  console.log('account_id = ', account_id);
+  console.log('session_id = ', session_id);
+  console.log('url = ', url);
+
+  return await axios({
+    method: 'get',
+    url: url,
+  });
+};
 export const POST_FAVORITE = async (
   account_id: number,
   session_id: number,
@@ -45,10 +57,10 @@ export const POST_FAVORITE = async (
 ) => {
   let url = `https://api.themoviedb.org/3/account/${account_id}/favorite?api_key=${opt.key}&session_id=${session_id}`;
 
-  console.log('account_id = ', account_id);
-  console.log('session_id = ', session_id);
-  console.log('id = ', id);
-  console.log('url = ', url);
+  // console.log('account_id = ', account_id);
+  // console.log('session_id = ', session_id);
+  // console.log('id = ', id);
+  // console.log('url = ', url);
 
   return await axios({
     method: 'post',

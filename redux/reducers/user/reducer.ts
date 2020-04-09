@@ -1,20 +1,14 @@
 import {
-  USER_LOGIN_ON,
-  USER_LOGIN_OFF,
+  USER_LOGIN,
+  USER_LOGOUT,
   USER_INFO,
   USER_PENDING,
   USER_SUCCESS,
   USER_ERROR,
   USER_TOKEN,
+  USER_FAVORITE,
 } from './action';
 import { UserStateType } from '../../../types/redux/user';
-
-export const userSuccess = payload => ({
-  type: USER_SUCCESS,
-  name: payload.name,
-  token: payload.token,
-  session: payload.session,
-});
 
 export const USER_STATE: UserStateType = {
   login: false,
@@ -54,20 +48,30 @@ const user = (state: UserStateType = USER_STATE, action) => {
         error: action.error,
       };
     }
-    case USER_LOGIN_ON:
+    case USER_LOGIN:
       return {
         ...state,
         login: true,
       };
-    case USER_LOGIN_OFF:
+    case USER_LOGOUT:
       return {
         ...state,
         login: false,
+        favorite: [],
+        token: null,
+        session: null,
+        id: null,
+        name: null,
       };
     case USER_TOKEN:
       return {
         ...state,
         token: action.token,
+      };
+    case USER_FAVORITE:
+      return {
+        ...state,
+        favorite: action.data,
       };
     default:
       return state;

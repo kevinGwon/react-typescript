@@ -55,4 +55,4 @@ function Header({
 
 Header.displayName = 'Header';
 
-export default Header;
+export default React.memo(Header);

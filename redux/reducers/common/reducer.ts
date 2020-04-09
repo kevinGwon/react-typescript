@@ -1,13 +1,31 @@
 import { CommonType } from '../../../types/redux/common';
-import { LOADING_ON, LOADING_OFF, MENU_OPEN, MENU_CLOSE } from './action';
+import {
+  INTRO_ON,
+  INTRO_OFF,
+  LOADING_ON,
+  LOADING_OFF,
+  MENU_OPEN,
+  MENU_CLOSE,
+} from './action';
 
 const COMMON_STATE: CommonType = {
+  intro: false,
   loading: false,
   menu: false,
 };
 
 const common = (state: CommonType = COMMON_STATE, action): CommonType => {
   switch (action.type) {
+    case INTRO_ON:
+      return {
+        ...state,
+        intro: true,
+      };
+    case INTRO_OFF:
+      return {
+        ...state,
+        intro: false,
+      };
     case LOADING_ON:
       return {
         ...state,
