@@ -67,7 +67,6 @@ function HeaderMenu({
                     alt=""
                   />
                   <div className="info">
-                    <strong>{item.title}</strong>
                     <Link href="/detail/[id]" as={`/detail/${item.id}`}>
                       <a onClick={runMenuClose}>바로가기</a>
                     </Link>

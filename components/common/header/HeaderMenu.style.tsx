@@ -101,12 +101,6 @@ export const StyledHeaderFavorite = styled.ul`
     img {
       max-width: 130px;
     }
-    strong {
-      display: block;
-      margin-bottom: 2rem;
-      font-weight: normal;
-      text-align: center;
-    }
     .info {
       flex-basis: 100%;
       margin-left: 2rem;

@@ -139,7 +139,7 @@ function* runFavorite(action) {
   try {
     // Get info
     const { account, session, id, active } = action.data;
-    console.log(action.data);
+
     // Post
     yield call(POST_FAVORITE, account, session, id, active);
 
