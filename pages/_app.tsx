@@ -24,6 +24,8 @@ import { RootState } from '../types/redux/reducer';
 const App = ({ Component, pageProps, store }) => {
   const dispatch = store.dispatch;
   useEffect(() => {
+    localStorage.clear();
+    sessionStorage.clear();
     const token = localStorage.getItem('token');
     token && dispatch({ type: USER_KEEP_LOGIN_SAGA });
   }, []);
