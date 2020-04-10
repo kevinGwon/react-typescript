@@ -84,7 +84,7 @@ function* runLogin(action) {
     localStorage.setItem('name', name);
     localStorage.setItem('token', token);
     localStorage.setItem('account', account);
-    sessionStorage.setItem('session', session);
+    localStorage.setItem('session', session);
 
     // Fail
   } catch (error) {
@@ -100,7 +100,7 @@ function* runKeepLogin(action) {
     const name = localStorage.getItem('name');
     const token = localStorage.getItem('token');
     const account = Number(localStorage.getItem('account'));
-    const session = sessionStorage.getItem('session');
+    const session = localStorage.getItem('session');
 
     // Favorite
     const favoriteResponse = yield call(GET_FAVORITE, account, session);
@@ -130,7 +130,6 @@ function* runKeepLogin(action) {
 
 function* runLogout() {
   localStorage.clear();
-  sessionStorage.clear();
   yield put({ type: USER_LOGOUT });
   yield put({ type: MENU_CLOSE });
 }
