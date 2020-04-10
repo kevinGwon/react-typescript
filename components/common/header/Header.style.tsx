@@ -25,6 +25,7 @@ export const StyledHeader = styled.header.attrs(props => ({
   left: 0;
   height: ${$headerHeightSm}px;
   width: 100%;
+  padding-top: 2.5rem;
   box-sizing: border-box;
   font-size: 1.6rem;
 
@@ -41,7 +42,8 @@ export const StyledHeader = styled.header.attrs(props => ({
 
   @media (min-width: ${$mqLarge}) {
     height: ${$headerHeightLg}px;
-    padding: 2.5rem 10px 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 `;
 export const StyledLayoutHeader = styled.div`

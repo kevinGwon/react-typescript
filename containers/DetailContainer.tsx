@@ -23,7 +23,7 @@ function DetailContainer(props) {
   return <Detail {...props} scrollToUp={scrollToUp} />;
 }
 const mapStateToProps = (store: RootState) => ({
-  account: store.user.id,
+  account: store.user.account,
   session: store.user.session,
   favorite: store.user.favorite,
 });
@@ -34,11 +34,16 @@ const mapDispatchToProps = dispatch => ({
       dispatch: dispatch,
     });
   },
-  runAddFavorite: async (account, session, id) => {
+  runAddFavorite: async (account, session, id, active) => {
+    if (!account) {
+      alert('로그인이 필요한 기능입니다.');
+      return;
+    }
     const data = {
       account,
       session,
       id,
+      active,
     };
     dispatch({
       type: USER_FAVORITE_SAGA,

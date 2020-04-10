@@ -10,20 +10,32 @@ import { StyledHeaderMenuBtn } from './Header.style';
 import HeaderMenuDimlayer from './HeaderMenuDimlayer';
 import { API_CONFIG } from '../../../modules/api/api.config';
 import Link from 'next/link';
+import { StyledBtn } from '../Btn.style';
 
 function HeaderMenu({
+  account,
+  session,
   login,
   menu,
   name,
   favorite,
+  runRemoveFavorite,
   runMenuClose,
   runLogin,
   runLogout,
 }: {
+  account: number;
+  session: string;
   login: boolean;
   menu: boolean;
   name: string;
   favorite: any[];
+  runRemoveFavorite: (
+    account: number,
+    session: string,
+    id: number,
+    active: boolean,
+  ) => void;
   runMenuClose: () => void;
   runLogin: () => void;
   runLogout: () => void;
@@ -50,15 +62,23 @@ function HeaderMenu({
             {favorite.length ? (
               favorite.map((item, i) => (
                 <li key={item.id}>
-                  <Link href="/detail/[id]" as={`/detail/${item.id}`}>
-                    <a onClick={runMenuClose}>
-                      <img
-                        src={`${API_CONFIG.baseBgImageUrl}${item.poster_path}`}
-                        alt=""
-                      />
-                      <strong>{item.title}</strong>
-                    </a>
-                  </Link>
+                  <img
+                    src={`${API_CONFIG.baseBgImageUrl}${item.poster_path}`}
+                    alt=""
+                  />
+                  <div className="info">
+                    <Link href="/detail/[id]" as={`/detail/${item.id}`}>
+                      <a onClick={runMenuClose}>바로가기</a>
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        runRemoveFavorite(account, session, item.id, false);
+                      }}
+                    >
+                      제거
+                    </button>
+                  </div>
                 </li>
               ))
             ) : (

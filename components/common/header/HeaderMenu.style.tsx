@@ -7,6 +7,8 @@ import {
   $menuWidth,
   $white,
   $colorPrimary,
+  $gray7,
+  $gray3,
 } from '../../../styled/global/StyledVariable.style';
 import { StyledBtn } from '../Btn.style';
 import { StyledDimLayer } from '../DimLayer.style';
@@ -64,6 +66,16 @@ export const StyledHeaderFavorite = styled.ul`
   margin-top: 3rem;
   box-sizing: border-box;
 
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: ${$gray7};
+  }
+
   li.empty {
     display: flex;
     justify-content: center;
@@ -72,23 +84,41 @@ export const StyledHeaderFavorite = styled.ul`
     text-align: center;
   }
   li {
-    & + li {
-      margin-top: 2rem;
-    }
-  }
-  a {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: ${$white};
 
+    & + li {
+      margin-top: 2rem;
+    }
+    a,
+    button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 1.4rem;
+      transition: all ${$dur}s ${$ease};
+    }
+    a {
+      color: ${$white};
+      background-color: ${$colorPrimary};
+    }
+    button {
+      margin-top: 1rem;
+      color: ${$colorPrimary};
+      border: 1px solid ${$colorPrimary};
+    }
     img {
-      max-width: 100px;
+      max-width: 120px;
     }
-    strong {
-      flex: 1;
-      margin-left: 2rem;
-      font-weight: normal;
+    .info {
+      flex-basis: 100%;
+      margin: 0 1rem 0 2rem;
     }
+  }
+  a {
+    color: ${$white};
   }
 `;

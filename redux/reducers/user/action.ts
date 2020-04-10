@@ -12,5 +12,6 @@ export const USER_ERROR = 'user/USER_ERROR' as const;
 
 // Saga
 export const USER_LOGIN_SAGA = 'user/USER_LOGIN_SAGA' as const;
+export const USER_KEEP_LOGIN_SAGA = 'user/USER_KEEP_LOGIN_SAGA' as const;
 export const USER_LOGOUT_SAGA = 'user/USER_LOGOUT_SAGA' as const;
 export const USER_FAVORITE_SAGA = 'user/USER_FAVORITE_SAGA' as const;
