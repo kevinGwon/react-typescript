@@ -28,7 +28,7 @@ const pending = () => ({
 
 const success = action => ({
   type: USER_SUCCESS,
-  id: action.id,
+  account: action.account,
   name: action.name,
   favorite: action.favorite,
   token: action.token,
@@ -138,10 +138,10 @@ function* runLogout() {
 function* runFavorite(action) {
   try {
     // Get info
-    const { account, session, id } = action.data;
-
+    const { account, session, id, active } = action.data;
+    console.log(action.data);
     // Post
-    yield call(POST_FAVORITE, account, session, id);
+    yield call(POST_FAVORITE, account, session, id, active);
 
     // Repaint favorite
     const favorite = yield call(GET_FAVORITE, account, session);

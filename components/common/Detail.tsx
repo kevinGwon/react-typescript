@@ -39,10 +39,15 @@ function Detail({
 }: {
   API: any;
   account: number;
-  session: number;
+  session: string;
   favorite: any[];
   scrollToUp: () => void;
-  runAddFavorite: (account: number, session: number, id: number) => void;
+  runAddFavorite: (
+    account: number,
+    session: string,
+    id: number,
+    active: boolean,
+  ) => void;
 }) {
   const {
     id,
@@ -132,7 +137,7 @@ function Detail({
             {!isLike && (
               <StyledDetailFavoriteWrap>
                 <StyledDetailFavoriteBtn
-                  onClick={() => runAddFavorite(account, session, id)}
+                  onClick={() => runAddFavorite(account, session, id, true)}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                     <path

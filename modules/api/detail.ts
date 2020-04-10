@@ -52,15 +52,11 @@ export const GET_FAVORITE = async (account_id: number, session_id: number) => {
 };
 export const POST_FAVORITE = async (
   account_id: number,
-  session_id: number,
+  session_id: string,
   id: number,
+  active: boolean,
 ) => {
   let url = `https://api.themoviedb.org/3/account/${account_id}/favorite?api_key=${opt.key}&session_id=${session_id}`;
-
-  // console.log('account_id = ', account_id);
-  // console.log('session_id = ', session_id);
-  // console.log('id = ', id);
-  // console.log('url = ', url);
 
   return await axios({
     method: 'post',
@@ -68,7 +64,7 @@ export const POST_FAVORITE = async (
     data: {
       media_type: 'movie',
       media_id: id,
-      favorite: true,
+      favorite: active,
     },
   });
 };

@@ -34,11 +34,16 @@ const mapDispatchToProps = dispatch => ({
       dispatch: dispatch,
     });
   },
-  runAddFavorite: async (account, session, id) => {
+  runAddFavorite: async (account, session, id, active) => {
+    if (!account) {
+      alert('로그인이 필요한 기능입니다.');
+      return;
+    }
     const data = {
       account,
       session,
       id,
+      active,
     };
     dispatch({
       type: USER_FAVORITE_SAGA,

@@ -72,23 +72,47 @@ export const StyledHeaderFavorite = styled.ul`
     text-align: center;
   }
   li {
-    & + li {
-      margin-top: 2rem;
-    }
-  }
-  a {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: ${$white};
 
+    & + li {
+      margin-top: 2rem;
+    }
+    a,
+    button {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+      padding: 1rem;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 1.4rem;
+      transition: all ${$dur}s ${$ease};
+    }
+    a {
+      color: ${$white};
+      background-color: ${$colorPrimary};
+    }
+    button {
+      color: ${$colorPrimary};
+      border: 1px solid ${$colorPrimary};
+    }
     img {
-      max-width: 100px;
+      max-width: 130px;
     }
     strong {
-      flex: 1;
-      margin-left: 2rem;
+      display: block;
+      margin-bottom: 2rem;
       font-weight: normal;
+      text-align: center;
     }
+    .info {
+      flex-basis: 100%;
+      margin-left: 2rem;
+    }
+  }
+  a {
+    color: ${$white};
   }
 `;
