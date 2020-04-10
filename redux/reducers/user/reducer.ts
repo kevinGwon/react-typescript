@@ -13,7 +13,7 @@ import { UserStateType } from '../../../types/redux/user';
 export const USER_STATE: UserStateType = {
   login: false,
   name: null,
-  id: null,
+  account: null,
   favorite: [],
   token: null,
   session: null,
@@ -35,7 +35,7 @@ const user = (state: UserStateType = USER_STATE, action) => {
         ...state,
         loading: false,
         name: action.name,
-        id: action.id,
+        account: action.account,
         favorite: action.favorite,
         token: action.token,
         session: action.session,
@@ -60,7 +60,7 @@ const user = (state: UserStateType = USER_STATE, action) => {
         favorite: [],
         token: null,
         session: null,
-        id: null,
+        account: null,
         name: null,
       };
     case USER_TOKEN:

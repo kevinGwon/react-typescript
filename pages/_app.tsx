@@ -13,13 +13,16 @@ import LoginContainer from '../containers/LoginContainer';
 // Styled
 import StyledGlobal from '../styled/global/StyledGlobal';
 import Loading from '../components/common/Loading';
+
 import { RootState } from '../types/redux/reducer';
 import { useEffect } from 'react';
+import { USER_KEEP_LOGIN_SAGA } from '../redux/reducers/user';
 
 const App = ({ Component, pageProps, store }) => {
+  const dispatch = store.dispatch;
   useEffect(() => {
-    localStorage.clear();
-    sessionStorage.clear();
+    const token = localStorage.getItem('token');
+    token && dispatch({ type: USER_KEEP_LOGIN_SAGA });
   }, []);
   return (
     <>

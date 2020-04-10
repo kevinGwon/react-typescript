@@ -1,10 +1,11 @@
-import { call, put, delay, takeEvery } from 'redux-saga/effects';
+import { select, call, put, delay, takeEvery } from 'redux-saga/effects';
 import {
   USER_LOGIN_SAGA,
   USER_PENDING,
   USER_SUCCESS,
   USER_ERROR,
   USER_LOGIN,
+  USER_KEEP_LOGIN_SAGA,
   USER_LOGOUT_SAGA,
   USER_LOGOUT,
   USER_FAVORITE_SAGA,
@@ -19,6 +20,7 @@ import {
 } from '../../../modules/api/login';
 import { MENU_CLOSE, INTRO_ON } from '../common';
 import { POST_FAVORITE } from '../../../modules/api/detail';
+import { RootState } from '../../../types/redux/reducer';
 
 const pending = () => ({
   type: USER_PENDING,
@@ -56,17 +58,16 @@ function* runLogin(action) {
 
     // Account
     const accountResponse = yield call(GET_ACCOUNT, session);
-    const { id, name } = accountResponse.data;
-    // console.log(accountResponse);
+    const { id: account, name } = accountResponse.data;
 
     // Favorite
-    const favoriteResponse = yield call(GET_FAVORITE, id, session);
+    const favoriteResponse = yield call(GET_FAVORITE, account, session);
     const favorite = favoriteResponse.data.results;
 
     // Info
     const info = {
       name,
-      id,
+      account,
       favorite,
       session,
       token,
@@ -79,9 +80,47 @@ function* runLogin(action) {
     yield put({ type: INTRO_ON });
     yield put({ type: USER_LOGIN });
 
-    // Set Token, Session
+    // Set storage
+    localStorage.setItem('name', name);
     localStorage.setItem('token', token);
+    localStorage.setItem('account', account);
     sessionStorage.setItem('session', session);
+
+    // Fail
+  } catch (error) {
+    yield put(fail(error));
+  }
+}
+
+function* runKeepLogin(action) {
+  // Pending
+  yield put(pending());
+
+  try {
+    const name = localStorage.getItem('name');
+    const token = localStorage.getItem('token');
+    const account = Number(localStorage.getItem('account'));
+    const session = sessionStorage.getItem('session');
+
+    // Favorite
+    const favoriteResponse = yield call(GET_FAVORITE, account, session);
+    const favorite = favoriteResponse.data.results;
+
+    // // Info
+    const info = {
+      name,
+      account,
+      favorite,
+      session,
+      token,
+    };
+
+    // // Success
+    yield put(success(info));
+
+    // // Login
+    yield put({ type: INTRO_ON });
+    yield put({ type: USER_LOGIN });
 
     // Fail
   } catch (error) {
@@ -111,12 +150,13 @@ function* runFavorite(action) {
     // Dispatch
     yield put({ type: USER_FAVORITE, data });
   } catch (error) {
-    console.log(error);
+    yield put(fail(error));
   }
 }
 
 export function* userSaga() {
   yield takeEvery(USER_LOGIN_SAGA, runLogin);
+  yield takeEvery(USER_KEEP_LOGIN_SAGA, runKeepLogin);
   yield takeEvery(USER_LOGOUT_SAGA, runLogout);
   yield takeEvery(USER_FAVORITE_SAGA, runFavorite);
 }

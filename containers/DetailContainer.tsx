@@ -23,7 +23,7 @@ function DetailContainer(props) {
   return <Detail {...props} scrollToUp={scrollToUp} />;
 }
 const mapStateToProps = (store: RootState) => ({
-  account: store.user.id,
+  account: store.user.account,
   session: store.user.session,
   favorite: store.user.favorite,
 });
