@@ -18,11 +18,11 @@ import { IndexType } from '../../types';
 import Article from '../../components/common/Article';
 import DetailContainer from '../../containers/DetailContainer';
 
-function Id({ API }: { API: IndexType }) {
+function Id({ API }) {
   return (
     <>
       <Head>
-        <title>Portfolio of KevinGwon | ID</title>
+        <title>Portfolio of KevinGwon | {API.title}</title>
       </Head>
       <Article>
         <h2 className="a11y">영화정보 상세페이지</h2>
