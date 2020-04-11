@@ -45,6 +45,17 @@ const Index = ({ API }: IndexType) => {
     };
   }, []);
 
+  useEffect(() => {
+    const $footer = document.querySelector('footer');
+    $footer.classList.add('is-fixed');
+
+    return () => {
+      setTimeout(() => {
+        $footer.classList.remove('is-fixed');
+      }, 500);
+    };
+  }, []);
+
   return (
     <>
       <Head>
