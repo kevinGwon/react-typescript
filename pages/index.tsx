@@ -5,9 +5,8 @@ import { useSelector } from 'react-redux';
 
 // Components
 import MainListContainer from '../containers/main/MainListContainer';
-import MainSectionBox from '../components/main/MainSectionBox';
-import Article from '../components/common/Article';
 import MainSection from '../components/main/MainSection';
+import Article from '../components/common/Article';
 
 // Modules
 import {
@@ -63,7 +62,7 @@ const Index = ({ API }: IndexType) => {
       </Head>
       <Article>
         <h2 className="a11y">영화정보 리스트</h2>
-        <MainSectionBox API={API} />
+        <MainSection API={API} />
       </Article>
     </>
   );
