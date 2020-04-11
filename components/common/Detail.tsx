@@ -137,7 +137,13 @@ function Detail({
             {!isLike && (
               <StyledDetailFavoriteWrap>
                 <StyledDetailFavoriteBtn
-                  onClick={() => runAddFavorite(account, session, id, true)}
+                  onClick={() => {
+                    if (favorite.length === 20) {
+                      alert('20개이상 등록할 수 없습니다.');
+                      return;
+                    }
+                    runAddFavorite(account, session, id, true);
+                  }}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                     <path
