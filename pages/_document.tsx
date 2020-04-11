@@ -35,7 +35,6 @@ export default class extends Document {
             href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Roboto:400,500&display=swap"
             rel="stylesheet"
           />
-          {this.props.styles}
         </Head>
         <body>
           <Main />
