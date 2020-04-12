@@ -6,9 +6,7 @@
   "author": "kevinGwon <developerGwon@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "server": "cross-env NODE_ENV=development node server.js",
     "dev": "cross-env NODE_ENV=development next",
-    "start": "next start",
     "build": "next build",
     "export": "next export",
     "deploy": "npm run build && npm run export"
@@ -65,7 +63,6 @@
     "not ie <= 10"
   ],
   "dependencies": {
-    "express": "^4.17.1",
     "gsap": "^3.1.1",
     "imagesloaded": "^4.1.4",
     "next": "^9.2.1",
@@ -86,7 +83,6 @@
     "axios": "^0.19.2",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.0",
-    "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-react-app": "^5.2.0",
