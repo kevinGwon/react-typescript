@@ -1,4 +1,3 @@
-require('dotenv').config();
 const withSass = require('@zeit/next-sass');
 const globImporter = require('node-sass-glob-importer');
 const isDev = process.env.NODE_ENV === 'development' ? true : false;

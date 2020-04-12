@@ -1,1 +1,6 @@
 @import 'node_modules/swiper/dist/css/swiper';
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+  background-image: none;
+  background-color: transparent;
+}
