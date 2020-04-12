@@ -35,6 +35,10 @@ export const GET_URL = payload => {
   return `https://api.themoviedb.org/3/discover/movie?api_key=${payload.key}&language=${payload.lang}&release_date.gte=${payload.year}-${payload.month}-${payload.day}&with_genres=${payload.code}&sort_by=popularity.desc&include_adult=true&include_video=true&page=1`;
 };
 
+export const GET_URL_POPULAR = payload => {
+  return `https://api.themoviedb.org/3/movie/popular?api_key=${payload.key}&language=${payload.lang}&page=1&region=${payload.region}`;
+};
+
 // GET API
 export const GET_ACTION = axios({
   method: 'get',
@@ -111,6 +115,14 @@ export const GET_ANIMATION = axios({
     month: opt.month,
     day: opt.day,
     code: genres.animation.code,
+  }),
+});
+export const GET_POPULAR = axios({
+  method: 'get',
+  url: GET_URL_POPULAR({
+    key: opt.key,
+    lang: opt.lang,
+    region: opt.region,
   }),
 });
 export const API_FILTER = API => {

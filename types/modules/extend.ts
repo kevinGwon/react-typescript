@@ -1,6 +1,7 @@
 export interface ExtendType {
   key?: string;
   lang?: string;
+  region?: string;
   fallBackPosterPath?: string;
   basePostImageUrl?: string;
   baseBgImageUrl?: string;

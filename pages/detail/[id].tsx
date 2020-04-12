@@ -2,7 +2,7 @@ import Head from 'next/head';
 import axios from 'axios';
 
 // Modules
-import { API_FILTER } from '../../modules/api/list';
+import { API_FILTER, GET_POPULAR } from '../../modules/api/list';
 import {
   GET_DETAIL,
   API_DEDAILT_FILTER,
@@ -35,7 +35,8 @@ function Id({ API }) {
 Id.getInitialProps = async ctx => {
   let { id } = ctx.query;
   if (!id) {
-    id = 181812;
+    const popular = await GET_POPULAR;
+    id = popular.data.results[0].id;
   }
   try {
     const res = await axios.all([
@@ -43,7 +44,6 @@ Id.getInitialProps = async ctx => {
       GET_CAST(id),
       GET_SIMILAR(id),
     ]);
-
     return {
       API: API_DEDAILT_FILTER(res),
     };
