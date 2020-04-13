@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { StyledFooter } from './Footer.style';
 
 function Footer() {
