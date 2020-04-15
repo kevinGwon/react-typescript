@@ -16,8 +16,4 @@ function Search() {
   );
 }
 
-Search.getInitialProps = async context => {
-  return {};
-};
-
 export default Search;
