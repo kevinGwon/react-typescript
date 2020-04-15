@@ -20,7 +20,9 @@ function HeaderSearchContainer(props) {
   const { isServer } = props;
   const [searchActive, setSearchActive] = useState(false);
   useEffect(() => {
-    pageType = document.querySelector('article').getAttribute('data-page');
+    if (document.querySelector('article')) {
+      pageType = document.querySelector('article').getAttribute('data-page');
+    }
   }, [isServer]);
   useEffect(() => {
     return () => {
