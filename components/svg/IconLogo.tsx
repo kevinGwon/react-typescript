@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Variable
 import { $colorPrimary } from '../../styled/global/StyledVariable.style';
 
 function IconLogo() {

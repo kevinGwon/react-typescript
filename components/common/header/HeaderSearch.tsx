@@ -1,4 +1,12 @@
 import React from 'react';
+
+// Components
+import DimLayer from '../DimLayer';
+
+// Svg
+import IconSearch from '../../svg/IconSearch';
+
+// Styled
 import {
   StyledHeaderSearch,
   StyledHeaderForm,
@@ -6,8 +14,6 @@ import {
   StyledHeaderSearchInput,
   StyledHeaderSearchBtn,
 } from './Header.style';
-import DimLayer from '../DimLayer';
-import IconSearch from '../../svg/IconSearch';
 
 function HeaderSearch({
   searchActive,

@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useSelector } from 'react-redux';
+
+// Components
 import Login from '../../components/common/Login';
 
-// actions
+// Action
 import {
   USER_LOGIN_SAGA,
   USER_LOGIN,
   USER_TOKEN,
 } from '../../redux/reducers/user/index';
 
-// types
+// Types
 import { RootState } from '../../types/redux/reducer';
 
 function LoginContainer(props) {

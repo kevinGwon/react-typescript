@@ -1,12 +1,12 @@
 import React, { useRef, useCallback, useEffect } from 'react';
 import Link from 'next/link';
-import filterImages from '../../modules/filterImages';
-import { ListType } from '../../types/redux/list';
+
+// Components
+import MainSwiper from './MainSwiper';
 
 // Styled
 import { StyledLayout } from '../../styled/global/StyledLayout.style';
 import { StyledHeding1 } from '../../styled/global/StyledHeading.style';
-import MainSwiper from './MainSwiper';
 import {
   StyledMainSection,
   StyledMainSectionBg,
@@ -16,6 +16,10 @@ import {
 // Swiper Style Modules
 import { StyledMainSwiperLazy } from './MainSwiper.style';
 import MainSwiperContainer from '../../containers/main/MainSwiperContainer';
+import filterImages from '../../modules/filterImages';
+
+// Types
+import { ListType } from '../../types/redux/list';
 
 function MainList({
   data,

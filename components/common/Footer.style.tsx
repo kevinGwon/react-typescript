@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+
+// Variable
 import { $ease } from '../../styled/global/StyledVariable.style';
 
 export const StyledFooter = styled.footer.attrs(props => ({

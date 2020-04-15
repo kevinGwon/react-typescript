@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+
+// Variable
 import { $black } from '../../styled/global/StyledVariable.style';
 import { rgba, FullPos } from '../../styled/mixin';
 

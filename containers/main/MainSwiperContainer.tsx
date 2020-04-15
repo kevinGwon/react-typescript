@@ -1,7 +1,13 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
+
+// Components
 import MainSwiper from '../../components/main/MainSwiper';
+
+// Types
 import { ListType } from '../../types/redux/list';
+
+// Action
 import {
   LOADING_ON,
   LOADING_OFF,

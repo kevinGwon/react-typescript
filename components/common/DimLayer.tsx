@@ -1,4 +1,6 @@
 import React, { ReactNode, useEffect } from 'react';
+
+// Styled
 import { StyledDimLayer } from './DimLayer.style';
 
 function DimLayer({

@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+
+// Variable
 import {
   $inputPaddingTb,
   $inputPaddingLr,

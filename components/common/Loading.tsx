@@ -1,7 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { StyledLoading } from './Loading.style';
+
+// Componets
 import DimLayer from './DimLayer';
+
+// Styled
+import { StyledLoading } from './Loading.style';
 
 function Loading() {
   const { loading: commonLoading } = useSelector(store => store.common);

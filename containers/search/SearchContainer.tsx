@@ -1,6 +1,10 @@
 import React from 'react';
-import { StyledLayout } from '../../styled/global/StyledLayout.style';
+
+// Components
 import Search from '../../components/search/Search';
+
+// Styled
+import { StyledLayout } from '../../styled/global/StyledLayout.style';
 
 function SearchContainer(props) {
   return <Search {...props} />;

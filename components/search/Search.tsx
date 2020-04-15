@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Styled
 import { StyledLayout } from '../../styled/global/StyledLayout.style';
 
 function Search() {
