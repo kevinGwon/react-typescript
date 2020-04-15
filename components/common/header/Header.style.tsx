@@ -1,4 +1,10 @@
 import styled, { css, keyframes } from 'styled-components';
+
+// Components
+import Input from '../Input';
+
+// Variable
+import { rgba } from '../../../styled/mixin';
 import {
   $wWrap,
   $offsetSm,
@@ -12,9 +18,6 @@ import {
   $offsetLg,
   $colorPrimary,
 } from '../../../styled/global/StyledVariable.style';
-import { rgba } from '../../../styled/mixin';
-import Input from '../Input';
-import { NONAME } from 'dns';
 
 export const StyledHeader = styled.header.attrs(props => ({
   id: 'header',
@@ -70,8 +73,8 @@ export const StyledHeaderLogo = styled.div`
   top: 50%;
   left: 50%;
   width: 64px;
-  margin-left: -32px;
   margin-top: -28px;
+  margin-left: -32px;
 
   a {
     display: block;
@@ -89,55 +92,41 @@ export const StyledHeaderSearch = styled.div.attrs(props => ({
 }))`
   position: relative;
   z-index: 10;
-  width: 0%;
-  box-sizing: border-box;
+  margin-right: 1.5rem;
 
-  &.is-active {
-    width: 100%;
-    transition: width 0.2s ${$ease};
-  }
-  /* .input-search {
-    padding: 0;
-    border: 0;
-    border-bottom: 1px solid ${rgba($white, 0.7)};
-  } */
-  /* .btn {
-    width: 25px;
-    padding: 0;
-    border: 0;
-  } */
   svg {
     fill: ${$white};
     width: 100%;
   }
-  @media (min-width: ${$mqLarge}) {
-    margin-right: 0;
-
-    &.is-active {
-      width: 40%;
-    }
-  }
 `;
-export const StyledHeaderSearchInputGroup = styled.div.attrs(props => ({
-  className: 'input-group',
-}))`
-  width: 100%;
-  padding-right: 30px;
-`;
+export const StyledHeaderSearchInputGroup = styled.div``;
 export const StyledHeaderSearchInput = styled(Input).attrs(props => ({
   type: 'search',
   className: 'input-search',
 }))`
-  width: 100%;
+  height: 56px;
+  min-width: 250px;
+  padding-right: 3.5rem;
+  border: none;
+  border-bottom: 1px solid ${$white};
+  font-size: 2.5rem;
+
+  & + svg {
+    width: 25px;
+    height: 25px;
+    margin-left: -3rem;
+    transform: translateY(7px);
+  }
 `;
 export const StyledHeaderSearchBtn = styled.button.attrs(props => ({
-  type: 'button',
   className: 'btn',
 }))`
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 25px;
+  height: 25px;
+
+  svg {
+    fill: ${$white};
+  }
 `;
 
 export const StyledHeaderUtils = styled.div`
@@ -145,6 +134,7 @@ export const StyledHeaderUtils = styled.div`
   justify-content: flex-end;
   align-items: center;
   height: ${$headerHeightSm}px;
+  width: 100%;
 `;
 
 export const StyledHeaderMenuBtn = styled.button`
@@ -155,7 +145,7 @@ export const StyledHeaderMenuBtn = styled.button`
 
   svg {
     rect {
-      fill: ${$colorPrimary};
+      fill: ${$white};
       height: 2px;
       width: 18px;
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { $colorPrimary } from '../../styled/global/StyledVariable.style';
 
-function Logo() {
+function IconLogo() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -58,4 +58,4 @@ function Logo() {
   );
 }
 
-export default Logo;
+export default IconLogo;
