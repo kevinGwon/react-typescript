@@ -1,41 +1,53 @@
-import React, { useState, useCallback } from 'react';
-import Router from 'next/router';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
+import { useDispatch, useSelector, connect } from 'react-redux';
+// import Router from 'next/router';
 
 // Components
 import HeaderSearch from '../../components/common/header/HeaderSearch';
 
-function HeaderSearchContainer() {
+// Modules
+import submit from '../../modules/submit';
+
+// Action
+import { SEARCH_VALUE } from '../../redux/reducers/common';
+
+// Types
+import { RootState } from '../../types/redux/reducer';
+
+let pageType = null;
+
+function HeaderSearchContainer(props) {
+  const { isServer } = props;
   const [searchActive, setSearchActive] = useState(false);
-  const runSubmit = useCallback((e: React.FormEvent) => {
-    const $form = e.currentTarget;
-    const $input = $form.querySelector('input');
-    e.preventDefault();
-
-    // Validation
-    if (!$input.value.length) {
-      alert('검색어를 입력하세요.');
-      return false;
-    }
-
-    // Search 페이지로 이동
-    Router.push('/search');
-
-    // Search 비활성화
-    setSearchActive(false);
-
-    // Search 초기화
-    $input.value = '';
+  useEffect(() => {
+    pageType = document.querySelector('article').getAttribute('data-page');
+  }, [isServer]);
+  useEffect(() => {
+    return () => {
+      pageType = null;
+    };
   }, []);
-  const runCloseSearch = useCallback(() => {
-    setSearchActive(false);
-  }, [searchActive]);
-  const runCloseBlock = useCallback(
-    (e: React.MouseEvent) => {
-      e.stopPropagation();
-    },
-    [searchActive],
+
+  return (
+    <HeaderSearch
+      {...props}
+      pageType={pageType}
+      searchActive={searchActive}
+      setSearchActive={setSearchActive}
+    />
   );
-  const runSearchActive = useCallback(() => {
+}
+
+const mapStateToProps = (store: RootState) => ({
+  isServer: store.common.isServer,
+  search: store.common.search,
+});
+const mapDispatchToProps = dispatch => ({
+  runSubmit: (e, setSearchActive) => submit({ e, setSearchActive, dispatch }),
+  runCloseSearch: setSearchActive => {
+    setSearchActive(false);
+  },
+  runSearchActive: (setSearchActive, searchActive) => {
     let $searchInput: HTMLInputElement = null;
     setSearchActive(!searchActive);
     if (!searchActive) {
@@ -46,16 +58,13 @@ function HeaderSearchContainer() {
     } else {
       $searchInput = null;
     }
-  }, [searchActive]);
-  return (
-    <HeaderSearch
-      searchActive={searchActive}
-      runSubmit={runSubmit}
-      runSearchActive={runSearchActive}
-      runCloseSearch={runCloseSearch}
-      runCloseBlock={runCloseBlock}
-    />
-  );
-}
+  },
+  runCloseBlock: (e: React.MouseEvent) => {
+    e.stopPropagation();
+  },
+});
 
-export default HeaderSearchContainer;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(HeaderSearchContainer);

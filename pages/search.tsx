@@ -10,7 +10,7 @@ function Search() {
       <Head>
         <title>Portfolio of KevinGwon | Search</title>
       </Head>
-      <Article>
+      <Article page="search">
         <h2 className="a11y">영화정보 검색</h2>
         <SearchContainer />
       </Article>
