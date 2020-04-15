@@ -8,17 +8,12 @@ import {
   LOADING_SAGA,
 } from '../../redux/reducers/common';
 
-function MainSwiperContainer({
-  data,
-  runLoadingSaga,
-}: {
-  data: ListType[];
-  runLoadingSaga: () => void;
-}) {
+function MainSwiperContainer(props) {
+  const { runLoadingSaga } = props;
   const runLoading = useCallback(() => {
     runLoadingSaga();
   }, []);
-  return <MainSwiper data={data} runLoading={runLoading} />;
+  return <MainSwiper {...props} runLoading={runLoading} />;
 }
 
 export default connect(

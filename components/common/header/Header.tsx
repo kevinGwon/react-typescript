@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 
 // Components
-import HeaderSearchContainer from '../../../containers/HeaderSearchContainer';
-import HeaderMenuContainer from '../../../containers/HeaderMenuContainer';
+import HeaderSearchContainer from '../../../containers/header/HeaderSearchContainer';
+import HeaderMenuContainer from '../../../containers/header/HeaderMenuContainer';
 
 // Icon
 import IconLogo from '../../svg/IconLogo';

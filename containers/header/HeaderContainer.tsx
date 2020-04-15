@@ -2,11 +2,11 @@ import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 // Components
-import Header from '../components/common/header/Header';
+import Header from '../../components/common/header/Header';
 
 // Types
-import { RootState } from '../types/redux/reducer';
-import { MENU_OPEN, LOADING_SAGA } from '../redux/reducers/common';
+import { RootState } from '../../types/redux/reducer';
+import { MENU_OPEN, LOADING_SAGA } from '../../redux/reducers/common';
 
 function HeaderContainer() {
   const dispatch = useDispatch();

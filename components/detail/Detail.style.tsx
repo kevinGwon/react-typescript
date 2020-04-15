@@ -1,12 +1,16 @@
 import styled, { css } from 'styled-components';
+
+// Styled
+import { StyledHeding2 } from '../../styled/global/StyledHeading.style';
 import {
   $headerHeightSm,
   $mqLarge,
   $black,
   $colorPrimary,
 } from '../../styled/global/StyledVariable.style';
+
+// Variable
 import { FullPos, rgba } from '../../styled/mixin';
-import { StyledHeding2 } from '../../styled/global/StyledHeading.style';
 
 export const StyledDetailLayout = styled.div`
   position: relative;

@@ -1,9 +1,16 @@
 import React, { useEffect, ReactNode, ReactHTMLElement } from 'react';
-import { StyledLayout } from '../../styled/global/StyledLayout.style';
-import { ListType } from '../../types/redux/list';
-import filterImages from '../../modules/filterImages';
+import StarRatings from 'react-star-ratings';
 import Link from 'next/link';
 import Swiper from 'swiper';
+
+// Modules
+import filterImages from '../../modules/filterImages';
+
+// Scss
+import '../../scss/swiper.scss';
+
+// Styled
+import { StyledLayout } from '../../styled/global/StyledLayout.style';
 import {
   StyledDetailCover,
   StyledDetailSection,
@@ -22,13 +29,15 @@ import {
   StyledDetailFavoriteBtn,
   StyledDetailFavoriteWrap,
 } from './Detail.style';
-import StarRatings from 'react-star-ratings';
 import {
   StyledHeding2,
   StyledHeding5,
 } from '../../styled/global/StyledHeading.style';
-import '../../scss/swiper.scss';
-import { StyledBtn } from './Btn.style';
+import { StyledBtn } from '../common/Btn.style';
+
+// Types
+import { ListType } from '../../types/redux/list';
+
 function Detail({
   API,
   account,

@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyledLayout } from '../../styled/global/StyledLayout.style';
+import Search from '../../components/search/Search';
 
-function SearchContainer() {
-  return <StyledLayout>검색페이지</StyledLayout>;
+function SearchContainer(props) {
+  return <Search {...props} />;
 }
 
 export default SearchContainer;

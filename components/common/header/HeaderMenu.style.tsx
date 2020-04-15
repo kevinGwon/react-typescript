@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+
+// Variable
 import { rgba, FullPos } from '../../../styled/mixin';
 import {
   $black,
@@ -10,6 +12,8 @@ import {
   $gray7,
   $gray3,
 } from '../../../styled/global/StyledVariable.style';
+
+// Styled
 import { StyledBtn } from '../Btn.style';
 import { StyledDimLayer } from '../DimLayer.style';
 

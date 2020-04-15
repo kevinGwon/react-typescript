@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import HeaderContainer from '../../containers/HeaderContainer';
+import HeaderContainer from '../../containers/header/HeaderContainer';
 import Footer from './Footer';
 
 // Styled

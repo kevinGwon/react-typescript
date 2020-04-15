@@ -1,6 +1,8 @@
 import Head from 'next/head';
+
+// Components
 import Article from '../components/common/Article';
-import SearchContainer from '../containers/main/SearchContainer';
+import SearchContainer from '../containers/search/SearchContainer';
 
 function Search() {
   return (

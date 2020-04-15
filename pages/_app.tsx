@@ -5,11 +5,11 @@ import { PersistGate } from 'redux-persist/integration/react';
 import withRedux from 'next-redux-wrapper';
 
 // Components
-import HeaderContainer from '../containers/HeaderContainer';
+import HeaderContainer from '../containers/header/HeaderContainer';
 import Footer from '../components/common/Footer';
 import Article from '../components/common/Article';
 import Main from '../components/common/Main';
-import LoginContainer from '../containers/LoginContainer';
+import LoginContainer from '../containers/login/LoginContainer';
 
 // Action
 import { USER_KEEP_LOGIN_SAGA } from '../redux/reducers/user';
