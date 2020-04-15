@@ -17,7 +17,6 @@ import {
   StyledHeaderForm,
   StyledHeaderSearch,
   StyledHeaderSearchBtn,
-  StyledHeaderSearchInput,
   StyledHeaderSearchInputGroup,
   StyledHeaderMenuBtn,
   StyledHeaderUtils,

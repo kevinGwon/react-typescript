@@ -95,29 +95,11 @@ export const StyledHeaderSearch = styled.div.attrs(props => ({
   margin-right: 1.5rem;
 
   svg {
-    fill: ${$white};
     width: 100%;
   }
 `;
 export const StyledHeaderSearchInputGroup = styled.div``;
-export const StyledHeaderSearchInput = styled(Input).attrs(props => ({
-  type: 'search',
-  className: 'input-search',
-}))`
-  height: 56px;
-  min-width: 250px;
-  padding-right: 3.5rem;
-  border: none;
-  border-bottom: 1px solid ${$white};
-  font-size: 2.5rem;
 
-  & + svg {
-    width: 25px;
-    height: 25px;
-    margin-left: -3rem;
-    transform: translateY(7px);
-  }
-`;
 export const StyledHeaderSearchBtn = styled.button.attrs(props => ({
   className: 'btn',
 }))`
