@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+
+// Variable
 import { FullPos } from '../../styled/mixin';
 import {
   $mqMedium,

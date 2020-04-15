@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Styled
 import { StyledBtn } from './Btn.style';
 
 function Btn(props) {

@@ -1,4 +1,6 @@
 import styled, { keyframes } from 'styled-components';
+
+// Variable
 import { $colorPrimary } from '../../styled/global/StyledVariable.style';
 
 const loading = keyframes`

@@ -1,7 +1,13 @@
 import React, { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+
+// Styled
 import { StyledDimLayer } from '../DimLayer.style';
+
+// Action
 import { MENU_CLOSE } from '../../../redux/reducers/common';
+
+// Types
 import { RootState } from '../../../types/redux/reducer';
 
 function HeaderMenuDimlayer() {

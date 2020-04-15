@@ -1,4 +1,13 @@
 import React from 'react';
+import Link from 'next/link';
+
+// Components
+import HeaderMenuDimlayer from './HeaderMenuDimlayer';
+
+// Modules
+import { API_CONFIG } from '../../../modules/api/api.config';
+
+// Styled
 import {
   StyledHeaderMenu,
   StyledHeaderLogoutBtn,
@@ -6,11 +15,8 @@ import {
   StyledHeaderUser,
   StyledHeaderFavorite,
 } from './HeaderMenu.style';
-import { StyledHeaderMenuBtn } from './Header.style';
-import HeaderMenuDimlayer from './HeaderMenuDimlayer';
-import { API_CONFIG } from '../../../modules/api/api.config';
-import Link from 'next/link';
 import { StyledBtn } from '../Btn.style';
+import { StyledHeaderMenuBtn } from './Header.style';
 
 function HeaderMenu({
   account,

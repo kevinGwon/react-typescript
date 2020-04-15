@@ -21,7 +21,7 @@ export const USER_STATE: UserStateType = {
   error: null,
 };
 
-const user = (state: UserStateType = USER_STATE, action) => {
+const user = (state: UserStateType = USER_STATE, action): UserStateType => {
   switch (action.type) {
     case USER_PENDING: {
       return {

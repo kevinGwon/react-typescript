@@ -12,23 +12,23 @@ export const $mqXxlarge = '1600px';
 
 // layout
 // -----------------------------------------------------------------------------
-export const $wSmall = '360';
-export const $wDefault = '1440';
-export const $wWrap = '1280';
+export const $wSmall = 360;
+export const $wDefault = 1440;
+export const $wWrap = 1280;
 
-export const $offsetSm = '20';
-export const $offsetMd = '30';
-export const $offsetLg = '50';
+export const $offsetSm = 20;
+export const $offsetMd = 30;
+export const $offsetLg = 50;
 
-export const $headerHeightSm = '60'; // 모바일 header 높이
-export const $headerHeightLg = '85'; // 데스크탑 header 높이
+export const $headerHeightSm = 60; // 모바일 header 높이
+export const $headerHeightLg = 85; // 데스크탑 header 높이
 
-export const $inputPaddingTb = '10';
-export const $inputPaddingLr = '15';
+export const $inputPaddingTb = 10;
+export const $inputPaddingLr = 15;
 
-export const $elementMarginLr = '10';
+export const $elementMarginLr = 10;
 
-export const $menuWidth = '320';
+export const $menuWidth = 320;
 
 // fonts
 // -----------------------------------------------------------------------------

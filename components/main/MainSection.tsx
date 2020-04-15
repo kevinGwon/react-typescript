@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 // Components
 import MainListContainer from '../../containers/main/MainListContainer';

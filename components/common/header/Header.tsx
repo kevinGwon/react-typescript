@@ -1,20 +1,27 @@
-import * as React from 'react';
+import React from 'react';
+import Link from 'next/link';
+
+// Components
+import HeaderSearchContainer from '../../../containers/header/HeaderSearchContainer';
+import HeaderMenuContainer from '../../../containers/header/HeaderMenuContainer';
+
+// Icon
+import IconLogo from '../../svg/IconLogo';
+import IconSearch from '../../svg/IconSearch';
+import IconMenu from '../../svg/IconMenu';
+
+// Styled
 import {
   StyledHeader,
   StyledLayoutHeader,
   StyledHeaderForm,
   StyledHeaderSearch,
   StyledHeaderSearchBtn,
-  StyledHeaderSearchInput,
   StyledHeaderSearchInputGroup,
   StyledHeaderMenuBtn,
   StyledHeaderUtils,
   StyledHeaderLogo,
 } from './Header.style';
-import HeaderSearchContainer from '../../../containers/HeaderSearchContainer';
-import HeaderMenuContainer from '../../../containers/HeaderMenuContainer';
-import Logo from '../../svg/Logo';
-import Link from 'next/link';
 
 function Header({
   runOpenMenu,
@@ -30,22 +37,16 @@ function Header({
         <StyledHeaderLogo>
           <Link href="/">
             <a onClick={runGoHome}>
-              <Logo />
+              <IconLogo />
             </a>
           </Link>
         </StyledHeaderLogo>
         <StyledHeaderUtils>
+          <HeaderSearchContainer />
           <StyledHeaderMenuBtn type="button" onClick={runOpenMenu}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <g>
-                <rect className="rect-1"></rect>
-                <rect className="rect-2"></rect>
-                <rect className="rect-3"></rect>
-              </g>
-            </svg>
+            <IconMenu />
             <span className="a11y">메뉴 열기</span>
           </StyledHeaderMenuBtn>
-          {/* <HeaderSearchContainer /> */}
         </StyledHeaderUtils>
         <HeaderMenuContainer />
       </StyledLayoutHeader>

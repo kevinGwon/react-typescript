@@ -5,11 +5,11 @@ import { PersistGate } from 'redux-persist/integration/react';
 import withRedux from 'next-redux-wrapper';
 
 // Components
-import HeaderContainer from '../containers/HeaderContainer';
+import HeaderContainer from '../containers/header/HeaderContainer';
 import Footer from '../components/common/Footer';
 import Article from '../components/common/Article';
 import Main from '../components/common/Main';
-import LoginContainer from '../containers/LoginContainer';
+import LoginContainer from '../containers/login/LoginContainer';
 
 // Action
 import { USER_KEEP_LOGIN_SAGA } from '../redux/reducers/user';
@@ -20,13 +20,19 @@ import Loading from '../components/common/Loading';
 
 // Types
 import { RootState } from '../types/redux/reducer';
+import { SERVER } from '../redux/reducers/common';
 
-const App = ({ Component, pageProps, store }) => {
+const App = ({ Component, pageProps, store, isServer }) => {
   const dispatch = store.dispatch;
   useEffect(() => {
+    // Get Token
     const token = localStorage.getItem('token');
     token && dispatch({ type: USER_KEEP_LOGIN_SAGA });
   }, []);
+  useEffect(() => {
+    // Server Check
+    dispatch({ type: SERVER, isServer: isServer });
+  }, [isServer]);
   return (
     <>
       <Provider store={store}>
@@ -45,6 +51,7 @@ const App = ({ Component, pageProps, store }) => {
 
 App.getInitialProps = async ({ Component, ctx }) => {
   return {
+    isServer: ctx.isServer,
     pageProps: {
       ...(Component.getInitialProps
         ? await Component.getInitialProps(ctx)

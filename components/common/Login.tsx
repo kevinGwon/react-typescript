@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
-import Logo from '../svg/Logo';
+import IconLogo from '../svg/IconLogo';
 import ReactDOM from 'react-dom';
 
 // Components
@@ -16,7 +16,7 @@ function Login({ runSubmit }: { runSubmit: (e: React.FormEvent) => void }) {
     <DimLayer z={110}>
       <StyledForm>
         <StyledFormLogo>
-          <Logo />
+          <IconLogo />
         </StyledFormLogo>
         <form
           onSubmit={e => {

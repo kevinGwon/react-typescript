@@ -1,18 +1,28 @@
 import React, { useCallback, useRef, useMemo } from 'react';
 import { connect } from 'react-redux';
-import { StyledLayout } from '../styled/global/StyledLayout.style';
-import { ListType } from '../types/redux/list';
-import Detail from '../components/common/Detail';
+
+// Components
+import Detail from '../../components/detail/Detail';
+
+// Modules
+import { POST_FAVORITE } from '../../modules/api/detail';
+import { GET_FAVORITE } from '../../modules/api/login';
+
+// Styled
+import { StyledLayout } from '../../styled/global/StyledLayout.style';
+
+// Action
 import {
   LOADING_ON,
   LOADING_OFF,
   LOADING_SAGA,
-} from '../redux/reducers/common';
-import { IndexType } from '../types';
-import { POST_FAVORITE } from '../modules/api/detail';
-import { GET_FAVORITE } from '../modules/api/login';
-import { RootState } from '../types/redux/reducer';
-import { USER_FAVORITE_SAGA } from '../redux/reducers/user';
+} from '../../redux/reducers/common';
+import { USER_FAVORITE_SAGA } from '../../redux/reducers/user';
+
+// Types
+import { IndexType } from '../../types';
+import { RootState } from '../../types/redux/reducer';
+import { ListType } from '../../types/redux/list';
 
 function DetailContainer(props) {
   const { runLoadingSaga } = props;

@@ -1,10 +1,14 @@
 import styled from 'styled-components';
+
+// Variable
 import { FullPos, rgba } from '../../styled/mixin';
 import {
   $black,
   $gray9,
   $gray,
 } from '../../styled/global/StyledVariable.style';
+
+// Styled
 import { StyledBtn } from './Btn.style';
 
 export const StyledFormLogo = styled.div`

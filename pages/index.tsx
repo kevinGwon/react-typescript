@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import MainListContainer from '../containers/main/MainListContainer';
 import MainSection from '../components/main/MainSection';
 import Article from '../components/common/Article';
+import Main from '../components/common/Main';
 
 // Modules
 import {
@@ -21,10 +22,11 @@ import {
 } from '../modules/api/list';
 import ScrollMotion from '../modules/scroll-motion';
 
+// Action
+import { USER_LOGIN } from '../redux/reducers/user';
+
 // Types
 import { IndexType } from '../types';
-import Main from '../components/common/Main';
-import { USER_LOGIN } from '../redux/reducers/user';
 import { RootState } from '../types/redux/reducer';
 
 const scrollMotion = new ScrollMotion();
@@ -68,7 +70,7 @@ const Index = ({ API }: IndexType) => {
   );
 };
 
-Index.getInitialProps = async context => {
+Index.getInitialProps = async ctx => {
   let API = null;
   try {
     const data = await axios.all([

@@ -1,13 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import HeaderMenu from '../components/common/header/HeaderMenu';
+
+// Components
+import HeaderMenu from '../../components/common/header/HeaderMenu';
 
 // actions
-import { MENU_CLOSE, LOADING_SAGA, INTRO_OFF } from '../redux/reducers/common';
-import { USER_LOGOUT_SAGA, USER_FAVORITE_SAGA } from '../redux/reducers/user';
+import {
+  MENU_CLOSE,
+  LOADING_SAGA,
+  INTRO_OFF,
+} from '../../redux/reducers/common';
+import {
+  USER_LOGOUT_SAGA,
+  USER_FAVORITE_SAGA,
+} from '../../redux/reducers/user';
 
 // types
-import { RootState } from '../types/redux/reducer';
+import { RootState } from '../../types/redux/reducer';
 
 function HeaderMenuContainer(props) {
   return <HeaderMenu {...props} />;

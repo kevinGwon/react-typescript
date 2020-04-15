@@ -16,7 +16,7 @@ import { IndexType } from '../../types';
 
 // Components
 import Article from '../../components/common/Article';
-import DetailContainer from '../../containers/DetailContainer';
+import DetailContainer from '../../containers/detail/DetailContainer';
 
 function Id({ API }) {
   return (

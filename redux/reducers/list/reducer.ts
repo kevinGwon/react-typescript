@@ -86,10 +86,7 @@ export const LIST_STATE: ListStateType = {
   },
 };
 
-const list = (
-  state: ListStateType = LIST_STATE,
-  action: CategoryType,
-): ListStateType => {
+const list = (state: ListStateType = LIST_STATE, action): ListStateType => {
   switch (action.type) {
     case ACTION_LIST:
     case THRILLER_LIST:
