@@ -8,7 +8,7 @@ import Header from '../../components/common/header/Header';
 import { RootState } from '../../types/redux/reducer';
 import { MENU_OPEN, LOADING_SAGA } from '../../redux/reducers/common';
 
-function HeaderContainer() {
+function HeaderContainer(props) {
   const dispatch = useDispatch();
   const runOpenMenu = useCallback(() => {
     dispatch({
@@ -21,7 +21,7 @@ function HeaderContainer() {
       dispatch: dispatch,
     });
   }, []);
-  return <Header runOpenMenu={runOpenMenu} runGoHome={runGoHome} />;
+  return <Header {...props} runOpenMenu={runOpenMenu} runGoHome={runGoHome} />;
 }
 
 export default React.memo(HeaderContainer);
