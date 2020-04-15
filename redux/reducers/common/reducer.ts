@@ -22,7 +22,6 @@ const COMMON_STATE: CommonType = {
 const common = (state: CommonType = COMMON_STATE, action): CommonType => {
   switch (action.type) {
     case SERVER:
-      console.log('SERVER !!' + action.isServer);
       return {
         ...state,
         isServer: action.isServer,
