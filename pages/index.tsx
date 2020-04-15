@@ -70,7 +70,7 @@ const Index = ({ API }: IndexType) => {
   );
 };
 
-Index.getInitialProps = async context => {
+Index.getInitialProps = async ctx => {
   let API = null;
   try {
     const data = await axios.all([
