@@ -2,7 +2,7 @@ import React from 'react';
 import Router from 'next/router';
 
 // Action
-import { SEARCH_VALUE } from '../redux/reducers/common';
+import { SEARCH_VALUE, LOADING_SAGA } from '../redux/reducers/common';
 
 const submit = ({
   e,
@@ -23,6 +23,8 @@ const submit = ({
     return false;
   }
 
+  // Loading
+  dispatch({ type: LOADING_SAGA, dispatch: dispatch });
   // Dispatch
   dispatch({ type: SEARCH_VALUE, search: $input.value });
 
