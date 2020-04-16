@@ -8,7 +8,7 @@ export const StyledFooter = styled.footer.attrs(props => ({
 }))`
   position: relative;
   width: 100%;
-  padding: 2rem 0;
+  padding: 3.5rem 0;
   text-align: center;
   font-size: 1.4rem;
   transition: all 0.2s ${$ease};

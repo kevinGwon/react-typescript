@@ -21,6 +21,7 @@ export const StyledArticle = styled.article.attrs(props => ({
       css`
         min-height: calc(100vh - ${$headerHeightSm}px);
         padding-top: ${$headerHeightSm + size}px;
+        padding-bottom: 5rem;
 
         @media (min-width: ${$mqLarge}) {
           min-height: calc(100vh - ${$headerHeightLg}px);
