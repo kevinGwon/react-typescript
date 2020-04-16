@@ -9,7 +9,7 @@ import HeaderSearch from '../../components/common/header/HeaderSearch';
 import submit from '../../modules/submit';
 
 // Action
-import { SEARCH_VALUE } from '../../redux/reducers/common';
+import { SEARCH_QUERY } from '../../redux/reducers/search';
 
 // Types
 import { RootState } from '../../types/redux/reducer';
@@ -42,7 +42,7 @@ function HeaderSearchContainer(props) {
 
 const mapStateToProps = (store: RootState) => ({
   isServer: store.common.isServer,
-  search: store.common.search,
+  query: store.search.query,
 });
 const mapDispatchToProps = dispatch => ({
   runSubmit: (e, setSearchActive) => submit({ e, setSearchActive, dispatch }),
