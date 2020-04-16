@@ -1,6 +1,14 @@
-import { put, delay, takeEvery } from 'redux-saga/effects';
-import { LOADING_SAGA, LOADING_ON, LOADING_OFF } from './action';
+import { put, delay, select, takeEvery } from 'redux-saga/effects';
 import imagesLoaded from 'imagesloaded';
+
+// Action
+import { LOADING_SAGA, LOADING_ON, LOADING_OFF } from './action';
+
+// Types
+import { RootState } from '../../../types/redux/reducer';
+
+// Modules
+import { GET_SEARCH } from '../../../modules/api/list';
 
 // Loading
 function* runLoading(action) {
