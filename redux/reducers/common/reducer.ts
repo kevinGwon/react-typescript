@@ -7,8 +7,6 @@ import {
   LOADING_OFF,
   MENU_OPEN,
   MENU_CLOSE,
-  SEARCH_VALUE,
-  SEARCH_RESET,
 } from './action';
 
 const COMMON_STATE: CommonType = {
@@ -16,7 +14,6 @@ const COMMON_STATE: CommonType = {
   intro: false,
   loading: false,
   menu: false,
-  search: '',
 };
 
 const common = (state: CommonType = COMMON_STATE, action): CommonType => {
@@ -55,16 +52,6 @@ const common = (state: CommonType = COMMON_STATE, action): CommonType => {
       return {
         ...state,
         menu: false,
-      };
-    case SEARCH_VALUE:
-      return {
-        ...state,
-        search: action.search,
-      };
-    case SEARCH_RESET:
-      return {
-        ...state,
-        search: '',
       };
   }
   return state;

@@ -9,7 +9,8 @@ import { RootState } from '../../types/redux/reducer';
 import submit from '../../modules/submit';
 
 // Action
-import { SEARCH_RESET } from '../../redux/reducers/common';
+import { SEARCH_RESET } from '../../redux/reducers/search';
+import { LOADING_SAGA } from '../../redux/reducers/common';
 
 function SearchContainer(props) {
   const { runResetSearch } = props;
@@ -23,12 +24,16 @@ function SearchContainer(props) {
 }
 
 const mapStateToProps = (store: RootState) => ({
-  search: store.common.search,
+  query: store.search.query,
+  queryList: store.search.queryList,
 });
 const mapDispatchToProps = dispatch => ({
   runSubmit: e => submit({ e, dispatch }),
   runResetSearch: () => {
     dispatch({ type: SEARCH_RESET });
+  },
+  runLoading: () => {
+    dispatch({ type: LOADING_SAGA, dispatch: dispatch });
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);

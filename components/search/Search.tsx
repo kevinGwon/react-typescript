@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import { API_CONFIG } from '../../modules/api/api.config';
 
 // Styled
 import { StyledLayout } from '../../styled/global/StyledLayout.style';
@@ -7,12 +9,20 @@ import { StyledSearchForm, StyledSearchList } from './Search.style';
 
 // Components
 import SearchUI from '../common/SearchUI';
+import { ListType } from '../../types/redux/list';
+
+// Modules
+import filterImages from '../../modules/filterImages';
 
 function Search({
-  search,
+  query,
+  queryList,
+  runLoading,
   runSubmit,
 }: {
-  search: string;
+  query: string;
+  queryList: any[];
+  runLoading: () => void;
   runSubmit: (e: React.FormEvent) => void;
 }) {
   return (
@@ -21,11 +31,33 @@ function Search({
         <SearchUI
           id="search-sub"
           placeholder="검색어를 입력하세요"
-          search={search}
+          query={query}
         />
       </StyledSearchForm>
       <StyledSearchList>
-        <li>준비중</li>
+        {queryList.length ? (
+          queryList.map(item => {
+            const imageURL = `${API_CONFIG.basePostImageUrl}/${item.poster_path}`;
+            return (
+              <li key={item.id}>
+                <Link href={`/detail?id=${item.id}`}>
+                  <a onClick={runLoading}>
+                    <img
+                      src={
+                        filterImages(imageURL)
+                          ? imageURL
+                          : 'http://placehold.it/500x747?text=Not Found'
+                      }
+                      alt=""
+                    />
+                  </a>
+                </Link>
+              </li>
+            );
+          })
+        ) : (
+          <li className="no-item">검색결과가 없습니다.</li>
+        )}
       </StyledSearchList>
     </StyledLayout>
   );

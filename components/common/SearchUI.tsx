@@ -7,15 +7,15 @@ import IconSearch from '../svg/IconSearch';
 function SearchUI({
   id,
   placeholder,
-  search,
+  query,
 }: {
   id: string;
   placeholder: string;
-  search?: string;
+  query?: string;
 }) {
   return (
     <>
-      <StyledSearchUI id={id} placeholder={placeholder} defaultValue={search} />
+      <StyledSearchUI id={id} placeholder={placeholder} defaultValue={query} />
       <IconSearch />
     </>
   );

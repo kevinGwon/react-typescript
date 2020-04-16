@@ -7,5 +7,3 @@ export const LOADING_OFF = 'common/LOADING_OFF' as const;
 export const LOADING_SAGA = 'common/LOADING_SAGA' as const;
 export const MENU_OPEN = 'common/MENU_OPEN' as const;
 export const MENU_CLOSE = 'common/MENU_CLOSE' as const;
-export const SEARCH_VALUE = 'common/SEARCH_VALUE' as const;
-export const SEARCH_RESET = 'common/SEARCH_RESET' as const;

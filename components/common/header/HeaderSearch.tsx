@@ -18,7 +18,7 @@ import SearchUI from '../SearchUI';
 
 function HeaderSearch({
   pageType,
-  search,
+  query,
   searchActive,
   setSearchActive,
   runSubmit,
@@ -27,7 +27,7 @@ function HeaderSearch({
   runCloseBlock,
 }: {
   pageType: null | string;
-  search: string;
+  query: string;
   searchActive: boolean;
   setSearchActive: React.Dispatch<React.SetStateAction<boolean>>;
   runSubmit: (
@@ -57,7 +57,7 @@ function HeaderSearch({
               </div>
             </DimLayer>
           )}
-          {!search.length && (
+          {!query.length && (
             <StyledHeaderSearchBtn
               type="button"
               onClick={() => runSearchActive(setSearchActive, searchActive)}
@@ -72,4 +72,4 @@ function HeaderSearch({
   );
 }
 
-export default HeaderSearch;
+export default React.memo(HeaderSearch);
