@@ -52,9 +52,9 @@ function DetailContents({
       </StyledDetailCast>
 
       {/* 추천영화 */}
-      {similar.length !== 0 && (
+      <StyledHeding5>추천영화</StyledHeding5>
+      {similar.length ? (
         <>
-          <StyledHeding5>추천영화</StyledHeding5>
           <div className="swiper-container">
             <div className="swiper-wrapper">
               {similar.map(item => (
@@ -84,6 +84,8 @@ function DetailContents({
             </div>
           </div>
         </>
+      ) : (
+        '추천영화가 없습니다.'
       )}
     </StyledDetailContent>
   );
