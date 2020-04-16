@@ -29,7 +29,7 @@ function MainSwiper({
       <div className="swiper-wrapper">
         {data.map(item => (
           <StyledSwiperSlide key={item.id} className="swiper-slide">
-            <Link href="/detail/[id]" as={`/detail/${item.id}`}>
+            <Link href={`/detail?id=${item.id}`}>
               <a onClick={runLoading}>
                 <div className="thumb">
                   <img

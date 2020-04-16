@@ -2,21 +2,21 @@ import Head from 'next/head';
 import axios from 'axios';
 
 // Modules
-import { API_FILTER, GET_POPULAR } from '../../modules/api/list';
+import { API_FILTER, GET_POPULAR } from '../modules/api/list';
 import {
   GET_DETAIL,
   API_DEDAILT_FILTER,
   GET_SIMILAR,
   GET_CAST,
-} from '../../modules/api/detail';
+} from '../modules/api/detail';
 
 // Types
-import { ListType } from '../../types/redux/list';
-import { IndexType } from '../../types';
+import { ListType } from '../types/redux/list';
+import { IndexType } from '../types';
 
 // Components
-import Article from '../../components/common/Article';
-import DetailContainer from '../../containers/detail/DetailContainer';
+import Article from '../components/common/Article';
+import DetailContainer from '../containers/detail/DetailContainer';
 
 function Id({ API }) {
   return (
