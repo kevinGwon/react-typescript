@@ -6,7 +6,7 @@
   "author": "kevinGwon <developerGwon@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development next",
+    "dev": "next",
     "build": "next build",
     "export": "next export",
     "deploy": "npm run build && npm run export"

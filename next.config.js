@@ -3,15 +3,7 @@ const globImporter = require('node-sass-glob-importer');
 const isDev = process.env.NODE_ENV === 'development' ? true : false;
 
 module.exports = withSass({
-  webpack: (config, { webpack }) => {
-    config.node = {
-      fs: 'empty',
-    };
-    const env = Object.keys(process.env).reduce((acc, curr) => {
-      acc[`process.env.${curr}`] = JSON.stringify(process.env[curr]);
-      return acc;
-    }, {});
-    config.plugins.push(new webpack.DefinePlugin(env));
+  webpack: config => {
     config.module.rules.push({
       test: /\.s[ac]ss$/i,
       use: [
