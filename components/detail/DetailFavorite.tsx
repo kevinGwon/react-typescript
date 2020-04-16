@@ -10,11 +10,13 @@ function DetailFavorite({
   API,
   account,
   session,
+  favorite,
   runAddFavorite,
 }: {
   API: any;
   account: number;
   session: string;
+  favorite: any[];
   runAddFavorite: (
     account: number,
     session: string,
@@ -22,7 +24,7 @@ function DetailFavorite({
     active: boolean,
   ) => void;
 }) {
-  const { favorite, id } = API;
+  const { id } = API;
   return (
     <StyledDetailFavoriteWrap>
       <StyledDetailFavoriteBtn

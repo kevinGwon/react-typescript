@@ -101,6 +101,7 @@ function Detail({
                 API={API}
                 account={account}
                 session={session}
+                favorite={favorite}
                 runAddFavorite={runAddFavorite}
               />
             )}
