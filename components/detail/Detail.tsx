@@ -213,7 +213,7 @@ function Detail({
                     <div className="swiper-wrapper">
                       {similar.map(item => (
                         <div key={item.id} className="swiper-slide">
-                          <Link href="/detail/[id]" as={`/detail/${item.id}`}>
+                          <Link href={`/detail?id=${item.id}`}>
                             <a onClick={scrollToUp}>
                               <div className="thumb">
                                 <img
