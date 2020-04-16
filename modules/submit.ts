@@ -2,7 +2,8 @@ import React from 'react';
 import Router from 'next/router';
 
 // Action
-import { SEARCH_VALUE, LOADING_SAGA } from '../redux/reducers/common';
+import { LOADING_SAGA } from '../redux/reducers/common';
+import { SEARCH_QUERY, SEARCH_SAGA } from '../redux/reducers/search';
 
 const submit = ({
   e,
@@ -25,8 +26,10 @@ const submit = ({
 
   // Loading
   dispatch({ type: LOADING_SAGA, dispatch: dispatch });
-  // Dispatch
-  dispatch({ type: SEARCH_VALUE, search: $input.value });
+  // set Value
+  dispatch({ type: SEARCH_QUERY, query: $input.value });
+  // Searching
+  dispatch({ type: SEARCH_SAGA });
 
   // Search 페이지로 이동
   Router.push('/search');
