@@ -176,12 +176,11 @@ export const StyledDetailParagrap = styled.p`
 export const StyledDetailCast = styled.ul`
   display: flex;
   flex-flow: row wrap;
-  margin-top: -2rem;
   text-align: center;
 
   li {
     flex: 0 0 ${`${(1 / 4) * 100}%`};
-    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
   span {
     display: block;
