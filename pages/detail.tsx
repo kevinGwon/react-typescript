@@ -24,19 +24,19 @@ import Article from '../components/common/Article';
 import DetailContainer from '../containers/detail/DetailContainer';
 import { StyledDetailError } from '../components/detail/Detail.style';
 
-function Id({ API }) {
-  let [count, setCount] = useState(5);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    setInterval(() => {
-      setCount(--count);
-    }, 1000);
-    if (count === 1) {
-      location.href = '/';
-    }
-  }, [count]);
+function Detail({ API }) {
   if (!API) {
-    dispatch({ type: LOADING_OFF });
+    let [count, setCount] = useState(5);
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch({ type: LOADING_OFF });
+      setInterval(() => {
+        setCount(--count);
+      }, 1000);
+      if (count === 1) {
+        location.href = '/';
+      }
+    }, [count]);
     return (
       <StyledDetailError>
         <h1>등록된 영화정보가 없습니다.</h1>
@@ -57,7 +57,7 @@ function Id({ API }) {
   );
 }
 
-Id.getInitialProps = async ctx => {
+Detail.getInitialProps = async ctx => {
   let { id } = ctx.query;
   if (!id) {
     const popular = await GET_POPULAR;
@@ -81,4 +81,4 @@ Id.getInitialProps = async ctx => {
   }
 };
 
-export default Id;
+export default Detail;
