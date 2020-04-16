@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
-import axios from 'axios';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 // Components
 import MainListContainer from '../containers/main/MainListContainer';

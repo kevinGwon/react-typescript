@@ -25,7 +25,6 @@ function Search({
   runLoading: () => void;
   runSubmit: (e: React.FormEvent) => void;
 }) {
-  console.log(queryList[0]);
   return (
     <StyledLayout>
       <StyledSearchForm onSubmit={e => runSubmit(e)}>
@@ -36,27 +35,29 @@ function Search({
         />
       </StyledSearchForm>
       <StyledSearchList>
-        {queryList.length
-          ? queryList.map(item => {
-              const imageURL = `${API_CONFIG.basePostImageUrl}/${item.poster_path}`;
-              return (
-                <li key={item.id}>
-                  <Link href={`/detail?id=${item.id}`}>
-                    <a onClick={runLoading}>
-                      <img
-                        src={
-                          filterImages(imageURL)
-                            ? imageURL
-                            : 'http://placehold.it/500x747?text=Not Found'
-                        }
-                        alt=""
-                      />
-                    </a>
-                  </Link>
-                </li>
-              );
-            })
-          : '검색결과가 없습니다.'}
+        {queryList.length ? (
+          queryList.map(item => {
+            const imageURL = `${API_CONFIG.basePostImageUrl}/${item.poster_path}`;
+            return (
+              <li key={item.id}>
+                <Link href={`/detail?id=${item.id}`}>
+                  <a onClick={runLoading}>
+                    <img
+                      src={
+                        filterImages(imageURL)
+                          ? imageURL
+                          : 'http://placehold.it/500x747?text=Not Found'
+                      }
+                      alt=""
+                    />
+                  </a>
+                </Link>
+              </li>
+            );
+          })
+        ) : (
+          <li className="no-item">검색결과가 없습니다.</li>
+        )}
       </StyledSearchList>
     </StyledLayout>
   );
