@@ -20,12 +20,6 @@ import { LOADING_SAGA } from '../../redux/reducers/common';
 
 function SearchContainer(props) {
   const { runResetSearch, page, runPager, pager } = props;
-  useEffect(() => {
-    return () => {
-      // 검색어 초기화
-      runResetSearch();
-    };
-  }, []);
   return (
     <Search
       {...props}
@@ -42,9 +36,6 @@ const mapStateToProps = (store: RootState) => ({
 });
 const mapDispatchToProps = dispatch => ({
   runSubmit: e => submit({ e, dispatch }),
-  runResetSearch: () => {
-    dispatch({ type: SEARCH_RESET });
-  },
   runLoading: () => {
     dispatch({ type: LOADING_SAGA, dispatch: dispatch });
   },
