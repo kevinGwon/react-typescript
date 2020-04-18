@@ -4,16 +4,15 @@ react-portfolio를 typescript로 개발하는 저장소 입니다.
 
 ## Site
 
-https://developergwon-react-typescript.netlify.com/
+https://developergwon-react-typescript.netlify.app/
 
 ## 간단한 페이지 소개
 
-- 시멘틱 마크업으로 작성 하였습니다.
-- RWD(Responsive Web Design)를 적용 하였습니다.
-- Typescript로 개발 하였습니다.
-- SSR을 이용하여 SEO 지원합니다.
-- 상태관리를 위해 `Redux` 를 사용하였고 middleware는 `Redux-saga`를 사용하였습니다.
-- Styled Components를 이용하여 컴포넌트 단위로 스타일링 합니다.
+- Themovie DB에서 제공하는 API를 이용하여 영화정보를 제공합니다.
+- SSR을 이용하여 seo를 지원합니다.
+- Typescript로 정적타이핑을 지원합니다.
+- `Redux`, `Redux-saga`를 이용하여 상태를 관리및 제어합니다.
+- Styled Components를 이용하여 컴포넌트 단위로 스타일링 하였습니다.
 
 ## Branch
 
@@ -27,12 +26,17 @@ develop
 
 ## Spec
 
-- Themovie DB: REST API
+- Themovie DB - REST API
+- Semantic Markup
+- Vanilla.Js
+- Typescript
 - Next.js(9.x)
 - Redux
-- Redux-saga
+- Redux-Saga
 - Styled Components
-- Husky, Prettier, Eslint
+- Cypress
+
+_e2e기반 테스트 - Cypress를 선택하여 적용중입니다._
 
 ## Editor
 
