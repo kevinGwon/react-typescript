@@ -3,7 +3,11 @@ import Router from 'next/router';
 
 // Action
 import { LOADING_SAGA } from '../redux/reducers/common';
-import { SEARCH_QUERY, SEARCH_SAGA } from '../redux/reducers/search';
+import {
+  SEARCH_QUERY,
+  SEARCH_SAGA,
+  SEARCH_PAGE_RESET,
+} from '../redux/reducers/search';
 
 const submit = ({
   e,
@@ -30,6 +34,8 @@ const submit = ({
   dispatch({ type: SEARCH_QUERY, query: $input.value });
   // Searching
   dispatch({ type: SEARCH_SAGA });
+  // Search Reset
+  dispatch({ type: SEARCH_PAGE_RESET });
 
   // Search 페이지로 이동
   Router.push('/search');
