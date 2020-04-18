@@ -13,6 +13,7 @@ https://developergwon-react-typescript.netlify.app/
 - Typescript로 정적타이핑을 지원합니다.
 - `Redux`, `Redux-saga`를 이용하여 상태를 관리및 제어합니다.
 - Styled Components를 이용하여 컴포넌트 단위로 스타일링 하였습니다.
+- Cypress를 이용하여 e2e테스트 진행중입니다.
 
 ## Branch
 
@@ -35,8 +36,6 @@ develop
 - Redux-Saga
 - Styled Components
 - Cypress
-
-_e2e기반 테스트 - Cypress를 선택하여 적용중입니다._
 
 ## Editor
 
