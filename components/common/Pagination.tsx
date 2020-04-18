@@ -3,34 +3,6 @@ import React from 'react';
 // Styled
 import { StyledPagination } from './Pagination.style';
 
-function BtnPrev(func) {
-  return (
-    <button type="button" onClick={func}>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-        <path
-          fill="#333"
-          d="M10.17 14l.66-.67L5.5 8l5.33-5.33-.66-.67-6 6 6 6z"
-          data-name="Icon - Left Arrow"
-        />
-      </svg>
-      <span className="a11y">prev arrow</span>
-    </button>
-  );
-}
-function BtnNext(func) {
-  return (
-    <button type="button" onClick={func}>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-        <path
-          fill="#333"
-          d="M5.83 14l-.66-.67L10.5 8 5.17 2.67 5.83 2l6 6-6 6z"
-          data-name="Icon - Right Arrow"
-        />
-      </svg>
-      <span className="a11y">next arrow</span>
-    </button>
-  );
-}
 function Pagination({
   arr,
   page,
