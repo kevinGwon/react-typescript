@@ -40,7 +40,7 @@ export const GET_URL_POPULAR = payload => {
 };
 
 export const GET_URL_SEARCH = payload => {
-  return `https://api.themoviedb.org/3/search/multi?api_key=${opt.key}&language=${opt.lang}&include_adult=true&query=${payload.search}`;
+  return `https://api.themoviedb.org/3/search/multi?api_key=${opt.key}&language=${opt.lang}&include_adult=true&query=${payload.query}&page=${payload.page}`;
 };
 
 // GET API
@@ -165,11 +165,12 @@ export const API_FILTER = API => {
 };
 
 // GET API - Search
-export const GET_SEARCH = search => {
+export const GET_SEARCH = payload => {
   return axios({
     method: 'get',
     url: GET_URL_SEARCH({
-      search: search,
+      query: payload.query,
+      page: payload.page,
     }),
   });
 };

@@ -17,11 +17,13 @@ import filterImages from '../../modules/filterImages';
 function Search({
   query,
   queryList,
+  pager,
   runLoading,
   runSubmit,
 }: {
   query: string;
   queryList: any[];
+  pager: number[];
   runLoading: () => void;
   runSubmit: (e: React.FormEvent) => void;
 }) {

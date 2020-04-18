@@ -13,19 +13,21 @@ import { SEARCH_RESET } from '../../redux/reducers/search';
 import { LOADING_SAGA } from '../../redux/reducers/common';
 
 function SearchContainer(props) {
-  const { runResetSearch } = props;
+  const { runResetSearch, totalPage } = props;
+  const pager = [];
   useEffect(() => {
     return () => {
       // 검색어 초기화
       runResetSearch();
     };
   }, []);
-  return <Search {...props} />;
+  return <Search {...props} pager={pager} />;
 }
 
 const mapStateToProps = (store: RootState) => ({
   query: store.search.query,
   queryList: store.search.queryList,
+  totalPage: store.search.page.totalPage,
 });
 const mapDispatchToProps = dispatch => ({
   runSubmit: e => submit({ e, dispatch }),
