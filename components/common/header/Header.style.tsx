@@ -42,7 +42,22 @@ export const StyledHeader = styled.header.attrs(props => ({
     height: 100%;
     background: linear-gradient(black 5%, transparent);
   }
-
+  .process {
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 1rem;
+      border-radius: 50%;
+      vertical-align: middle;
+      background-color: ${$colorPrimary};
+      animation: ${process()} 1s infinite;
+    }
+    span {
+      margin-left: 0.2rem;
+    }
+  }
   @media (min-width: ${$mqLarge}) {
     height: ${$headerHeightLg}px;
     padding-left: 1rem;
@@ -52,7 +67,7 @@ export const StyledHeader = styled.header.attrs(props => ({
 export const StyledLayoutHeader = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   position: relative;
   height: 100%;
   max-width: ${$wWrap}px;
@@ -116,7 +131,6 @@ export const StyledHeaderUtils = styled.div`
   justify-content: flex-end;
   align-items: center;
   height: ${$headerHeightSm}px;
-  width: 100%;
 `;
 
 export const StyledHeaderMenuBtn = styled.button`
@@ -154,6 +168,17 @@ export const StyledHeaderMenuBtn = styled.button`
     }
   }
 `;
+
+function process() {
+  return keyframes`
+    0% { 
+        opacity: 1;
+     }
+    100% { 
+        opacity: 0;
+     }
+  `;
+}
 
 function rectKeyFramesTop() {
   return keyframes`
