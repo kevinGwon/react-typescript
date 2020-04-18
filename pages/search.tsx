@@ -8,7 +8,7 @@ function Search() {
   return (
     <>
       <Head>
-        <title>Portfolio of KevinGwon | Search</title>
+        <title>Portfolio | Search</title>
       </Head>
       <Article page="search">
         <h2 className="a11y">영화정보 검색</h2>
