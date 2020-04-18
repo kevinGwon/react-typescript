@@ -34,6 +34,12 @@ function Header({
     <StyledHeader>
       <StyledLayoutHeader>
         <h1 className="a11y">The movie</h1>
+        <div className="process">
+          Cypress Testing
+          <span>.</span>
+          <span>.</span>
+          <span>.</span>
+        </div>
         <StyledHeaderLogo>
           <Link href="/">
             <a onClick={runGoHome}>
