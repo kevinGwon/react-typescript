@@ -13,22 +13,41 @@ import { ListType } from '../../types/redux/list';
 
 // Modules
 import filterImages from '../../modules/filterImages';
+import Pagination from '../common/Pagination';
 
 function Search({
   query,
   queryList,
   pager,
+  pagerArr,
+  page,
   runLoading,
   runSubmit,
+  runPageChange,
+  runPrev,
+  runNext,
 }: {
   query: string;
   queryList: any[];
-  pager: number[];
+  pager: {
+    per: number;
+    start: number;
+    end: number;
+  };
+  pagerArr: number[];
+  page: {
+    current: number;
+    totalPage: number;
+  };
   runLoading: () => void;
   runSubmit: (e: React.FormEvent) => void;
+  runPageChange: (current: number) => void;
+  runPrev: () => void;
+  runNext: () => void;
 }) {
   return (
     <StyledLayout>
+      {/* Search Form */}
       <StyledSearchForm onSubmit={e => runSubmit(e)}>
         <SearchUI
           id="search-sub"
@@ -36,6 +55,8 @@ function Search({
           query={query}
         />
       </StyledSearchForm>
+
+      {/* Search List */}
       <StyledSearchList>
         {queryList.length ? (
           queryList.map(item => {
@@ -61,6 +82,16 @@ function Search({
           <li className="no-item">검색결과가 없습니다.</li>
         )}
       </StyledSearchList>
+
+      {/* Pagination */}
+      <Pagination
+        arr={pagerArr}
+        page={page}
+        pager={pager}
+        runChange={runPageChange}
+        runPrev={runPrev}
+        runNext={runNext}
+      />
     </StyledLayout>
   );
 }

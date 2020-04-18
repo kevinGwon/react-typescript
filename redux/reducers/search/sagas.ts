@@ -14,10 +14,10 @@ import { LOADING_SAGA } from '../common';
 function* runSearching() {
   const search = yield select((store: RootState) => store.search);
   const { query, page } = search;
-  const { number } = page;
+  const { current } = page;
 
   // GET SEARCH
-  const res = yield call(GET_SEARCH, { query, number });
+  const res = yield call(GET_SEARCH, { query, current });
   yield put({ type: SEARCH_TOTAL_PAGE, totalPage: res.data.total_pages });
   yield put({ type: SEARCH_QUERY_LIST, queryList: res.data.results });
 }

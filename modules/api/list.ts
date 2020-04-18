@@ -170,7 +170,7 @@ export const GET_SEARCH = payload => {
     method: 'get',
     url: GET_URL_SEARCH({
       query: payload.query,
-      page: payload.page,
+      page: payload.current,
     }),
   });
 };

@@ -9,25 +9,36 @@ import { RootState } from '../../types/redux/reducer';
 import submit from '../../modules/submit';
 
 // Action
-import { SEARCH_RESET } from '../../redux/reducers/search';
+import {
+  SEARCH_RESET,
+  SEARCH_PAGE_CHANGE,
+  SEARCH_PAGE_NEXT,
+  SEARCH_PAGE_PREV,
+  SEARCH_SAGA,
+} from '../../redux/reducers/search';
 import { LOADING_SAGA } from '../../redux/reducers/common';
 
 function SearchContainer(props) {
-  const { runResetSearch, totalPage } = props;
-  const pager = [];
+  const { runResetSearch, page, runPager, pager } = props;
   useEffect(() => {
     return () => {
       // 검색어 초기화
       runResetSearch();
     };
   }, []);
-  return <Search {...props} pager={pager} />;
+  return (
+    <Search
+      {...props}
+      pagerArr={runPager(page.totalPage, pager.start, pager.end)}
+    />
+  );
 }
 
 const mapStateToProps = (store: RootState) => ({
   query: store.search.query,
   queryList: store.search.queryList,
-  totalPage: store.search.page.totalPage,
+  page: store.search.page,
+  pager: store.search.pager,
 });
 const mapDispatchToProps = dispatch => ({
   runSubmit: e => submit({ e, dispatch }),
@@ -36,6 +47,31 @@ const mapDispatchToProps = dispatch => ({
   },
   runLoading: () => {
     dispatch({ type: LOADING_SAGA, dispatch: dispatch });
+  },
+  runPager: (totalPage, start, end) => {
+    const pager = [];
+    for (let i = start; i <= totalPage && i <= end; i++) {
+      pager.push(i);
+    }
+    return pager;
+  },
+  runPageChange: current => {
+    window.scrollTo(0, 0);
+    dispatch({ type: SEARCH_PAGE_CHANGE, current: current });
+    dispatch({ type: LOADING_SAGA, dispatch: dispatch });
+    dispatch({ type: SEARCH_SAGA });
+  },
+  runPrev: () => {
+    window.scrollTo(0, 0);
+    dispatch({ type: SEARCH_PAGE_PREV });
+    dispatch({ type: LOADING_SAGA, dispatch: dispatch });
+    dispatch({ type: SEARCH_SAGA });
+  },
+  runNext: () => {
+    window.scrollTo(0, 0);
+    dispatch({ type: SEARCH_PAGE_NEXT });
+    dispatch({ type: LOADING_SAGA, dispatch: dispatch });
+    dispatch({ type: SEARCH_SAGA });
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);

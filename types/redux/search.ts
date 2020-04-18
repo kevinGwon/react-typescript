@@ -4,7 +4,7 @@ export interface SearchType {
   query: string;
   queryList: ListType[];
   page: {
-    number: number;
+    current: number;
     totalPage: number;
   };
   pager: {
