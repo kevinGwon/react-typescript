@@ -9,7 +9,7 @@ export default createGlobalStyle`
     }
     &.is-active--nav {
       #main {
-        transform: translateX(-50px);
+        transform: translateX(-100px);
       }
     }
   }
