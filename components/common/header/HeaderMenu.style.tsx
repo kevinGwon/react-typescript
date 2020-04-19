@@ -38,7 +38,7 @@ export const StyledHeaderMenu = styled.div`
     left: 0;
     top: 30px;
     bottom: 30px;
-    box-shadow: 0 0 10px 1px ${$colorPrimary};
+    box-shadow: 0 0 5px 1px ${$gray7};
     opacity: 0;
   }
   &.is-active {
