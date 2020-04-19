@@ -6,6 +6,18 @@ react-portfolio를 typescript로 개발하는 저장소 입니다.
 
 https://developergwon-react-typescript.netlify.app/
 
+## 사용된 기술
+
+- Themovie DB - REST API
+- Semantic Markup
+- Vanilla.Js
+- Typescript
+- Next.js(9.x)
+- Redux
+- Redux-Saga
+- Styled Components
+- Cypress
+
 ## 간단한 페이지 소개
 
 - Themovie DB에서 제공하는 API를 이용하여 영화정보를 제공합니다.
@@ -24,18 +36,6 @@ master
 develop
 
 - 개발하여 업로드되는 브랜치
-
-## Spec
-
-- Themovie DB - REST API
-- Semantic Markup
-- Vanilla.Js
-- Typescript
-- Next.js(9.x)
-- Redux
-- Redux-Saga
-- Styled Components
-- Cypress
 
 ## Editor
 
