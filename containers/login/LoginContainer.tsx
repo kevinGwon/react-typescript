@@ -22,6 +22,7 @@ function LoginContainer(props) {
 const mapStateToProps = (store: RootState) => ({
   intro: store.common.intro,
   login: store.user.login,
+  error: store.user.error,
 });
 const mapDispatchToProps = dispatch => ({
   runGetToken: (token: string) => {

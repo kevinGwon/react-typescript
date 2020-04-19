@@ -6,6 +6,7 @@ import {
   $black,
   $gray9,
   $gray,
+  $colorPrimary,
 } from '../../styled/global/StyledVariable.style';
 
 // Styled
@@ -31,7 +32,15 @@ export const StyledForm = styled.div`
     margin-top: 1rem;
   }
 `;
-
 export const StyledLoginBtn = styled(StyledBtn)`
   border-color: ${$gray9};
+`;
+export const StyledInputError = styled.span.attrs(props => ({
+  className: 'is-error',
+}))`
+  display: block;
+  margin: 1.5rem 1.5rem 1.5rem 0.5rem;
+  color: ${$colorPrimary};
+  font-weight: bold;
+  font-size: 1.4rem;
 `;
