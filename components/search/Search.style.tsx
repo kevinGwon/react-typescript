@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 // Variable
-import { $mqLarge } from '../../styled/global/StyledVariable.style';
+import {
+  $mqLarge,
+  $colorPrimary,
+} from '../../styled/global/StyledVariable.style';
+import { rgba } from '../../styled/mixin';
 
 export const StyledSearchForm = styled.form`
   display: block;
@@ -28,6 +32,9 @@ export const StyledSearchList = styled.ul`
       width: 100%;
       text-align: center;
     }
+    &.last-item {
+      display: none;
+    }
   }
   a {
     display: block;
@@ -46,6 +53,25 @@ export const StyledSearchList = styled.ul`
 
     li {
       width: ${100 / 3}%;
+
+      &.last-item {
+        display: block;
+
+        .last-item-border {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 2rem;
+          height: 100%;
+          border: 1px solid ${rgba($colorPrimary, 0.6)};
+          box-sizing: border-box;
+        }
+        svg {
+          height: 25%;
+          width: 25%;
+          opacity: 0.6;
+        }
+      }
     }
   }
 `;
