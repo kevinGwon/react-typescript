@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { useDispatch, useSelector, connect } from 'react-redux';
-// import Router from 'next/router';
+import Router from 'next/router';
 
 // Components
 import HeaderSearch from '../../components/common/header/HeaderSearch';
@@ -14,26 +14,12 @@ import { SEARCH_QUERY } from '../../redux/reducers/search';
 // Types
 import { RootState } from '../../types/redux/reducer';
 
-let pageType = null;
-
 function HeaderSearchContainer(props) {
   const { isServer } = props;
   const [searchActive, setSearchActive] = useState(false);
-  useEffect(() => {
-    if (document.querySelector('article')) {
-      pageType = document.querySelector('article').getAttribute('data-page');
-    }
-  }, [isServer]);
-  useEffect(() => {
-    return () => {
-      pageType = null;
-    };
-  }, []);
-
   return (
     <HeaderSearch
       {...props}
-      pageType={pageType}
       searchActive={searchActive}
       setSearchActive={setSearchActive}
     />

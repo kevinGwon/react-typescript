@@ -33,6 +33,15 @@ const App = ({ Component, pageProps, store, isServer }) => {
     // Server Check
     dispatch({ type: SERVER, isServer: isServer });
   }, [isServer]);
+  useEffect(() => {
+    // Search not visible in Search page
+    const $header = document.querySelector('#header');
+    const $article = document.querySelector('article');
+    const pageType = $article && $article.getAttribute('data-page');
+    pageType === 'search'
+      ? $header.querySelector('.btn-search--header').classList.add('hidden')
+      : $header.querySelector('.btn-search--header').classList.remove('hidden');
+  });
   return (
     <>
       <Provider store={store}>
