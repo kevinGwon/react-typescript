@@ -22,7 +22,6 @@ function SearchList({
     <StyledSearchList>
       {queryList.length ? (
         queryList.map((item, i) => {
-          console.log(item.id);
           const imageURL = `${API_CONFIG.basePostImageUrl}/${item.poster_path}`;
           return (
             <Fragment key={item.id}>
