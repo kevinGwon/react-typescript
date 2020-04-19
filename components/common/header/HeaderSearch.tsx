@@ -17,7 +17,6 @@ import { StyledSearchUI } from '../SearchUI.style';
 import SearchUI from '../SearchUI';
 
 function HeaderSearch({
-  pageType,
   query,
   searchActive,
   setSearchActive,
@@ -26,7 +25,6 @@ function HeaderSearch({
   runCloseSearch,
   runCloseBlock,
 }: {
-  pageType: null | string;
   query: string;
   searchActive: boolean;
   setSearchActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -57,15 +55,14 @@ function HeaderSearch({
               </div>
             </DimLayer>
           )}
-          {!query.length && (
-            <StyledHeaderSearchBtn
-              type="button"
-              onClick={() => runSearchActive(setSearchActive, searchActive)}
-            >
-              <IconSearch />
-              <span className="a11y">검색열기</span>
-            </StyledHeaderSearchBtn>
-          )}
+          <StyledHeaderSearchBtn
+            type="button"
+            className="btn-search--header"
+            onClick={() => runSearchActive(setSearchActive, searchActive)}
+          >
+            <IconSearch />
+            <span className="a11y">검색열기</span>
+          </StyledHeaderSearchBtn>
         </StyledHeaderSearchInputGroup>
       </StyledHeaderForm>
     </StyledHeaderSearch>
