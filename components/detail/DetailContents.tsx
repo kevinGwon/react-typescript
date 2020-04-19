@@ -1,11 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
+import StarRatings from 'react-star-ratings';
 
 // Styled
 import {
   StyledDetailContent,
   StyledDetailParagrap,
   StyledDetailCast,
+  StyledDetailStarRatings,
 } from './Detail.style';
 import { StyledHeding5 } from '../../styled/global/StyledHeading.style';
 
@@ -18,9 +20,23 @@ function DetailContents({
   scrollToUp: () => void;
   filterImages: (posterImage: string) => boolean;
 }) {
-  const { overview, cast, similar } = API;
+  const { overview, cast, similar, average } = API;
   return (
     <StyledDetailContent>
+      {/* 평점 */}
+      <StyledHeding5>평점({`${average / 2}/5`})</StyledHeding5>
+      <StyledDetailStarRatings>
+        <StarRatings
+          rating={average / 2}
+          numberOfStars={5}
+          starDimension="25px"
+          starSpacing="2px"
+          starRatedColor="#e50914"
+          starEmptyColor="#999999"
+          name="rating"
+        />
+      </StyledDetailStarRatings>
+
       {/* 줄거리 */}
       <StyledHeding5>줄거리</StyledHeding5>
       <StyledDetailParagrap>

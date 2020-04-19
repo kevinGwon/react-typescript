@@ -101,15 +101,7 @@ export const StyledDetailImg = styled.div`
   }
 `;
 export const StyledDetailStarRatings = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0.5rem;
-  text-align: center;
-
-  .detail-star-ratings {
-    display: inline-block;
-  }
+  /* .detail-star-ratings {} */
 `;
 export const StyledDetailInfo = styled.div`
   position: absolute;

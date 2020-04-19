@@ -56,6 +56,7 @@ export const StyledSearchList = styled.ul`
 
       &.last-item {
         display: block;
+        opacity: 0.4;
 
         .last-item-border {
           display: flex;
@@ -63,13 +64,13 @@ export const StyledSearchList = styled.ul`
           align-items: center;
           margin-left: 2rem;
           height: 100%;
-          border: 1px solid ${rgba($colorPrimary, 0.6)};
+          border-right: 2px solid ${$colorPrimary};
+          border-bottom: 2px solid ${$colorPrimary};
           box-sizing: border-box;
         }
         svg {
           height: 25%;
           width: 25%;
-          opacity: 0.6;
         }
       }
     }

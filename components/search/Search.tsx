@@ -17,8 +17,7 @@ function Search({
   runLoading,
   runSubmit,
   runPageChange,
-  runPrev,
-  runNext,
+  runPageArrowChange,
 }: {
   query: string;
   queryList: any[];
@@ -35,8 +34,7 @@ function Search({
   runLoading: () => void;
   runSubmit: (e: React.FormEvent) => void;
   runPageChange: (current: number) => void;
-  runPrev: () => void;
-  runNext: () => void;
+  runPageArrowChange: (dir: string) => void;
 }) {
   return (
     <StyledLayout>
@@ -52,8 +50,7 @@ function Search({
         page={page}
         pager={pager}
         runChange={runPageChange}
-        runPrev={runPrev}
-        runNext={runNext}
+        runPageArrowChange={runPageArrowChange}
       />
     </StyledLayout>
   );
