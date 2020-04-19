@@ -1,12 +1,10 @@
 import React from 'react';
-import StarRatings from 'react-star-ratings';
 
 // Styled
 import {
   StyledDetailHeader,
   StyledDetailHeaderInner,
   StyledDetailImg,
-  StyledDetailStarRatings,
   StyledDetailInfo,
   StyledDetailDate,
   StyledDetailTitle,
@@ -20,7 +18,7 @@ function DetailHeader({
   API: any;
   filterImages: (posterImage: string) => boolean;
 }) {
-  const { posterImage, average, date, title, genres } = API;
+  const { posterImage, date, title, genres } = API;
   return (
     <StyledDetailHeader>
       <StyledDetailHeaderInner>
@@ -33,16 +31,6 @@ function DetailHeader({
             }
             alt=""
           />
-          <StyledDetailStarRatings>
-            <StarRatings
-              rating={average / 2}
-              numberOfStars={5}
-              starDimension="12px"
-              starSpacing="2px"
-              starRatedColor="#e50914"
-              name="rating"
-            />
-          </StyledDetailStarRatings>
           <StyledDetailInfo>
             <StyledDetailDate>{date}</StyledDetailDate>
             <StyledDetailTitle>{title}</StyledDetailTitle>
