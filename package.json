@@ -26,12 +26,16 @@
     ]
   },
   "eslintConfig": {
+    "ignorePatterns": [
+      "cypress"
+    ],
     "extends": [
       "react-app",
       "prettier"
     ],
     "globals": {
       "Cypress": false,
+      "context": false,
       "cy": false,
       "TweenMax": false
     },
