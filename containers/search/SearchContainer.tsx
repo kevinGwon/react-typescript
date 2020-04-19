@@ -52,15 +52,11 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: LOADING_SAGA, dispatch: dispatch });
     dispatch({ type: SEARCH_SAGA });
   },
-  runPrev: () => {
+  runPageArrowChange: dir => {
     window.scrollTo(0, 0);
-    dispatch({ type: SEARCH_PAGE_PREV });
-    dispatch({ type: LOADING_SAGA, dispatch: dispatch });
-    dispatch({ type: SEARCH_SAGA });
-  },
-  runNext: () => {
-    window.scrollTo(0, 0);
-    dispatch({ type: SEARCH_PAGE_NEXT });
+    dir === 'prev'
+      ? dispatch({ type: SEARCH_PAGE_PREV })
+      : dispatch({ type: SEARCH_PAGE_NEXT });
     dispatch({ type: LOADING_SAGA, dispatch: dispatch });
     dispatch({ type: SEARCH_SAGA });
   },

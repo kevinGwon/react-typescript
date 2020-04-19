@@ -8,8 +8,7 @@ function Pagination({
   page,
   pager,
   runChange,
-  runPrev,
-  runNext,
+  runPageArrowChange,
 }: {
   arr: number[];
   page: {
@@ -22,14 +21,13 @@ function Pagination({
     end: number;
   };
   runChange: (current: number) => void;
-  runPrev: () => void;
-  runNext: () => void;
+  runPageArrowChange: (dir: string) => void;
 }) {
   return (
     <StyledPagination>
       <button
         type="button"
-        onClick={runPrev}
+        onClick={() => runPageArrowChange('prev')}
         className={pager.start === 1 ? 'is-hidden' : ''}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -56,7 +54,7 @@ function Pagination({
       ))}
       <button
         type="button"
-        onClick={runNext}
+        onClick={() => runPageArrowChange('next')}
         className={page.totalPage <= pager.end ? 'is-hidden' : ''}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
