@@ -14,6 +14,7 @@ import { ListType } from '../../types/redux/list';
 // Modules
 import filterImages from '../../modules/filterImages';
 import Pagination from '../common/Pagination';
+import IconLogo from '../svg/IconLogo';
 
 function Search({
   query,
@@ -59,23 +60,32 @@ function Search({
       {/* Search List */}
       <StyledSearchList>
         {queryList.length ? (
-          queryList.map(item => {
+          queryList.map((item, i) => {
             const imageURL = `${API_CONFIG.basePostImageUrl}/${item.poster_path}`;
             return (
-              <li key={item.id}>
-                <Link href={`/detail?id=${item.id}`}>
-                  <a onClick={runLoading}>
-                    <img
-                      src={
-                        filterImages(imageURL)
-                          ? imageURL
-                          : 'http://placehold.it/500x747?text=Not Found'
-                      }
-                      alt=""
-                    />
-                  </a>
-                </Link>
-              </li>
+              <>
+                <li key={item.id}>
+                  <Link href={`/detail?id=${item.id}`}>
+                    <a onClick={runLoading}>
+                      <img
+                        src={
+                          filterImages(imageURL)
+                            ? imageURL
+                            : 'http://placehold.it/500x747?text=Not Found'
+                        }
+                        alt=""
+                      />
+                    </a>
+                  </Link>
+                </li>
+                {i + 1 === 20 && (
+                  <li key="lastItem" className="last-item">
+                    <div className="last-item-border">
+                      <IconLogo />
+                    </div>
+                  </li>
+                )}
+              </>
             );
           })
         ) : (
