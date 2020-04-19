@@ -18,7 +18,7 @@ export const GET_TOKEN = () => {
   );
 };
 
-export const GET_SESSION = async (token: string) => {
+export const GET_SESSION = (token: string) => {
   return axios.post(
     `https://api.themoviedb.org/3/authentication/session/new?api_key=${API_CONFIG.key}`,
     {

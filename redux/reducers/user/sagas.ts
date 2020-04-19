@@ -35,10 +35,10 @@ const success = action => ({
   session: action.session,
 });
 
-const fail = action => ({
-  type: USER_ERROR,
-  error: action.error,
-});
+const fail = error => {
+  console.log(error.message);
+  return { type: USER_ERROR, error: error };
+};
 
 function* runLogin(action) {
   // Pending
@@ -49,7 +49,7 @@ function* runLogin(action) {
     const { request_token: token } = tokenResponse.data;
     const { username, password } = action.user;
 
-    // Contect
+    // Connect
     yield call(GET_USER, username, password, token);
 
     // Session

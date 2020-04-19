@@ -8,10 +8,16 @@ import Input from './Input';
 import Loading from './Loading';
 
 // Styled
-import { StyledForm, StyledFormLogo } from './Login.style';
+import { StyledForm, StyledFormLogo, StyledInputError } from './Login.style';
 import { StyledBtn } from './Btn.style';
 
-function Login({ runSubmit }: { runSubmit: (e: React.FormEvent) => void }) {
+function Login({
+  error,
+  runSubmit,
+}: {
+  error: any;
+  runSubmit: (e: React.FormEvent) => void;
+}) {
   return (
     <DimLayer z={110}>
       <StyledForm>
@@ -25,6 +31,11 @@ function Login({ runSubmit }: { runSubmit: (e: React.FormEvent) => void }) {
         >
           <Input id="id" type="text" block defaultValue="godyel7" />
           <Input id="password" type="password" defaultValue="kevingwon" block />
+          {error && (
+            <StyledInputError>
+              아이디와 비밀번호가 일치하지 않습니다.
+            </StyledInputError>
+          )}
           <StyledBtn submit invert block>
             로그인
           </StyledBtn>

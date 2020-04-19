@@ -8,8 +8,10 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "server": "next build && next start -p 8080",
     "export": "next export",
-    "deploy": "npm run build && npm run export"
+    "deploy": "npm run build && npm run export",
+    "cypress": "npx cypress open --config-file cypress.json"
   },
   "husky": {
     "hooks": {
@@ -24,14 +26,18 @@
     ]
   },
   "eslintConfig": {
+    "ignorePatterns": [
+      "cypress"
+    ],
     "extends": [
       "react-app",
       "prettier"
     ],
     "globals": {
-      "IG": false,
-      "TweenMax": false,
-      "TimelineMax": false
+      "Cypress": false,
+      "context": false,
+      "cy": false,
+      "TweenMax": false
     },
     "rules": {
       "semi": [
@@ -83,6 +89,7 @@
     "axios": "^0.19.2",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.0",
+    "cypress": "^4.4.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-react-app": "^5.2.0",
