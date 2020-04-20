@@ -36,21 +36,12 @@ function DetailFavorite({
           runAddFavorite(account, session, id, true);
         }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-          <path
-            strokeWidth="1"
-            d="
-        M 15 3
-        l -2.833 8.718 
-        h -9.167
-        l 7.416 5.389 -2.833 8.718 7.417 -5.388 7.416 5.388 -2.833 -8.718 7.417 -5.389
-        h -9.167
-        l -2.833 -8.718
-        z
-      "
-          />
+        <span className="text">찜하기</span>
+        <svg viewBox="0 0 24 24">
+          <g id="favorite">
+            <path d="M12,21.4L10.6,20C5.4,15.4,2,12.3,2,8.5C2,5.4,4.4,3,7.5,3c1.7,0,3.4,0.8,4.5,2.1C13.1,3.8,14.8,3,16.5,3C19.6,3,22,5.4,22,8.5c0,3.8-3.4,6.9-8.6,11.5L12,21.4z"></path>
+          </g>
         </svg>
-        <span className="a11y">추가</span>
       </StyledDetailFavoriteBtn>
     </StyledDetailFavoriteWrap>
   );

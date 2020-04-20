@@ -63,6 +63,11 @@ export const StyledHeader = styled.header.attrs(props => ({
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  @media (max-width: ${$mqMedium}) {
+    .process {
+      visibility: hidden;
+    }
+  }
 `;
 export const StyledLayoutHeader = styled.div`
   display: flex;

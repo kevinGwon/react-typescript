@@ -11,6 +11,7 @@ export const StyledSearchUI = styled(Input).attrs(props => ({
 }))`
   height: 56px;
   min-width: 250px;
+  width: 100%;
   padding-right: 3.5rem;
   border: none;
   border-bottom: 1px solid ${$white};
