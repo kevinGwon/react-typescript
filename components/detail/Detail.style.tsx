@@ -7,6 +7,8 @@ import {
   $mqLarge,
   $black,
   $colorPrimary,
+  $mqMedium,
+  $white,
 } from '../../styled/global/StyledVariable.style';
 
 // Variable
@@ -197,13 +199,39 @@ export const StyledDetailCast = styled.ul`
 export const StyledDetailFavoriteWrap = styled.div`
   position: absolute;
   right: 0;
-  top: -30px;
+  top: -21px;
+
+  @media (min-width: ${$mqMedium}) {
+    top: -30px;
+  }
 `;
 
 export const StyledDetailFavoriteBtn = styled.button`
-  width: 30px;
-  height: 30px;
+  color: ${$white};
   fill: ${$colorPrimary};
+
+  svg,
+  .text {
+    vertical-align: middle;
+  }
+  svg {
+    width: 25px;
+    height: 25px;
+  }
+  .text {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.8rem;
+  }
+  @media (min-width: ${$mqMedium}) {
+    .text {
+      visibility: visible;
+      position: static;
+      margin-right: 0.5rem;
+    }
+  }
 `;
 
 export const StyledDetailError = styled.div`
