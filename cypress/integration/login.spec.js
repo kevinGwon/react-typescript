@@ -1,8 +1,8 @@
-describe('Portfolio | Main', () => {
+describe('Portfolio | Login', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
   });
-  it('Login Fail', () => {
+  it('Login - Fail', () => {
     cy.get('form')
       .eq(1)
       .get('input[type="text"]')
@@ -14,7 +14,7 @@ describe('Portfolio | Main', () => {
     cy.wait(1000);
     cy.get('.is-error').should('be.visible');
   });
-  it('Login Success', () => {
+  it('Login - Success', () => {
     let session = null;
     cy.request('GET', `${Cypress.env('getToken')}${Cypress.env('key')}`).as(
       'getToken',
@@ -51,7 +51,7 @@ describe('Portfolio | Main', () => {
       cy.request('GET', `${Cypress.env('getAccount')}${session}`);
     });
 
-    const $form = cy.get('form').eq(1);
-    $form.contains('로그인').click();
+    // Login
+    cy.login();
   });
 });

@@ -23,3 +23,22 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add(
+  'login',
+  { prevSubject: 'optional' },
+  (subject, options) => {
+    const $form = cy.get('form').eq(1);
+    $form.contains('로그인').click();
+  },
+);
+Cypress.Commands.add(
+  'menu',
+  { prevSubject: 'optional' },
+  (subject, options) => {
+    const $header = cy.get('#header');
+    $header.contains('메뉴 열기').click();
+    cy.get('body').should('have.class', 'is-active--nav');
+    $header.get('div[class^="DimLayerstyle"]').should('be.visible');
+  },
+);
