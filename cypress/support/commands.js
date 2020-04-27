@@ -24,21 +24,26 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-Cypress.Commands.add(
-  'login',
-  { prevSubject: 'optional' },
-  (subject, options) => {
-    const $form = cy.get('form').eq(1);
-    $form.contains('로그인').click();
-  },
-);
-Cypress.Commands.add(
-  'menu',
-  { prevSubject: 'optional' },
-  (subject, options) => {
-    const $header = cy.get('#header');
-    $header.contains('메뉴 열기').click();
-    cy.get('body').should('have.class', 'is-active--nav');
-    $header.get('div[class^="DimLayerstyle"]').should('be.visible');
-  },
-);
+// Login
+Cypress.Commands.add('login', () => {
+  const $form = cy.get('form').eq(1);
+  $form
+    .contains('로그인')
+    .click()
+    .as('login');
+});
+
+// Open menu
+Cypress.Commands.add('openMenu', () => {
+  const $header = cy.get('#header');
+  $header.contains('메뉴 열기').click();
+  cy.get('body').should('have.class', 'is-active--nav');
+  $header.get('div[class^="DimLayerstyle"]').should('be.visible');
+});
+
+// Close Menu
+Cypress.Commands.add('closeMenu', () => {
+  const $header = cy.get('#header');
+  $header.get('div[class^="DimLayerstyle"]').click();
+  $header.get('div[class^="DimLayerstyle"]').should('not.be.visible');
+});

@@ -6,23 +6,33 @@ describe('Portfolio | Main', () => {
   it('Menu ', () => {
     cy.wait(2000).then(() => {
       const $header = cy.get('#header');
-      cy.menu();
+
+      // Add Fovorite
+      cy.openMenu();
       $header
         .get('ul > li:first-child')
         .contains('바로가기')
         .click();
+
+      // Check URL
       cy.url().should('match', /detail/);
-      cy.menu();
+
+      // Remove Fovorite
+      cy.openMenu();
       $header
         .get('ul > li:first-child')
         .contains('제거')
         .click();
-      $header.get('div[class^="DimLayerstyle"]').click();
+      cy.closeMenu();
+
+      // Re Add Fovorite
       cy.contains('찜하기').click();
+
+      // Re Add to Check Fovorite
       cy.window().then(win => {
         const id = win.location.search.split('=')[1];
         cy.wait(2000).go('back');
-        cy.menu();
+        cy.openMenu();
         $header.get('ul a').should($a => {
           const href = $a.map(
             (i, item) =>
@@ -32,8 +42,11 @@ describe('Portfolio | Main', () => {
           );
           expect(href.get()).contains(id);
         });
+        cy.closeMenu();
       });
-      // cy.get('body').should('not.have.class', 'is-active--nav');
+
+      // Close Menu
+      cy.get('body').should('not.have.class', 'is-active--nav');
     });
   });
 });
