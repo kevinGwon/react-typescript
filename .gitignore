@@ -31,4 +31,6 @@ typings/
 dist
 # next.js export
 out
+# Cypress
+cypress/integration/examples/*.js
 # End of https://www.gitignore.io/api/node
