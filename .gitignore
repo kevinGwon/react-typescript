@@ -33,4 +33,5 @@ dist
 out
 # Cypress
 cypress/integration/examples/*.js
+cypress/videos/*
 # End of https://www.gitignore.io/api/node
