@@ -11,7 +11,8 @@
     "server": "next build && next start -p 8080",
     "export": "next export",
     "deploy": "npm run build && npm run export",
-    "cypress": "npx cypress open --config-file cypress.json"
+    "cypress": "npx cypress open --config-file cypress.json",
+    "cypress:git": "npx cypress run --record --key 192f6672-c511-433a-bfed-15922e8ec082"
   },
   "husky": {
     "hooks": {
