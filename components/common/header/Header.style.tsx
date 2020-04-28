@@ -54,6 +54,9 @@ export const StyledHeader = styled.header.attrs(props => ({
       background-color: ${$colorPrimary};
       animation: ${process()} 1s infinite;
     }
+    a {
+      color: inherit;
+    }
     span {
       margin-left: 0.2rem;
     }

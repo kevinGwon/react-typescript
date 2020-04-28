@@ -35,10 +35,16 @@ function Header({
       <StyledLayoutHeader>
         <h1 className="a11y">The movie</h1>
         <div className="process">
-          Cypress Testing
-          <span>.</span>
-          <span>.</span>
-          <span>.</span>
+          <a
+            href="https://dashboard.cypress.io/projects/fxx9n5/runs/5/specs"
+            target="_blank"
+            title="새창"
+          >
+            Cypress Testing
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+          </a>
         </div>
         <StyledHeaderLogo>
           <Link href="/">
